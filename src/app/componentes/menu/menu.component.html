@@ -1,0 +1,54 @@
+<ng-container *ngIf="!shouldRun">
+  <mat-toolbar class="menu-header" color="primary" class="fixed-header">
+    <mat-toolbar-row>
+      <span>Sistema de de clinica médica</span>
+      <button mat-button (click)="sidenav.toggle()">
+        <mat-icon class="menu-icon" aria-hidden="false">menu</mat-icon>
+      </button>
+      <span class="spacer"></span>
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>supervised_user_circle</mat-icon>
+          <span>Editar</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>exit_to_app</mat-icon>
+           <span>Logout</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <mat-sidenav-container class="menu-container">
+    <mat-sidenav #sidenav mode="side" opened class="menu-sidenav"
+        [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top"
+        [fixedBottomGap]="options.value.bottom">
+      <mat-list>
+        <mat-list-item>
+          <mat-icon class="menu-icon" aria-hidden="false">record_voice_over</mat-icon>
+          <a [routerLink]="['/especialidades/pesquisar']">&nbsp;&nbsp; Especialidades</a>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon class="menu-icon" aria-hidden="false">group_work</mat-icon>
+          <a [routerLink]="['/planos-saude/pesquisar']">&nbsp;&nbsp; Plano de saudes</a>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon class="menu-icon" aria-hidden="false">settings_system_daydream</mat-icon>
+          <a [routerLink]="['/fichas-paciente/pesquisar']">&nbsp;&nbsp; Fichas de pacientes</a>
+        </mat-list-item>
+      </mat-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content [formGroup]="options">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+
+  <mat-toolbar class="menu-footer">PdCase: version 0.0.1</mat-toolbar>
+</ng-container>
