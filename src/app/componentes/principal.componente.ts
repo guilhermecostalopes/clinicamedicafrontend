@@ -29,6 +29,7 @@ import { FormBuilder } from '@angular/forms';
 
 export abstract class PrincipalComponente implements OnInit {
 
+    protected alteracao: boolean;
     protected tituloMenu: string;
     protected bread: string;
 
@@ -70,7 +71,29 @@ export abstract class PrincipalComponente implements OnInit {
     ngOnInit(): void {
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        this.alteracao = false;
+        this.breadcrumb();
     }
+
+    private breadcrumb() {
+        const rotaAtalMomento = this.routaAtual.snapshot.url[1];
+        if (String(rotaAtalMomento) === 'incluir') {
+          this.bread = 'Pesquisar >> ';
+          this.tituloMenu = ' Incluir ';
+        } else if (String(rotaAtalMomento) === 'pesquisar') {
+          this.tituloMenu = ' Pesquisar ';
+        } else {
+          const rota = this.routaAtual.snapshot.url[2];
+          if (String(rota) === 'visualizar') {
+            this.tituloMenu = ' Visualizar ';
+          } else {
+            this.tituloMenu = ' Alterar ';
+          }
+          this.bread = 'Pesquisar >> ';
+          this.alteracao = true;
+          this.limparAlterar();
+        }
+      }
 
     public novo() {
         this.router.navigate(['/' + this.pagina + '/incluir']);
@@ -101,14 +124,33 @@ export abstract class PrincipalComponente implements OnInit {
       );
     }
 
-    protected salvar(formBuilder: FormBuilder) {
-        this.servico.incluir(formBuilder).subscribe(
-        (data: any) => {
-            this.mensagemTela(data.mensagem.type, data.mensagem.texto);
-            this.redirecionamentoAposMensagem(data, false);
-        }, (error: any) => {
-            this.mensagemErro(error);
+    protected salvar(formBuilder: any) {
+        if(formBuilder.id === null) {
+            this.alterarBanco(formBuilder);
+        } else {
+            this.incluirBanco(formBuilder);
         }
+    }
+
+    private incluirBanco(formBuilder: any) {
+        this.servico.alterar(formBuilder).subscribe(
+            (data: any) => {
+                this.mensagemTela(data.mensagem.type, data.mensagem.texto);
+                this.redirecionamentoAposMensagem(data, false);
+            }, (error: any) => {
+                this.mensagemErro(error);
+            }
+        );
+    }
+
+    private alterarBanco(formBuilder: any) {
+        this.servico.incluir(formBuilder).subscribe(
+            (data: any) => {
+                this.mensagemTela(data.mensagem.type, data.mensagem.texto);
+                this.redirecionamentoAposMensagem(data, false);
+            }, (error: any) => {
+                this.mensagemErro(error);
+            }
         );
     }
 
@@ -125,11 +167,15 @@ export abstract class PrincipalComponente implements OnInit {
 
     protected limparAlterar() {
         this.id = Number(this.routaAtual.snapshot.url[1].path);
-        this.preencherAlteracao();
+        this.preenchendoCampoAlteracao();
     }
 
-    protected preencherAlteracao() {
-        this.servico.buscar(this.id).subscribe(
+    public preencherId(id: any) {
+        this.selecaoBusca = id;
+    }
+
+    private preenchendoCampoAlteracao() {
+        this.servico.buscarPeloId(this.id).subscribe(
           (data: any) => {
             this.modelo = data;
           }, (error: any) => {
@@ -138,38 +184,41 @@ export abstract class PrincipalComponente implements OnInit {
         );
     }
 
-    public preencherId(id: any) {
-        this.selecaoBusca = id;
+    public preencherAlteracao() {
+        this.antesAlterarDeletar(this.selecaoBusca, 'Deve selecionar uma linha da grade para alterar !');
+        if (!this.antesDeletarAlterar) {
+            this.router.navigate(['/' + this.pagina + '/' + this.selecaoBusca + '/alterar']);
+        }
     }
 
     public excluir() {
         this.antesAlterarDeletar(this.selecaoBusca, 'Deve selecionar uma linha da grade para deletar !');
         if (!this.antesDeletarAlterar) {
-        const dialogConfig = new MatDialogConfig();
-        dialogConfig.disableClose = true;
-        dialogConfig.autoFocus = true;
-        dialogConfig.data = {
-            id:  this.selecaoBusca,
-            title: 'Deseja deletar o registro ?'
-        };
-        const dialogRef = this.dialog.open(DialogComponent, dialogConfig);
-        dialogRef.afterClosed().subscribe(
-            (excluir: any) => {
-            if (excluir !== 'close') {
-                this.servico.excluir(this.selecaoBusca).subscribe(
-                (data: any) => {
-                    this.aposBloquearDesbloquearInativarDeletar(data);
-                }, (error: any) => {
-                    this.mensagemErro(error);
+            const dialogConfig = new MatDialogConfig();
+            dialogConfig.disableClose = true;
+            dialogConfig.autoFocus = true;
+            dialogConfig.data = {
+                id:  this.selecaoBusca,
+                title: 'Deseja deletar o registro ?'
+            };
+            const dialogRef = this.dialog.open(DialogComponent, dialogConfig);
+            dialogRef.afterClosed().subscribe(
+                (excluir: any) => {
+                if (excluir !== 'close') {
+                    this.servico.excluir(this.selecaoBusca).subscribe(
+                        (data: any) => {
+                            this.aposBloquearDesbloquearInativarDeletar(data);
+                        }, (error: any) => {
+                            this.mensagemErro(error);
+                        }
+                    );
+                } else {
+                    this.escolhendoNao();
                 }
-                );
-            } else {
-                this.escolhendoNao();
-            }
-            }, (error: any) => {
-            this.mensagemErro(error);
-            }
-        );
+                }, (error: any) => {
+                this.mensagemErro(error);
+                }
+            );
         }
     }
 

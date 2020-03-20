@@ -51,6 +51,9 @@ export class EspecialidadeAlterarComponent extends PrincipalComponente {
 
   public criarFormGroup() {
     this.especialidadeAlterarFormGroup = this.formBuilder.group({
+      id: new FormControl({value: ''}, Validators.compose([
+        Validators.required
+      ])),
       nome: new FormControl({value: ''}, Validators.compose([
         Validators.maxLength(255),
         Validators.minLength(5),

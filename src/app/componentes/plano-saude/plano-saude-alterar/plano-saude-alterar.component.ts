@@ -51,6 +51,9 @@ export class PlanoSaudeAlterarComponent extends PrincipalComponente {
 
   public criarFormGroup() {
     this.planoSaudeAlterarFormGroup = this.formBuilder.group({
+      id: new FormControl({value: ''}, Validators.compose([
+        Validators.required
+      ])),
       nome: new FormControl({value: ''}, Validators.compose([
         Validators.maxLength(255),
         Validators.minLength(5),

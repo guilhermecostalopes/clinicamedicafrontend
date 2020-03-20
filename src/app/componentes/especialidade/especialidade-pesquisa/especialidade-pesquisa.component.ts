@@ -36,7 +36,7 @@ export class EspecialidadePesquisaComponent extends PrincipalComponente {
   ) {
     super(
       new EspecialidadeModel(),
-      'Pesquisar especialidades',
+      'especialidades',
       'especialidades',
       service,
       router,
