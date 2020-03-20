@@ -125,7 +125,7 @@ export abstract class PrincipalComponente implements OnInit {
     }
 
     protected salvar(formBuilder: any) {
-        if(formBuilder.id === null) {
+        if(formBuilder.id !== null && formBuilder.id != undefined) {
             this.alterarBanco(formBuilder);
         } else {
             this.incluirBanco(formBuilder);
@@ -133,7 +133,7 @@ export abstract class PrincipalComponente implements OnInit {
     }
 
     private incluirBanco(formBuilder: any) {
-        this.servico.alterar(formBuilder).subscribe(
+        this.servico.incluir(formBuilder).subscribe(
             (data: any) => {
                 this.mensagemTela(data.mensagem.type, data.mensagem.texto);
                 this.redirecionamentoAposMensagem(data, false);
@@ -144,7 +144,7 @@ export abstract class PrincipalComponente implements OnInit {
     }
 
     private alterarBanco(formBuilder: any) {
-        this.servico.incluir(formBuilder).subscribe(
+        this.servico.alterar(formBuilder).subscribe(
             (data: any) => {
                 this.mensagemTela(data.mensagem.type, data.mensagem.texto);
                 this.redirecionamentoAposMensagem(data, false);
