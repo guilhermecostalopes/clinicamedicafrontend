@@ -1,1 +1,5 @@
-<p>dialog works!</p>
+<h2 mat-dialog-title>{{title}}</h2>
+<mat-dialog-actions align="center">
+    <button class="mat-raised-button"(click)="close()">Não</button>
+    <button class="mat-raised-button mat-primary"(click)="save()">Sim</button>
+</mat-dialog-actions>

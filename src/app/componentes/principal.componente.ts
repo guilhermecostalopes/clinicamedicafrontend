@@ -108,6 +108,7 @@ export abstract class PrincipalComponente implements OnInit {
     }
 
     public pesquisar(mostrarMensagem: boolean, modelo: any) {
+        this.modelo = modelo;
         this.mostrarPesquisa = false;
         this.servico.pesquisar(modelo.value).subscribe(
           (data :any) => { 
@@ -246,18 +247,18 @@ export abstract class PrincipalComponente implements OnInit {
 
     protected redirecionamentoAposMensagem(type: string, mesmaPagina: boolean) {
         if (type !== 'ERROR') {
-        setTimeout(
-            () => {
-            mesmaPagina ?
-            null :
-            this.router.navigate([this.pagina + '/pesquisar']);
-            },
-        );
+            setTimeout(
+                () => {
+                mesmaPagina ?
+                this.pesquisar(false, this.modelo) :
+                this.router.navigate([this.pagina + '/pesquisar']);
+                },
+            );
         }
     }
 
     private aposBloquearDesbloquearInativarDeletar(data: any) {
-        this.mensagemTela(data[0].type, data[0].texto);
+        this.mensagemTela(data.mensagem.type, data.mensagem.texto);
         this.redirecionamentoAposMensagem(data, true);
         this.selecaoBusca = null;
     }
@@ -267,7 +268,7 @@ export abstract class PrincipalComponente implements OnInit {
     }
 
     private escolhendoNao() {
-        //this.pesquisar(false);
+        this.pesquisar(false, this.modelo);
         this.selecaoBusca = null;
     }
 }
