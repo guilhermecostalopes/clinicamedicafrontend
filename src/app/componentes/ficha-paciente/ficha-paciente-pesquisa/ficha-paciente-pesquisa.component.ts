@@ -59,7 +59,7 @@ export class FichaPacientePesquisaComponent extends PrincipalComponente {
   }
 
   public pesquisarBaseDados() {
-
+    super.pesquisar(true);
   }
 
   public limpar() {
