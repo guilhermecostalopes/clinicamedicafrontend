@@ -11,7 +11,7 @@ import {
 } from '@angular/router';
 import { AlertService } from 'ngx-alerts';
 import { MatDialog } from '@angular/material/dialog';
-import { PrincipalComponente } from 'src/app/core/principal.componente';
+import { PrincipalComponente } from 'src/app/componentes/principal.componente';
 import { FichaPacienteService } from '../service/ficha-paciente.service';
 import { FichaPacienteModel } from '../model/ficha-paciente.model';
 import { PlanoSaudeService } from '../../plano-saude/service/plano-saude.service';

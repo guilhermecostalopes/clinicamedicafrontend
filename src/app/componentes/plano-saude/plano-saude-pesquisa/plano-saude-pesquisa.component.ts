@@ -11,7 +11,7 @@ import {
 } from '@angular/router';
 import { AlertService } from 'ngx-alerts';
 import { MatDialog } from '@angular/material/dialog';
-import { PrincipalComponente } from 'src/app/core/principal.componente';
+import { PrincipalComponente } from 'src/app/componentes/principal.componente';
 import { PlanoSaudeService } from '../service/plano-saude.service';
 import { PlanoSaudeModel } from '../model/plano-saude.model';
 

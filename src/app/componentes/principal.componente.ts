@@ -14,7 +14,7 @@ import {
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table'
-import { DialogComponent } from './dialog/dialog.component';
+import { DialogComponent } from '../core/dialog/dialog.component';
 import {
     startWith,
     switchMap,
@@ -24,11 +24,8 @@ import {
   import {
     merge,
     of as observableOf
-  } from 'rxjs';
-import {
-    FormGroup,
-    FormBuilder
-} from '@angular/forms';
+} from 'rxjs';
+import { FormBuilder } from '@angular/forms';
 
 export abstract class PrincipalComponente implements OnInit {
 
