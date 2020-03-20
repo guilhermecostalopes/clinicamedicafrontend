@@ -87,8 +87,8 @@ export abstract class PrincipalComponente implements OnInit {
         this.router.navigate(['/' + this.pagina + '/' + id + '/alterar']);
     }
 
-    public pesquisar(mostrarMensagem: boolean) {
-        this.servico.pesquisar(this.modelo).subscribe(
+    public pesquisar(mostrarMensagem: boolean, modelo: any) {
+        this.servico.pesquisar(modelo.value).subscribe(
           (data :any) => { 
             this.entidadePesquisa = data.lista;
             if(mostrarMensagem){
@@ -202,7 +202,7 @@ export abstract class PrincipalComponente implements OnInit {
         setTimeout(
             () => {
             mesmaPagina ?
-            this.pesquisar(false) :
+            null :
             this.router.navigate([this.pagina + '/pesquisar']);
             },
         );
@@ -220,7 +220,7 @@ export abstract class PrincipalComponente implements OnInit {
     }
 
     private escolhendoNao() {
-        this.pesquisar(false);
+        //this.pesquisar(false);
         this.selecaoBusca = null;
     }
 }

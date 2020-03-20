@@ -59,7 +59,7 @@ export class PlanoSaudePesquisaComponent extends PrincipalComponente {
   }
 
   public pesquisarBaseDados() {
-    super.pesquisar(true);
+    super.pesquisar(true, this.planoSaudePesquisarFormGroup);
   }
 
   public limpar() {

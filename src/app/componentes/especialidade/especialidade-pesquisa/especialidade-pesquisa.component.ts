@@ -58,7 +58,7 @@ export class EspecialidadePesquisaComponent extends PrincipalComponente {
   }
 
   public pesquisarBaseDados() {
-    super.pesquisar(true);
+    super.pesquisar(true, this.especialidadePesquisarFormGroup);
   }
 
   public limpar() {
