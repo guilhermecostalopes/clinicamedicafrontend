@@ -65,10 +65,10 @@ export class FichaPacienteAlterarComponent extends PrincipalComponente {
         Validators.minLength(5),
         Validators.required
       ])),
-      planoSaude: new FormControl({value: ''}, Validators.compose([
+      planosDeSaude: new FormControl({value: ''}, Validators.compose([
         Validators.required
       ])),
-      especialidade: new FormControl({value: ''}, Validators.compose([
+      especialidades: new FormControl({value: ''}, Validators.compose([
         Validators.required
       ]))
     });
@@ -96,12 +96,12 @@ export class FichaPacienteAlterarComponent extends PrincipalComponente {
         } else if (this.fichaPacienteAlterarFormGroup.get('numeroCarteiraPlano').errors.maxlength) {
           super.mensagemTela('ERROR', 'Número da carteira do paciente deve ter no máximo de 255 caracteres !');
         }
-      } else if (this.fichaPacienteAlterarFormGroup.get('planoSaude').errors != null) {
-        if (this.fichaPacienteAlterarFormGroup.get('planoSaude').errors.required) {
+      } else if (this.fichaPacienteAlterarFormGroup.get('planosDeSaude').errors != null) {
+        if (this.fichaPacienteAlterarFormGroup.get('planosDeSaude').errors.required) {
           super.mensagemTela('ERROR', 'Plano de saúde do paciente é obrigatório !');
         }
-      } else if (this.fichaPacienteAlterarFormGroup.get('especialidade').errors != null) {
-        if (this.fichaPacienteAlterarFormGroup.get('especialidade').errors.required) {
+      } else if (this.fichaPacienteAlterarFormGroup.get('especialidades').errors != null) {
+        if (this.fichaPacienteAlterarFormGroup.get('especialidades').errors.required) {
           super.mensagemTela('ERROR', 'Especialidade do médico do paciente é obrigatório !');
         }
       }

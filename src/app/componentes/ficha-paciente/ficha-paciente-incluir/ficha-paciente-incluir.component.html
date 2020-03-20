@@ -14,21 +14,21 @@
               name="numeroCarteiraPlano" [(ngModel)]="modelo.numeroCarteiraPlano" required />
           </mat-form-field><br>
           <mat-form-field class="formulario-full-width">
-            <mat-select placeholder="Plano de saúde" name="planoSaude" formControlName="planoSaude"
-                id="planoSaude" [(ngModel)]="modelo.planoSaude" required>
+            <mat-select placeholder="Plano de saúde" name="planosDeSaude" formControlName="planosDeSaude"
+                id="planosDeSaude" [(ngModel)]="modelo.planosDeSaude" required>
                 <mat-option>Nenhum</mat-option>
-                <!--<mat-option *ngFor="let planoSaude of planosSaudes"
+                <mat-option *ngFor="let planoSaude of planosSaudes"
                     [value]="planoSaude.key">{{planoSaude.texto}}
-                </mat-option>-->
+                </mat-option>
             </mat-select>
           </mat-form-field><br>
           <mat-form-field class="formulario-full-width">
-            <mat-select placeholder="Especialidade" name="especialidade" formControlName="especialidade"
-                id="especialidade" [(ngModel)]="modelo.especialidade" required>
+            <mat-select placeholder="Especialidade" name="especialidades" formControlName="especialidades"
+                id="especialidades" [(ngModel)]="modelo.especialidades" required>
                 <mat-option >Nenhum</mat-option>
-                <!--<mat-option *ngFor="let especialidade of especialidades" 
+                <mat-option *ngFor="let especialidade of especialidades" 
                     [value]="especialidade.key">{{especialidade.texto}}
-                </mat-option>-->
+                </mat-option>
             </mat-select>
           </mat-form-field>
           <mat-card-content>

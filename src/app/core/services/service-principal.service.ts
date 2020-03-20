@@ -47,6 +47,10 @@ export class ServicePrincipalService<T, ID> implements CrudOperations<T, ID> {
     return this.httpClient.get(`${CLINICA_MEDICA_API}` + this.base + '/buscarPeloId/' + id);
   }
 
+  public buscarTodos(){
+    return this.httpClient.get(`${CLINICA_MEDICA_API}` + this.base + '/buscarTodos');
+  }
+
   private removerUndefinedEmptyNull(parameters: any) {
     const res = pickBy(parameters,
       // tslint:disable-next-line:only-arrow-functions

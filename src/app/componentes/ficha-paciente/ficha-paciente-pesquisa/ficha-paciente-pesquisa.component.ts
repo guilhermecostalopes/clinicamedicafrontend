@@ -22,7 +22,7 @@ export class FichaPacientePesquisaComponent extends PrincipalComponente {
 
   public fichaSaudePesquisarFormGroup: FormGroup;
 
-  displayedColumns: string[] = ['select', 'nomePaciente', 'numeroCarteiraPlano', 'planoSaude', 'especialidade'];
+  displayedColumns: string[] = ['select', 'nomePaciente', 'numeroCarteiraPlano', 'planosDeSaude', 'especialidades'];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -53,8 +53,8 @@ export class FichaPacientePesquisaComponent extends PrincipalComponente {
     this.fichaSaudePesquisarFormGroup = this.formBuilder.group({
       nomePaciente: [],
       numeroCarteiraPlano: [],
-      planoSaude: [],
-      especialidade: []
+      planosDeSaude: [],
+      especialidades: []
     });
   }
 

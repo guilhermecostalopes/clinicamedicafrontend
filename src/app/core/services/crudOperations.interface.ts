@@ -6,4 +6,5 @@ export interface CrudOperations<T, ID> {
     excluir(id: ID);
     pesquisar(p: T);
     buscarPeloId(id: ID);
+    buscarTodos();
 }

@@ -216,15 +216,7 @@ export abstract class PrincipalComponente implements OnInit {
     }
 
     private mensagemErro(erroServidor: any) {
-        if (erroServidor.error.length === 1) {
-            this.mensagemTela(erroServidor.error[0].type, erroServidor.error[0].texto);
-        } else {
-            let mensagens = '';
-            erroServidor.error.forEach((mensagem: any) => {
-                mensagens = mensagens + mensagem.texto + '<br>';
-            });
-            this.mensagemTela(erroServidor.error[0].type, mensagens);
-        }
+        this.mensagemTela(erroServidor.error.type, erroServidor.error.texto);
     }
 
     private escolhendoNao() {

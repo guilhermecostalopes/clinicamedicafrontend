@@ -23,12 +23,12 @@
     </mat-card-content>
     <mat-card-content>
       <mat-form-field class="formulario-campo-width">
-        <input matInput placeholder="Nome da especialidade" id="nome" formControlName="especialidade"
-          name="especialidade" maxlength="255" />
+        <input matInput placeholder="Nome da especialidade" id="especialidades" formControlName="especialidades"
+          name="especialidades" maxlength="255" />
       </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <mat-form-field class="formulario-campo-width">
-        <input matInput placeholder="Nome do plano de saúde" id="nome" formControlName="planoSaude"
-          name="planoSaude" maxlength="255" />
+        <input matInput placeholder="Nome do plano de saúde" id="planosDeSaude" formControlName="planosDeSaude"
+          name="planosDeSaude" maxlength="255" />
       </mat-form-field><br>
       <mat-form-field class="formulario-campo-width">
         <input matInput placeholder="Nome do paciente" id="nome" formControlName="nomePaciente"
@@ -62,13 +62,13 @@
           <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear> Número da carteira do plano </th>
           <td mat-cell *matCellDef="let element"> {{element.numeroCarteiraPlano}} </td>
         </ng-container>
-        <ng-container matColumnDef="planoSaude">
+        <ng-container matColumnDef="planosDeSaude">
           <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear> Nome do plano de saúde </th>
-          <td mat-cell *matCellDef="let element"> {{element.planoSaude}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.planosDeSaude}} </td>
         </ng-container>
-        <ng-container matColumnDef="especialidade">
+        <ng-container matColumnDef="especialidades">
           <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear> Nome da especialidade </th>
-          <td mat-cell *matCellDef="let element"> {{element.especialidade}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.especialidades}} </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"
           class="example-first-header-row">
