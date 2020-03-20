@@ -18,7 +18,7 @@ export class PlanoSaudeService extends ServicePrincipalService<PlanoSaudeModel, 
       httpClient,
       activatedRoute,
       router,
-      'planosSaude'
+      'planosDeSaude'
     );
   }
 }

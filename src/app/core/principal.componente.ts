@@ -11,9 +11,9 @@ import {
     MatDialogConfig,
     MatDialog
 } from '@angular/material/dialog';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table'
 import { DialogComponent } from './dialog/dialog.component';
 import {
     startWith,
@@ -42,8 +42,9 @@ export abstract class PrincipalComponente implements OnInit {
     protected displayedColumns: string[];
     public entidadePesquisa: any[];
     protected dataSource: MatTableDataSource<any> = new MatTableDataSource();
-    @ViewChild(MatPaginator) paginator: MatPaginator;
-    @ViewChild(MatSort) sort: MatSort;
+
+    @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+    @ViewChild(MatSort, {static: true}) sort: MatSort;
 
     /**
    * Variáveis da paginação
@@ -70,7 +71,8 @@ export abstract class PrincipalComponente implements OnInit {
     ){}
 
     ngOnInit(): void {
-        
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
     }
 
     public novo() {
@@ -86,49 +88,25 @@ export abstract class PrincipalComponente implements OnInit {
     }
 
     public pesquisar(mostrarMensagem: boolean) {
-        this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
-        merge(this.sort.sortChange, this.paginator.page)
-        .pipe(
-            startWith({}),
-            switchMap(() => {
-                this.isLoadingResults = true;
-                this.modelo.paginaAtual = this.paginator.pageIndex;
-                this.modelo.campo = this.sort.active;
-                this.modelo.direcao = this.sort.direction;
-                return this.servico.pesquisar(this.modelo);
-                }
-        ),
-        map((data: any) => {
-            this.isLoadingResults = false;
-            this.isRateLimitReached = false;
-            this.resultsLength = data.page.totalElementos;
-
-            this.paginaAtual = data.page.numeroPagina;
-            this.quantidadeRegistros = data.page.totalRegistros;
-            this.campo = data.page.campoOrdenado.campo;
-            this.direcao = data.page.campoOrdenado.direcao;
-
-            this.mostrarPesquisa = true;
-            if (mostrarMensagem) {
-                this.mensagemTela(data.page.mensagens[0].type,
-                data.page.mensagens[0].texto);
+        this.servico.pesquisar(this.modelo).subscribe(
+          (data :any) => { 
+            this.entidadePesquisa = data.lista;
+            if(mostrarMensagem){
+                //this.mensagemTela(data.tipoMensagem.tipo, data.tipoMensagem.sumario, data.tipoMensagem.mensagem);
             }
-            return data.lista;
+            if(this.entidadePesquisa.length > 0){
+                this.mostrarPesquisa = true;
             }
-        ),
-        catchError(() => {
-            this.isLoadingResults = false;
-            this.isRateLimitReached = true;
-            return observableOf([]);
-            }
-        )
-        ).subscribe((data: any) => this.entidadePesquisa = data);
+        }, (err: any) => {
+          //this.mensagemTela('error', 'Mensagem de erro', 'Erro no servidor !');
+        }
+      );
     }
 
     protected salvar(formBuilder: FormBuilder) {
         this.servico.incluir(formBuilder).subscribe(
         (data: any) => {
-            this.mensagemTela(data.mensagens[0].type, data.mensagens[0].texto);
+            this.mensagemTela(data.mensagem.type, data.mensagem.texto);
             this.redirecionamentoAposMensagem(data, false);
         }, (error: any) => {
             this.mensagemErro(error);
@@ -139,7 +117,7 @@ export abstract class PrincipalComponente implements OnInit {
     protected alterarRegistro(formBuilder: FormBuilder) {
         this.servico.alterar(formBuilder).subscribe(
         (data: any) => {
-            this.mensagemTela(data.mensagens[0].type, data.mensagens[0].texto);
+            this.mensagemTela(data.mensagem.type, data.mensagem.texto);
             this.redirecionamentoAposMensagem(data, false);
         }, (error: any) => {
             this.mensagemErro(error);

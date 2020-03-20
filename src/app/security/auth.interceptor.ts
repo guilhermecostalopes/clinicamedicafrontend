@@ -46,13 +46,17 @@ export class AuthInterceptor implements HttpInterceptor {
                 finalize(() => this.loaderService.hide()),
                 retry(1),
                 catchError((error: HttpErrorResponse) => {
+                    let errorMessage = '';
                     if (error.status === 401) {
-                        let errorMessage = '';
                         if (error.error instanceof ErrorEvent) {
                             errorMessage = `Error: ${error.error.message}`;
                         } else {
                             errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
                         }
+                        this.mensagemTela('ERROR', errorMessage);
+                        return throwError(errorMessage);
+                    } else if (error.status === 0) {
+                        errorMessage = 'Favor contacatr o administrador do sistema !';
                         this.mensagemTela('ERROR', errorMessage);
                         return throwError(errorMessage);
                     }

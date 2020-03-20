@@ -2,12 +2,17 @@ import { NgModule } from '@angular/core';
 import { MaterialModule } from './material-module/material.module';
 import { CommonModule } from '@angular/common';
 import {
+    HttpClientModule,
+    HTTP_INTERCEPTORS
+} from '@angular/common/http';
+import {
     FormsModule,
     ReactiveFormsModule
 } from '@angular/forms';
 import { AlertModule } from 'ngx-alerts';
 import { DialogComponent } from './dialog/dialog.component';
-import { HttpClientModule } from '@angular/common/http';
+import { LoaderService } from './services/loader/loader.service';
+import { AuthInterceptor } from '../security/auth.interceptor';
 
 @NgModule({
     imports: [
@@ -21,7 +26,14 @@ import { HttpClientModule } from '@angular/common/http';
     declarations: [
         DialogComponent
     ],
-    providers: [],
+    providers: [
+        LoaderService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptor,
+            multi: true
+        }
+    ],
     entryComponents: [
         DialogComponent
     ],

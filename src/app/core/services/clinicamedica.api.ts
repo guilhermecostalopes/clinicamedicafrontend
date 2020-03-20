@@ -1,4 +1,4 @@
-export const CLINICA_MEDICA_API = `http://localhost:8080/GH_Usuarios/`;
+export const CLINICA_MEDICA_API = `http://localhost:8080/clinicamedica/`;
 
 export const CLINICA_MEDICA_API_LOGIN = `${CLINICA_MEDICA_API}api/auth`;
 export const CLINICA_MEDICA_API_REFRESH = `${CLINICA_MEDICA_API}/refresh`;
