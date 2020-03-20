@@ -166,7 +166,7 @@ export abstract class PrincipalComponente implements OnInit {
         );
     }
 
-    protected limparAlterar() {
+    public limparAlterar() {
         this.id = Number(this.routaAtual.snapshot.url[1].path);
         this.preenchendoCampoAlteracao();
     }
