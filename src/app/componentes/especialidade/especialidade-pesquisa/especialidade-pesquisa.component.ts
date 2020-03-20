@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import {
   FormGroup,
   FormControl,
@@ -14,6 +14,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { PrincipalComponente } from 'src/app/componentes/principal.componente';
 import { EpecialidadeService } from '../service/epecialidade.service';
 import { EspecialidadeModel } from '../model/especialidade.model';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-especialidade-pesquisa',
@@ -22,6 +24,8 @@ import { EspecialidadeModel } from '../model/especialidade.model';
 })
 export class EspecialidadePesquisaComponent extends PrincipalComponente {
 
+  //@ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  //@ViewChild(MatSort, {static: true}) sort: MatSort;
   public especialidadePesquisarFormGroup: FormGroup;
 
   displayedColumns: string[] = ['select', 'nome'];
@@ -49,6 +53,8 @@ export class EspecialidadePesquisaComponent extends PrincipalComponente {
   ngOnInit() {
     super.ngOnInit();
     this.criarFormGroup();
+    //this.entidadePesquisa.paginator = this.paginator;
+    //this.entidadePesquisa.sort = this.sort;
   }
 
   criarFormGroup() {
