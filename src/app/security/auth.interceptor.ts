@@ -56,7 +56,7 @@ export class AuthInterceptor implements HttpInterceptor {
                         this.mensagemTela('ERROR', errorMessage);
                         return throwError(errorMessage);
                     } else if (error.status === 0) {
-                        errorMessage = 'Favor contacatr o administrador do sistema !';
+                        errorMessage = 'Favor contactar o administrador do sistema !';
                         this.mensagemTela('ERROR', errorMessage);
                         return throwError(errorMessage);
                     }

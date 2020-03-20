@@ -88,17 +88,18 @@ export abstract class PrincipalComponente implements OnInit {
     }
 
     public pesquisar(mostrarMensagem: boolean, modelo: any) {
+        this.mostrarPesquisa = false;
         this.servico.pesquisar(modelo.value).subscribe(
           (data :any) => { 
             this.entidadePesquisa = data.lista;
             if(mostrarMensagem){
-                //this.mensagemTela(data.tipoMensagem.tipo, data.tipoMensagem.sumario, data.tipoMensagem.mensagem);
+                this.mensagemTela(data.mensagem.type, data.mensagem.texto);
             }
             if(this.entidadePesquisa.length > 0){
                 this.mostrarPesquisa = true;
             }
         }, (err: any) => {
-          //this.mensagemTela('error', 'Mensagem de erro', 'Erro no servidor !');
+          this.mensagemTela('ERROR', '');
         }
       );
     }
