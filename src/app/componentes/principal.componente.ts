@@ -252,7 +252,7 @@ export abstract class PrincipalComponente implements OnInit {
                 mesmaPagina ?
                 this.pesquisar(false, this.modelo) :
                 this.router.navigate([this.pagina + '/pesquisar']);
-                },
+                }, 3600
             );
         }
     }
