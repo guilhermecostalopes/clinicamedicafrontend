@@ -67,4 +67,37 @@ export class LoginService {
     }
     return false;*/
   }
+
+  isAuthenticated(): boolean {
+    this.token = this.obterDadosToken(sessionStorage.getItem("token"));
+    this.nome = this.obterDadosToken(sessionStorage.getItem("nome"));
+    this.login = this.obterDadosToken(sessionStorage.getItem("login"));
+    this.role = this.obterDadosToken(sessionStorage.getItem("role"));
+    if (
+      this.token != null &&
+      this.nome != null &&
+      this.login != null &&
+      this.role != null
+    ) {
+      return true;
+    }
+    return false;
+  }
+
+  logout(): void {
+    this.token = null;
+    /*this.usuario = null;*/
+    sessionStorage.clear();
+    sessionStorage.removeItem(this.constToken);
+    sessionStorage.removeItem(this.constLogin);
+    sessionStorage.removeItem(this.constNome);
+    sessionStorage.removeItem(this.constRole);
+  }
+
+  private obterDadosToken(dadosToken: string): any {
+    if (dadosToken != null) {
+      return dadosToken;
+    }
+    return null;
+  }
 }
