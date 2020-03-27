@@ -1,0 +1,33 @@
+<div class="login-register" style="background-image:url(assets/images/background/login-register.jpg);">
+  <div class="login-register-box">
+    <mat-card>
+      <mat-card-content>
+        <div class="text-center"><img alt="homepage" src="assets/images/logo-icon.png">
+          <h4 class="m-t-0">Logar no ERP GH Sistemas</h4>
+        </div>
+        <div fxLayout="row" fxLayoutWrap="wrap">
+          <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+            <mat-form-field>
+              <input matInput placeholder="CPF ou CNPJ do usuário" required matTooltip="CPF ou CNPJ do usuário">
+            </mat-form-field>
+          </div>
+          <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+            <mat-form-field>
+              <input matInput type="password" placeholder="Senha do usuário" required matTooltip="Senha do usuário"
+                [type]="hide ? 'text' : 'password'">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            </mat-form-field>
+          </div>
+          <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" class="text-right" style="cursor:pointer;">
+            <!--<a (click)="alterarSenha()" class="link">Alterar a senha</a>-->
+          </div>
+          <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+            <button mat-raised-button color="primary" class="btn-block btn-lg m-t-20 m-b-20" type="submit"
+              [disabled]="loading">Login
+            </button>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

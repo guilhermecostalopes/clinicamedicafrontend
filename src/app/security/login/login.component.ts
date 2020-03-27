@@ -14,6 +14,8 @@ import { CurrrentUserModel } from "../model/currrent-user.model";
   styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit {
+  hide: any;
+  loading: boolean;
   formularioLogin: FormGroup;
   loginResource: UsuarioModel;
   user = new UsuarioModel();
