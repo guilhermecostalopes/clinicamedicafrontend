@@ -94,13 +94,11 @@ export class FichaPacienteIncluirComponent extends PrincipalComponente {
 
   public salvarForm() {
     if (this.fichaPacienteIncluirFormGroup.invalid) {
-      if (
-        this.fichaPacienteIncluirFormGroup.get("nomePaciente").errors != null
-      ) {
+      if (this.fichaPacienteIncluirFormGroup.get("pacientes").errors != null) {
         if (
-          this.fichaPacienteIncluirFormGroup.get("nomePaciente").errors.required
+          this.fichaPacienteIncluirFormGroup.get("pacientes").errors.required
         ) {
-          super.mensagemTela("ERROR", "Nome do paciente é obrigatório !");
+          super.mensagemTela("ERROR", "Paciente é obrigatório !");
         }
       } else if (
         this.fichaPacienteIncluirFormGroup.get("numeroCarteiraPlano").errors !=
@@ -154,6 +152,18 @@ export class FichaPacienteIncluirComponent extends PrincipalComponente {
             "ERROR",
             "Especialidade do médico do paciente é obrigatório !"
           );
+        }
+      } else if (
+        this.fichaPacienteIncluirFormGroup.get("valor").errors != null
+      ) {
+        if (this.fichaPacienteIncluirFormGroup.get("valor").errors.required) {
+          super.mensagemTela("ERROR", "Valor da consulta é obarigatório !");
+        }
+      } else if (
+        this.fichaPacienteIncluirFormGroup.get("data").errors != null
+      ) {
+        if (this.fichaPacienteIncluirFormGroup.get("data").errors.required) {
+          super.mensagemTela("ERROR", "Data da consulta é obrigatório !");
         }
       }
       return;
