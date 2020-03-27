@@ -18,12 +18,12 @@
               <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
             </mat-form-field>
           </div>
-          <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" class="text-right" style="cursor:pointer;">
-            <!--<a (click)="alterarSenha()" class="link">Alterar a senha</a>-->
-          </div>
           <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
             <button mat-raised-button color="primary" class="btn-block btn-lg m-t-20 m-b-20" type="submit"
               [disabled]="loading">Login
+            </button> &nbsp;&nbsp;&nbsp;
+            <button mat-raised-button color="primary" class="btn-block btn-lg m-t-20 m-b-20" type="button"
+              [disabled]="loading" (click)="alterarSenha()">Alterar a senha
             </button>
           </div>
         </div>

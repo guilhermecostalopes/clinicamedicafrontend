@@ -43,6 +43,8 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  alterarSenha() {}
+
   logar() {
     this.mensagem = "";
     this.loginService.logar(this.formularioLogin.value).subscribe(
