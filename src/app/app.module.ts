@@ -16,6 +16,7 @@ import { PlanoSaudeService } from './componentes/plano-saude/service/plano-saude
 import { EpecialidadeService } from './componentes/especialidade/service/epecialidade.service';
 import { FichaPacienteService } from './componentes/ficha-paciente/service/ficha-paciente.service';
 import { SecurityModule } from './security/security.module';
+import { LoginService } from './componentes/login/service/login.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SecurityModule } from './security/security.module';
   providers: [
     PlanoSaudeService,
     EpecialidadeService,
-    FichaPacienteService
+    FichaPacienteService,
+    LoginService
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]
