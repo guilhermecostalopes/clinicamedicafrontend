@@ -17,8 +17,8 @@ import {
     finalize
 } from 'rxjs/operators';
 import { AlertService } from 'ngx-alerts';
-import { LoaderService } from '../core/services/loader/loader.service';
-import { SharedService } from '../core/services/shared/shared.service';
+import { LoaderService } from '../../core/services/loader/loader.service';
+import { SharedService } from '../../core/services/shared/shared.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {

@@ -12,7 +12,7 @@ import {
 import { AlertModule } from 'ngx-alerts';
 import { DialogComponent } from './dialog/dialog.component';
 import { LoaderService } from './services/loader/loader.service';
-import { AuthInterceptor } from '../security/auth.interceptor';
+import { AuthInterceptor } from '../security/interceptor/auth.interceptor';
 
 @NgModule({
     imports: [
