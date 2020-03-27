@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { PlanoSaudeAlterarComponent } from './plano-saude-alterar.component';
+import { PlanoSaudeAlterarComponent } from "./plano-saude-alterar.component";
 
-describe('PlanoSaudeAlterarComponent', () => {
+describe("PlanoSaudeAlterarComponent", () => {
   let component: PlanoSaudeAlterarComponent;
   let fixture: ComponentFixture<PlanoSaudeAlterarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlanoSaudeAlterarComponent ]
-    })
-    .compileComponents();
+      declarations: [PlanoSaudeAlterarComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('PlanoSaudeAlterarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

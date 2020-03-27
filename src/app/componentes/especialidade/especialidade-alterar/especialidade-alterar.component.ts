@@ -1,27 +1,23 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 import {
   FormGroup,
   FormControl,
   Validators,
   FormBuilder
-} from '@angular/forms';
-import {
-  Router,
-  ActivatedRoute
-} from '@angular/router';
-import { AlertService } from 'ngx-alerts';
-import { MatDialog } from '@angular/material/dialog';
-import { PrincipalComponente } from 'src/app/componentes/principal.componente';
-import { EpecialidadeService } from '../service/epecialidade.service';
-import { EspecialidadeModel } from '../model/especialidade.model';
+} from "@angular/forms";
+import { Router, ActivatedRoute } from "@angular/router";
+import { AlertService } from "ngx-alerts";
+import { MatDialog } from "@angular/material/dialog";
+import { PrincipalComponente } from "src/app/componentes/principal.componente";
+import { EpecialidadeService } from "../service/epecialidade.service";
+import { EspecialidadeModel } from "../model/especialidade.model";
 
 @Component({
-  selector: 'app-especialidade-alterar',
-  templateUrl: './especialidade-alterar.component.html',
-  styleUrls: ['./especialidade-alterar.component.css']
+  selector: "app-especialidade-alterar",
+  templateUrl: "./especialidade-alterar.component.html",
+  styleUrls: ["./especialidade-alterar.component.css"]
 })
 export class EspecialidadeAlterarComponent extends PrincipalComponente {
-
   public especialidadeAlterarFormGroup: FormGroup;
 
   constructor(
@@ -30,12 +26,12 @@ export class EspecialidadeAlterarComponent extends PrincipalComponente {
     public service: EpecialidadeService,
     public alertService: AlertService,
     public dialog: MatDialog,
-    public routaAtual: ActivatedRoute,
+    public routaAtual: ActivatedRoute
   ) {
     super(
       new EspecialidadeModel(),
-      'Alterar especialidade',
-      'especialidades',
+      "Alterar especialidade",
+      "especialidades",
       service,
       router,
       alertService,
@@ -51,26 +47,40 @@ export class EspecialidadeAlterarComponent extends PrincipalComponente {
 
   public criarFormGroup() {
     this.especialidadeAlterarFormGroup = this.formBuilder.group({
-      id: new FormControl({value: ''}, Validators.compose([
-        Validators.required
-      ])),
-      nome: new FormControl({value: ''}, Validators.compose([
-        Validators.maxLength(255),
-        Validators.minLength(5),
-        Validators.required
-      ]))
+      id: new FormControl(
+        { value: "" },
+        Validators.compose([Validators.required])
+      ),
+      nome: new FormControl(
+        { value: "" },
+        Validators.compose([
+          Validators.maxLength(255),
+          Validators.minLength(5),
+          Validators.required
+        ])
+      )
     });
   }
 
   public salvarForm() {
     if (this.especialidadeAlterarFormGroup.invalid) {
-      if (this.especialidadeAlterarFormGroup.get('nome').errors != null) {
-        if (this.especialidadeAlterarFormGroup.get('nome').errors.required) {
-          super.mensagemTela('ERROR', 'Nome é obrigatório !');
-        } else if (this.especialidadeAlterarFormGroup.get('nome').errors.minlength) {
-          super.mensagemTela('ERROR', 'Nome deve ter no mínimo de 5 caracteres !');
-        } else if (this.especialidadeAlterarFormGroup.get('nome').errors.maxlength) {
-          super.mensagemTela('ERROR', 'Nome deve ter no máximo de 255 caracteres !');
+      if (this.especialidadeAlterarFormGroup.get("nome").errors != null) {
+        if (this.especialidadeAlterarFormGroup.get("nome").errors.required) {
+          super.mensagemTela("ERROR", "Nome é obrigatório !");
+        } else if (
+          this.especialidadeAlterarFormGroup.get("nome").errors.minlength
+        ) {
+          super.mensagemTela(
+            "ERROR",
+            "Nome deve ter no mínimo de 5 caracteres !"
+          );
+        } else if (
+          this.especialidadeAlterarFormGroup.get("nome").errors.maxlength
+        ) {
+          super.mensagemTela(
+            "ERROR",
+            "Nome deve ter no máximo de 255 caracteres !"
+          );
         }
       }
       return;

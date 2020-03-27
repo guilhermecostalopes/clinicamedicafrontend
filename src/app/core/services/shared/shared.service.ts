@@ -1,17 +1,16 @@
-import { Injectable, EventEmitter } from '@angular/core';
-import { UsuarioModel } from 'src/app/security/model/usuario.model';
+import { Injectable, EventEmitter } from "@angular/core";
+import { UsuarioModel } from "src/app/security/model/usuario.model";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class SharedService {
-
   public static instance: SharedService = null;
   usuario: UsuarioModel;
   showTemplate = new EventEmitter(false);
 
   constructor() {
-    return SharedService.instance = SharedService.instance || this;
+    return (SharedService.instance = SharedService.instance || this);
   }
 
   public static getInstance() {
@@ -25,6 +24,6 @@ export class SharedService {
     if (this.usuario == null) {
       return false;
     }
-    return this.usuario.login !== '';
+    return this.usuario.login !== "";
   }
 }

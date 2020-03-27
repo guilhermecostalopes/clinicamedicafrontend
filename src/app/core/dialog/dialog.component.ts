@@ -1,24 +1,13 @@
-import {
-  Component,
-  OnInit,
-  Inject
-} from '@angular/core';
-import {
-  MAT_DIALOG_DATA,
-  MatDialogRef
-} from '@angular/material/dialog';
-import {
-  FormGroup,
-  FormBuilder
-} from '@angular/forms';
+import { Component, OnInit, Inject } from "@angular/core";
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+import { FormGroup, FormBuilder } from "@angular/forms";
 
 @Component({
-  selector: 'app-dialog',
-  templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.css']
+  selector: "app-dialog",
+  templateUrl: "./dialog.component.html",
+  styleUrls: ["./dialog.component.css"]
 })
 export class DialogComponent implements OnInit {
-
   public form: FormGroup;
   public title: string;
   public id: string;
@@ -34,7 +23,7 @@ export class DialogComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      id: [this.id, []],
+      id: [this.id, []]
     });
   }
 
@@ -43,7 +32,6 @@ export class DialogComponent implements OnInit {
   }
 
   close() {
-    this.dialogRef.close('close');
+    this.dialogRef.close("close");
   }
 }
-

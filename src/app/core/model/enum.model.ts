@@ -1,4 +1,4 @@
 export class EnumModel {
-    public key: string;
-    public texto: string;
+  public key: string;
+  public texto: string;
 }

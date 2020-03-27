@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { PlanoSaudeRoutingModule } from './routes/plano-saude.routing.module';
-import { PlanoSaudeService } from './service/plano-saude.service';
-import { PlanoSaudeAlterarComponent } from './plano-saude-alterar/plano-saude-alterar.component';
-import { PlanoSaudeIncluirComponent } from './plano-saude-incluir/plano-saude-incluir.component';
-import { PlanoSaudePesquisaComponent } from './plano-saude-pesquisa/plano-saude-pesquisa.component';
-import { ComumModule } from 'src/app/core/comum.module';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { PlanoSaudeRoutingModule } from "./routes/plano-saude.routing.module";
+import { PlanoSaudeService } from "./service/plano-saude.service";
+import { PlanoSaudeAlterarComponent } from "./plano-saude-alterar/plano-saude-alterar.component";
+import { PlanoSaudeIncluirComponent } from "./plano-saude-incluir/plano-saude-incluir.component";
+import { PlanoSaudePesquisaComponent } from "./plano-saude-pesquisa/plano-saude-pesquisa.component";
+import { ComumModule } from "src/app/core/comum.module";
 
 @NgModule({
   declarations: [
@@ -13,13 +13,7 @@ import { ComumModule } from 'src/app/core/comum.module';
     PlanoSaudeIncluirComponent,
     PlanoSaudePesquisaComponent
   ],
-  imports: [
-    CommonModule,
-    ComumModule,
-    PlanoSaudeRoutingModule
-  ],
-  providers: [
-    PlanoSaudeService
-  ]
+  imports: [CommonModule, ComumModule, PlanoSaudeRoutingModule],
+  providers: [PlanoSaudeService]
 })
-export class PlanoSaudeModule { }
+export class PlanoSaudeModule {}
