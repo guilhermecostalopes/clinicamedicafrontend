@@ -23,7 +23,7 @@ export class ServicePrincipalService<T, ID> implements CrudOperations<T, ID> {
     public activatedRoute: ActivatedRoute,
     public router: Router,
     public base: String
-  ) {}
+  ) { }
 
   public incluir(t: T) {
     return this.httpClient.post(`${CLINICA_MEDICA_API}` + this.base + '/incluir', t);
@@ -47,21 +47,21 @@ export class ServicePrincipalService<T, ID> implements CrudOperations<T, ID> {
     return this.httpClient.get(`${CLINICA_MEDICA_API}` + this.base + '/buscarPeloId/' + id);
   }
 
-  public buscarTodos(){
+  public buscarTodos() {
     return this.httpClient.get(`${CLINICA_MEDICA_API}` + this.base + '/buscarTodos');
   }
 
   private removerUndefinedEmptyNull(parameters: any) {
     const res = pickBy(parameters,
       // tslint:disable-next-line:only-arrow-functions
-      function(value: any) {
-          let definido: boolean;
-          if (isArray(value)) {
-            definido = !isEmpty(value);
-          } else {
-            definido = !isUndefined(value) && !isNull(value) && !isEmpty(trim(value));
-          }
-          return definido;
+      function (value: any) {
+        let definido: boolean;
+        if (isArray(value)) {
+          definido = !isEmpty(value);
+        } else {
+          definido = !isUndefined(value) && !isNull(value) && !isEmpty(trim(value));
+        }
+        return definido;
       }
     );
     return res;

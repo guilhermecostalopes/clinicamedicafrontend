@@ -20,7 +20,7 @@ import { AuthInterceptor } from '../security/interceptor/auth.interceptor';
         MaterialModule,
         FormsModule,
         ReactiveFormsModule,
-        AlertModule.forRoot({maxMessages: 5, timeout: 5000, position: 'right'}),
+        AlertModule.forRoot({ maxMessages: 5, timeout: 5000, position: 'right' }),
         HttpClientModule
     ],
     declarations: [
