@@ -18,8 +18,8 @@ import { OverlayModule } from "@angular/cdk/overlay";
 import { PlatformModule } from "@angular/cdk/platform";
 import { ObserversModule } from "@angular/cdk/observers";
 import { PortalModule } from "@angular/cdk/portal";
-//import { MatRippleModule } from '';
-//import { MatNativeDateModule } from '';
+import { MatRippleModule } from "@angular/material/core";
+import { MatNativeDateModule } from "@angular/material/core";
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
 import { MatChipsModule } from "@angular/material/chips";
 import { MatExpansionModule } from "@angular/material/expansion";
@@ -61,8 +61,8 @@ import { MatTooltipModule } from "@angular/material/tooltip";
     MatDatepickerModule,
     MatAutocompleteModule,
     MatCheckboxModule,
-    //MatRippleModule,
-    //MatNativeDateModule,
+    MatRippleModule,
+    MatNativeDateModule,
     MatButtonToggleModule,
     MatChipsModule,
     MatExpansionModule,

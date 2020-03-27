@@ -18,7 +18,10 @@ import { PacienteService } from "./componentes/paciente/service/paciente.service
 import { PacienteModule } from "./componentes/paciente/paciente.module";
 import { UsuarioService } from "./componentes/usuario/service/usuario.service";
 import { UsuarioModule } from "./componentes/usuario/usuario.module";
-
+import { LOCALE_ID } from "@angular/core";
+import { registerLocaleData } from "@angular/common";
+import localePt from "@angular/common/locales/pt";
+registerLocaleData(localePt, "pt");
 @NgModule({
   declarations: [AppComponent, MenuComponent],
   imports: [
@@ -34,6 +37,10 @@ import { UsuarioModule } from "./componentes/usuario/usuario.module";
     UsuarioModule
   ],
   providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: "pt"
+    },
     PlanoSaudeService,
     EpecialidadeService,
     FichaPacienteService,

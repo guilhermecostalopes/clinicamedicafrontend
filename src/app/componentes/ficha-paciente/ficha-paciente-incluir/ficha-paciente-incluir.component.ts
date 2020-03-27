@@ -14,6 +14,8 @@ import { FichaPacienteModel } from "../model/ficha-paciente.model";
 import { PlanoSaudeService } from "../../plano-saude/service/plano-saude.service";
 import { EpecialidadeService } from "../../especialidade/service/epecialidade.service";
 import { EnumModel } from "src/app/core/model/enum.model";
+import { PacienteService } from "../../paciente/service/paciente.service";
+import { PacienteModel } from "../../paciente/model/paciente.model";
 
 @Component({
   selector: "app-ficha-paciente-incluir",
@@ -24,8 +26,10 @@ export class FichaPacienteIncluirComponent extends PrincipalComponente {
   public fichaPacienteIncluirFormGroup: FormGroup;
   public especialidades: EnumModel[] = [];
   public planosSaudes: EnumModel[] = [];
+  public pacientes: PacienteModel[] = [];
 
   constructor(
+    private pacienteService: PacienteService,
     private planoSaudeService: PlanoSaudeService,
     private epecialidadeService: EpecialidadeService,
     private formBuilder: FormBuilder,
@@ -52,17 +56,14 @@ export class FichaPacienteIncluirComponent extends PrincipalComponente {
     this.criarFormGroup();
     this.preencherEspecialidades();
     this.preencherPlanosSaudes();
+    this.preencherPacientes();
   }
 
   public criarFormGroup() {
     this.fichaPacienteIncluirFormGroup = this.formBuilder.group({
-      nomePaciente: new FormControl(
+      pacientes: new FormControl(
         { value: "" },
-        Validators.compose([
-          Validators.maxLength(255),
-          Validators.minLength(5),
-          Validators.required
-        ])
+        Validators.compose([Validators.required])
       ),
       numeroCarteiraPlano: new FormControl(
         { value: "" },
@@ -79,6 +80,14 @@ export class FichaPacienteIncluirComponent extends PrincipalComponente {
       especialidades: new FormControl(
         { value: "" },
         Validators.compose([Validators.required])
+      ),
+      data: new FormControl(
+        { value: "" },
+        Validators.compose([Validators.required])
+      ),
+      valor: new FormControl(
+        { value: "" },
+        Validators.compose([Validators.required])
       )
     });
   }
@@ -92,22 +101,6 @@ export class FichaPacienteIncluirComponent extends PrincipalComponente {
           this.fichaPacienteIncluirFormGroup.get("nomePaciente").errors.required
         ) {
           super.mensagemTela("ERROR", "Nome do paciente é obrigatório !");
-        } else if (
-          this.fichaPacienteIncluirFormGroup.get("nomePaciente").errors
-            .minlength
-        ) {
-          super.mensagemTela(
-            "ERROR",
-            "Nome do paciente deve ter no mínimo de 5 caracteres !"
-          );
-        } else if (
-          this.fichaPacienteIncluirFormGroup.get("nomePaciente").errors
-            .maxlength
-        ) {
-          super.mensagemTela(
-            "ERROR",
-            "Nome do paciente deve ter no máximo de 255 caracteres !"
-          );
         }
       } else if (
         this.fichaPacienteIncluirFormGroup.get("numeroCarteiraPlano").errors !=
@@ -175,7 +168,7 @@ export class FichaPacienteIncluirComponent extends PrincipalComponente {
 
   private preencherEspecialidades() {
     this.epecialidadeService.buscarTodos().subscribe((data: any) => {
-      data.forEach(d => {
+      data.lista.forEach((d: any) => {
         let esp = new EnumModel();
         esp.key = d.id;
         esp.texto = d.nome;
@@ -186,11 +179,22 @@ export class FichaPacienteIncluirComponent extends PrincipalComponente {
 
   private preencherPlanosSaudes() {
     this.planoSaudeService.buscarTodos().subscribe((data: any[]) => {
-      data.forEach(d => {
+      data.forEach((d: any) => {
         let ps = new EnumModel();
         ps.key = d.id;
         ps.texto = d.nome;
         this.planosSaudes.push(ps);
+      });
+    });
+  }
+
+  private preencherPacientes() {
+    this.pacienteService.buscarTodos().subscribe((data: any) => {
+      data.lista.forEach((d: any) => {
+        let ps = new PacienteModel();
+        ps.id = d.id;
+        ps.nome = d.cpf + " - " + d.nome;
+        this.pacientes.push(ps);
       });
     });
   }

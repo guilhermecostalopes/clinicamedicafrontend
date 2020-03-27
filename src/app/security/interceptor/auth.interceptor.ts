@@ -44,7 +44,7 @@ export class AuthInterceptor implements HttpInterceptor {
             if (error.error instanceof ErrorEvent) {
               errorMessage = `Error: ${error.error.message}`;
             } else {
-              errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+              errorMessage = `Sem autorização para acessa a página: ` + error.url;
             }
             this.mensagemTela("ERROR", errorMessage);
             return throwError(errorMessage);

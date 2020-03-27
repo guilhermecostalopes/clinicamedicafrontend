@@ -19,7 +19,9 @@ export class FichaPacientePesquisaComponent extends PrincipalComponente {
     "nomePaciente",
     "numeroCarteiraPlano",
     "planosDeSaude",
-    "especialidades"
+    "especialidades",
+    "data",
+    "valor"
   ];
 
   constructor(
