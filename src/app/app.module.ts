@@ -15,8 +15,8 @@ import { MenuComponent } from './componentes/menu/menu.component';
 import { PlanoSaudeService } from './componentes/plano-saude/service/plano-saude.service';
 import { EpecialidadeService } from './componentes/especialidade/service/epecialidade.service';
 import { FichaPacienteService } from './componentes/ficha-paciente/service/ficha-paciente.service';
-import { SecurityModule } from './security/security.module';
 import { LoginService } from './security/service/login.service';
+import { LoginModule } from './security/login.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { LoginService } from './security/service/login.service';
     EspecialidadeModule,
     FichaPacienteModule,
     PlanoSaudeModule,
-    SecurityModule
+    LoginModule
   ],
   providers: [
     PlanoSaudeService,
