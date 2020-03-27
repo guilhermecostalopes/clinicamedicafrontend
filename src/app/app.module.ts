@@ -16,6 +16,8 @@ import { LoginService } from "./security/service/login.service";
 import { LoginModule } from "./security/login.module";
 import { PacienteService } from "./componentes/paciente/service/paciente.service";
 import { PacienteModule } from "./componentes/paciente/paciente.module";
+import { UsuarioService } from "./componentes/usuario/service/usuario.service";
+import { UsuarioModule } from "./componentes/usuario/usuario.module";
 
 @NgModule({
   declarations: [AppComponent, MenuComponent],
@@ -28,14 +30,16 @@ import { PacienteModule } from "./componentes/paciente/paciente.module";
     FichaPacienteModule,
     PlanoSaudeModule,
     LoginModule,
-    PacienteModule
+    PacienteModule,
+    UsuarioModule
   ],
   providers: [
     PlanoSaudeService,
     EpecialidadeService,
     FichaPacienteService,
     LoginService,
-    PacienteService
+    PacienteService,
+    UsuarioService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
