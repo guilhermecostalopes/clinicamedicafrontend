@@ -1,0 +1,14 @@
+{
+  "NOME_DO_SISTEMA": "de clinica médica",
+  "MENU": {
+    "ESPECIALIDADES": "Especialidades",
+    "PLANO_DE_SAUDE": "Plano de saudes",
+    "PACIENTES": "Pacientes",
+    "FICHA_DE_PACIENTES": "Fichas de pacientes",
+    "USUARIOS": "Usuários"
+  },
+  "EDITAR_SEU_REGISTRO": "Editar seu registro",
+  "LOGOUT": "Logout",
+  "VERSAO": "versão",
+  "SISTEMA": "Sistema"
+}

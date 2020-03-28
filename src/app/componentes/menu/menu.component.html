@@ -1,7 +1,7 @@
 <ng-container *ngIf="!shouldRun">
   <mat-toolbar class="menu-header" color="primary" class="fixed-header">
     <mat-toolbar-row>
-      <span>Sistema de de clinica médica</span>
+      <span>{{ 'SISTEMA' | translate }} {{ 'NOME_DO_SISTEMA' | translate }}</span>
       <button mat-button (click)="sidenav.toggle()">
         <mat-icon class="menu-icon" aria-hidden="false">menu</mat-icon>
       </button>
@@ -12,11 +12,11 @@
       <mat-menu #menu="matMenu">
         <button mat-menu-item>
           <mat-icon>supervised_user_circle</mat-icon>
-          <span>Editar</span>
+          <span>{{ 'EDITAR_SEU_REGISTRO' | translate }}</span>
         </button>
         <button mat-menu-item>
           <mat-icon>exit_to_app</mat-icon>
-          <span>Logout</span>
+          <span>{{ 'LOGOUT' | translate }}</span>
         </button>
       </mat-menu>
     </mat-toolbar-row>
@@ -28,27 +28,27 @@
       <mat-list>
         <mat-list-item>
           <mat-icon class="menu-icon" aria-hidden="false">record_voice_over</mat-icon>
-          <a [routerLink]="['/especialidades/pesquisar']">&nbsp;&nbsp; Especialidades</a>
+          <a [routerLink]="['/especialidades/pesquisar']">&nbsp;&nbsp; {{ 'MENU.ESPECIALIDADES' | translate }}</a>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
           <mat-icon class="menu-icon" aria-hidden="false">group_work</mat-icon>
-          <a [routerLink]="['/planos-saude/pesquisar']">&nbsp;&nbsp; Plano de saudes</a>
+          <a [routerLink]="['/planos-saude/pesquisar']">&nbsp;&nbsp; {{ 'MENU.PLANO_DE_SAUDE' | translate }}</a>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
           <mat-icon class="menu-icon" aria-hidden="false">settings_system_daydream</mat-icon>
-          <a [routerLink]="['/fichas-paciente/pesquisar']">&nbsp;&nbsp; Pacientes</a>
+          <a [routerLink]="['/fichas-paciente/pesquisar']">&nbsp;&nbsp; {{ 'MENU.PACIENTES' | translate }}</a>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
           <mat-icon class="menu-icon" aria-hidden="false">perm_contact_calendar</mat-icon>
-          <a [routerLink]="['/fichas-paciente/pesquisar']">&nbsp;&nbsp; Fichas de pacientes</a>
+          <a [routerLink]="['/fichas-paciente/pesquisar']">&nbsp;&nbsp; {{ 'MENU.FICHA_DE_PACIENTES' | translate }}</a>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
           <mat-icon class="menu-icon" aria-hidden="false">supervised_user_circle</mat-icon>
-          <a [routerLink]="['/fichas-paciente/pesquisar']">&nbsp;&nbsp; Usuários</a>
+          <a [routerLink]="['/fichas-paciente/pesquisar']">&nbsp;&nbsp; {{ 'MENU.USUARIOS' | translate }}</a>
         </mat-list-item>
       </mat-list>
     </mat-sidenav>
@@ -59,5 +59,5 @@
 
   </mat-sidenav-container>
 
-  <mat-toolbar class="menu-footer">Clinica Medica: versão 0.0.1</mat-toolbar>
+  <mat-toolbar class="menu-footer">{{ 'SISTEMA' | translate }} {{ 'VERSAO' | translate }} : 0.0.1</mat-toolbar>
 </ng-container>
