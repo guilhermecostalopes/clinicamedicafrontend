@@ -7,13 +7,14 @@ import { Router } from "@angular/router";
 import { AlertService } from "ngx-alerts";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { CurrrentUserModel } from "../model/currrent-user.model";
+import { ComumComponente } from "src/app/core/comum.component";
 
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.css"]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent extends ComumComponente implements OnInit {
   hide: any;
   loading: boolean;
   formularioLogin: FormGroup;
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit {
     public alertService: AlertService,
     public loginService: LoginService
   ) {
+    super(alertService);
     this.shared = SharedService.getInstance();
   }
 
@@ -73,64 +75,5 @@ export class LoginComponent implements OnInit {
     this.mensagem = "";
     window.location.href = "/login";
     window.location.reload(true);
-  }
-
-  protected cnpjCpfMask(rawValue: string) {
-    const numbers = rawValue.match(/\d/g);
-    let numberLength = 0;
-    if (numbers) {
-      numberLength = numbers.join("").length;
-    }
-    if (numberLength <= 11) {
-      return [
-        /[0-9]/,
-        /[0-9]/,
-        /[0-9]/,
-        ".",
-        /[0-9]/,
-        /[0-9]/,
-        /[0-9]/,
-        ".",
-        /[0-9]/,
-        /[0-9]/,
-        /[0-9]/,
-        "-",
-        /[0-9]/,
-        /[0-9]/
-      ];
-    } else {
-      return [
-        /[0-9]/,
-        /[0-9]/,
-        ".",
-        /[0-9]/,
-        /[0-9]/,
-        /[0-9]/,
-        ".",
-        /[0-9]/,
-        /[0-9]/,
-        /[0-9]/,
-        "/",
-        /[0-9]/,
-        /[0-9]/,
-        /[0-9]/,
-        /[0-9]/,
-        "-",
-        /[0-9]/,
-        /[0-9]/
-      ];
-    }
-  }
-
-  private mensagemTela(erroServidor: string, mensagem: string) {
-    if (erroServidor === "ERROR") {
-      this.alertService.danger({ html: mensagem });
-    } else if (erroServidor === "SUCCESS") {
-      this.alertService.success({ html: mensagem });
-    } else if (erroServidor === "WARNING") {
-      this.alertService.warning({ html: mensagem });
-    } else {
-      this.alertService.info({ html: mensagem });
-    }
   }
 }

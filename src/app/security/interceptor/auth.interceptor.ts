@@ -11,15 +11,18 @@ import { retry, catchError, finalize } from "rxjs/operators";
 import { AlertService } from "ngx-alerts";
 import { LoaderService } from "../../core/services/loader/loader.service";
 import { SharedService } from "../../core/services/shared/shared.service";
+import { ComumComponente } from "src/app/core/comum.component";
 
 @Injectable()
-export class AuthInterceptor implements HttpInterceptor {
+export class AuthInterceptor extends ComumComponente
+  implements HttpInterceptor {
   shared: SharedService;
 
   constructor(
-    private alertService: AlertService,
-    private loaderService: LoaderService
+    public alertService: AlertService,
+    public loaderService: LoaderService
   ) {
+    super(alertService);
     this.shared = SharedService.getInstance();
   }
 
@@ -62,18 +65,6 @@ export class AuthInterceptor implements HttpInterceptor {
       );
     } else {
       return next.handle(req).pipe(finalize(() => this.loaderService.hide()));
-    }
-  }
-
-  private mensagemTela(tipoMensagem: string, mensagem: string) {
-    if (tipoMensagem === "ERROR") {
-      this.alertService.danger({ html: mensagem });
-    } else if (tipoMensagem === "SUCCESS") {
-      this.alertService.success({ html: mensagem });
-    } else if (tipoMensagem === "WARNING") {
-      this.alertService.warning({ html: mensagem });
-    } else {
-      this.alertService.info({ html: mensagem });
     }
   }
 }

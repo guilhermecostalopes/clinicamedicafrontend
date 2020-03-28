@@ -6,11 +6,11 @@ import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 import { DialogComponent } from "../core/dialog/dialog.component";
-import { startWith, switchMap, map, catchError } from "rxjs/operators";
-import { merge, of as observableOf } from "rxjs";
 import { FormBuilder } from "@angular/forms";
+import { ComumComponente } from "../core/comum.component";
 
-export abstract class PrincipalComponente implements OnInit {
+export abstract class PrincipalComponente extends ComumComponente
+  implements OnInit {
   protected alteracao: boolean;
   protected tituloMenu: string;
   protected bread: string;
@@ -48,7 +48,9 @@ export abstract class PrincipalComponente implements OnInit {
     public alertService: AlertService,
     public dialog: MatDialog,
     public routaAtual: ActivatedRoute
-  ) {}
+  ) {
+    super(alertService);
+  }
 
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
@@ -226,18 +228,6 @@ export abstract class PrincipalComponente implements OnInit {
       return true;
     }
     return false;
-  }
-
-  protected mensagemTela(tipoMensagem: string, mensagem: string) {
-    if (tipoMensagem === "ERROR") {
-      this.alertService.danger({ html: mensagem });
-    } else if (tipoMensagem === "SUCCESS") {
-      this.alertService.success({ html: mensagem });
-    } else if (tipoMensagem === "WARNING") {
-      this.alertService.warning({ html: mensagem });
-    } else {
-      this.alertService.info({ html: mensagem });
-    }
   }
 
   protected redirecionamentoAposMensagem(type: string, mesmaPagina: boolean) {
