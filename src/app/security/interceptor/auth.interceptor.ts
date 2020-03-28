@@ -44,13 +44,12 @@ export class AuthInterceptor implements HttpInterceptor {
             if (error.error instanceof ErrorEvent) {
               errorMessage = `Error: ${error.error.message}`;
             } else {
-              errorMessage =
-                `Sem autorização para acessa a página: ` + error.url;
+              errorMessage = "Sem autorização para esta ação !";
             }
             this.mensagemTela("ERROR", errorMessage);
             return throwError(errorMessage);
           } else if (error.status === 403) {
-            errorMessage = `Sem permissão para acessa a página: ` + error.url;
+            errorMessage = "Sem permissão para acessa a página !";
             this.mensagemTela("WARNING", errorMessage);
             return throwError(errorMessage);
           } else if (error.status === 0) {
