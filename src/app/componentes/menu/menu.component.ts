@@ -9,9 +9,8 @@ import { TranslateService } from "@ngx-translate/core";
 })
 export class MenuComponent {
   options: FormGroup;
-  public translate: TranslateService;
 
-  constructor(fb: FormBuilder, translate: TranslateService) {
+  constructor(fb: FormBuilder, public translate: TranslateService) {
     this.options = fb.group({
       bottom: 0,
       fixed: false,
