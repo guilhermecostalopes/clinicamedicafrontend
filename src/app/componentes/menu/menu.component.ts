@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-menu",
@@ -8,8 +9,9 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 })
 export class MenuComponent {
   options: FormGroup;
+  public translate: TranslateService;
 
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder, translate: TranslateService) {
     this.options = fb.group({
       bottom: 0,
       fixed: false,
