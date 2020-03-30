@@ -1,6 +1,7 @@
 {
   "NOME_DO_SISTEMA": "from medical clinic",
   "MENU": {
+    "DASHBOARD": "Dashboard",
     "ESPECIALIDADES": "Specialties",
     "PLANO_DE_SAUDE": "Saudade plan",
     "PACIENTES": "Patients",

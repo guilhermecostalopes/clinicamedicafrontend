@@ -32,6 +32,10 @@
       <mat-list>
         <mat-list-item>
           <mat-icon class="menu-icon" aria-hidden="false">record_voice_over</mat-icon>
+          <a [routerLink]="['']">&nbsp;&nbsp; {{ 'MENU.DASHBOARD' | translate }}</a>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon class="menu-icon" aria-hidden="false">record_voice_over</mat-icon>
           <a [routerLink]="['/especialidades/pesquisar']">&nbsp;&nbsp; {{ 'MENU.ESPECIALIDADES' | translate }}</a>
         </mat-list-item>
         <mat-divider></mat-divider>

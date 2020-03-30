@@ -1,6 +1,7 @@
 {
   "NOME_DO_SISTEMA": "de clinica médica",
   "MENU": {
+    "DASHBOARD": "Dashboard",
     "ESPECIALIDADES": "Especialidades",
     "PLANO_DE_SAUDE": "Plano de saudes",
     "PACIENTES": "Pacientes",
