@@ -9,7 +9,20 @@
     "USUARIOS": "Usuários"
   },
   "EDITAR_SEU_REGISTRO": "Editar seu registro",
+  "CAMPOS_OBRIGATORIOS":"Campos com * são obrigatórios !",
   "LOGOUT": "Sair",
   "VERSAO": "versão",
-  "SISTEMA": "Sistema"
+  "SISTEMA": "Sistema",
+  "NOVO": "Novo",
+  "SALVAR": "Salvar",
+  "VOLTAR": "Voltar",
+  "LIMPAR": "Limpar",
+  "ALTERAR": "Alterar",
+  "EXCLUIR": "Excluir",
+  "NOME": "Nome",
+  "PESQUISAR": "Pesquisar",
+  "ESPECIALIDADES": "Especialidades",
+  "ESPECIALIDADE": "Especialidade",
+  "NOME_DA_ESPECIALIDADE": "Nome da especialidade",
+  "INCLUIR_ESPECIALIDADE": "Incluir especialidade"
 }

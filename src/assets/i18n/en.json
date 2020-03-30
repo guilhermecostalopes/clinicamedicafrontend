@@ -9,7 +9,20 @@
     "USUARIOS": "Users"
   },
   "EDITAR_SEU_REGISTRO": "Edit your record",
+  "CAMPOS_OBRIGATORIOS": "Fields with * are required !",
   "LOGOUT": "Logout",
   "VERSAO": "version",
-  "SISTEMA": "System"
+  "SISTEMA": "System",
+  "PESQUISAR": "Search",
+  "NOVO": "Novo",
+  "SALVAR": "To save",
+  "VOLTAR": "Come back",
+  "LIMPAR": "To clean",
+  "ALTERAR": "Change",
+  "EXCLUIR": "Delete",
+  "NOME": "Name",
+  "ESPECIALIDADES": "Specialties",
+  "ESPECIALIDADE": "Specialty",
+  "NOME_DA_ESPECIALIDADE": "Specialty name",
+  "INCLUIR_ESPECIALIDADE": "Include specialty"
 }

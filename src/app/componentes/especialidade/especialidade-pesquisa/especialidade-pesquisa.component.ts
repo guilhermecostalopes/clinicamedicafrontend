@@ -1,18 +1,12 @@
 import { Component, ViewChild } from "@angular/core";
-import {
-  FormGroup,
-  FormControl,
-  Validators,
-  FormBuilder
-} from "@angular/forms";
+import { FormGroup, FormBuilder } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 import { AlertService } from "ngx-alerts";
 import { MatDialog } from "@angular/material/dialog";
 import { PrincipalComponente } from "src/app/componentes/principal.componente";
 import { EpecialidadeService } from "../service/epecialidade.service";
 import { EspecialidadeModel } from "../model/especialidade.model";
-import { MatPaginator } from "@angular/material/paginator";
-import { MatSort } from "@angular/material/sort";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: "app-especialidade-pesquisa",
@@ -32,7 +26,8 @@ export class EspecialidadePesquisaComponent extends PrincipalComponente {
     public service: EpecialidadeService,
     public alertService: AlertService,
     public dialog: MatDialog,
-    public routaAtual: ActivatedRoute
+    public routaAtual: ActivatedRoute,
+    public translate: TranslateService
   ) {
     super(
       new EspecialidadeModel(),

@@ -11,6 +11,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { PrincipalComponente } from "src/app/componentes/principal.componente";
 import { EpecialidadeService } from "../service/epecialidade.service";
 import { EspecialidadeModel } from "../model/especialidade.model";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: "app-especialidade-incluir",
@@ -26,7 +27,8 @@ export class EspecialidadeIncluirComponent extends PrincipalComponente {
     public service: EpecialidadeService,
     public alertService: AlertService,
     public dialog: MatDialog,
-    public routaAtual: ActivatedRoute
+    public routaAtual: ActivatedRoute,
+    public translate: TranslateService
   ) {
     super(
       new EspecialidadeModel(),
