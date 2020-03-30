@@ -10,6 +10,10 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
+        <!--<select #langSelect (change)="translate.use(langSelect.value)">
+          <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">
+            {{ lang }}</option>
+        </select>-->
         <button mat-menu-item>
           <mat-icon>supervised_user_circle</mat-icon>
           <span>{{ 'EDITAR_SEU_REGISTRO' | translate }}</span>

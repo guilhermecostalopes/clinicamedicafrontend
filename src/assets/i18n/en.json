@@ -1,0 +1,14 @@
+{
+  "NOME_DO_SISTEMA": "from medical clinic",
+  "MENU": {
+    "ESPECIALIDADES": "Specialties",
+    "PLANO_DE_SAUDE": "Saudade plan",
+    "PACIENTES": "Patients",
+    "FICHA_DE_PACIENTES": "Patient records",
+    "USUARIOS": "Users"
+  },
+  "EDITAR_SEU_REGISTRO": "Edit your record",
+  "LOGOUT": "Logout",
+  "VERSAO": "version",
+  "SISTEMA": "System"
+}

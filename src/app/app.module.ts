@@ -8,7 +8,6 @@ import { EspecialidadeModule } from "./componentes/especialidade/especialidade.m
 import { FichaPacienteModule } from "./componentes/ficha-paciente/ficha-paciente.module";
 import { PlanoSaudeModule } from "./componentes/plano-saude/plano-saude.module";
 import { ComumModule } from "./core/comum.module";
-import { MenuComponent } from "./componentes/menu/menu.component";
 import { PlanoSaudeService } from "./componentes/plano-saude/service/plano-saude.service";
 import { EpecialidadeService } from "./componentes/especialidade/service/epecialidade.service";
 import { FichaPacienteService } from "./componentes/ficha-paciente/service/ficha-paciente.service";
@@ -21,6 +20,7 @@ import { UsuarioModule } from "./componentes/usuario/usuario.module";
 import { LOCALE_ID } from "@angular/core";
 import { registerLocaleData } from "@angular/common";
 import localePt from "@angular/common/locales/pt";
+import { MenuComponent } from "./componentes/menu/menu.component";
 registerLocaleData(localePt, "pt");
 @NgModule({
   declarations: [AppComponent, MenuComponent],

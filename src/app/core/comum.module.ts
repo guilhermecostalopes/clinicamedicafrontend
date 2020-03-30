@@ -13,6 +13,7 @@ import { LoaderService } from "./services/loader/loader.service";
 import { AuthInterceptor } from "../security/interceptor/auth.interceptor";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { AppRoutingModule } from "../app-routing.module";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -20,6 +21,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   imports: [
+    AppRoutingModule,
     CommonModule,
     MaterialModule,
     FormsModule,
@@ -45,12 +47,12 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   entryComponents: [DialogComponent],
   exports: [
-    MaterialModule,
+    AppRoutingModule,
     CommonModule,
+    MaterialModule,
     FormsModule,
     ReactiveFormsModule,
     AlertModule,
-    DialogComponent,
     HttpClientModule,
     TranslateModule
   ]
