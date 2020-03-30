@@ -1,5 +1,4 @@
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
 import { FichaPacienteRoutingModule } from "./routes/ficha-paciente.routing.module";
 import { FichaPacienteService } from "./service/ficha-paciente.service";
 import { FichaPacienteIncluirComponent } from "./ficha-paciente-incluir/ficha-paciente-incluir.component";
@@ -13,7 +12,7 @@ import { ComumModule } from "src/app/core/comum.module";
     FichaPacienteAlterarComponent,
     FichaPacientePesquisaComponent
   ],
-  imports: [CommonModule, ComumModule, FichaPacienteRoutingModule],
+  imports: [ComumModule, FichaPacienteRoutingModule],
   providers: [FichaPacienteService]
 })
 export class FichaPacienteModule {}

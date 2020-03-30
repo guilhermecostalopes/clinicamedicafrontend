@@ -1,5 +1,4 @@
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
 import { ComumModule } from "src/app/core/comum.module";
 import { UsuarioService } from "./service/usuario.service";
 import { UsuarioAlterarComponent } from "./usuario-alterar/usuario-alterar.component";
@@ -13,7 +12,7 @@ import { UsuarioRoutingModule } from "./routes/usuario.routing.module";
     UsuarioIncluirComponent,
     UsuarioPesquisarComponent
   ],
-  imports: [CommonModule, ComumModule, UsuarioRoutingModule],
+  imports: [ComumModule, UsuarioRoutingModule],
   providers: [UsuarioService]
 })
 export class UsuarioModule {}

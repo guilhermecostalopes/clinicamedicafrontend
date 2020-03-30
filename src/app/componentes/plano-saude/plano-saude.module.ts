@@ -1,5 +1,4 @@
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
 import { PlanoSaudeRoutingModule } from "./routes/plano-saude.routing.module";
 import { PlanoSaudeService } from "./service/plano-saude.service";
 import { PlanoSaudeAlterarComponent } from "./plano-saude-alterar/plano-saude-alterar.component";
@@ -13,7 +12,7 @@ import { ComumModule } from "src/app/core/comum.module";
     PlanoSaudeIncluirComponent,
     PlanoSaudePesquisaComponent
   ],
-  imports: [CommonModule, ComumModule, PlanoSaudeRoutingModule],
+  imports: [ComumModule, PlanoSaudeRoutingModule],
   providers: [PlanoSaudeService]
 })
 export class PlanoSaudeModule {}
