@@ -21,7 +21,8 @@ import { LOCALE_ID } from "@angular/core";
 import { registerLocaleData } from "@angular/common";
 import localePt from "@angular/common/locales/pt";
 import { MenuComponent } from "./componentes/menu/menu.component";
-import { DashboardComponent } from "./componentes/dashboard/dashboard.component";
+import { DashboardComponent } from "./componentes/dashboard/component/dashboard.component";
+import { DashboardService } from "./componentes/dashboard/service/dashboard.service";
 registerLocaleData(localePt, "pt");
 @NgModule({
   declarations: [AppComponent, MenuComponent, DashboardComponent],
@@ -47,7 +48,8 @@ registerLocaleData(localePt, "pt");
     FichaPacienteService,
     LoginService,
     PacienteService,
-    UsuarioService
+    UsuarioService,
+    DashboardService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
