@@ -15,7 +15,7 @@ import { UsuarioPesquisarModel } from "../model/usuarioPesquisar.model";
 })
 export class UsuarioPesquisarComponent extends PrincipalComponente {
   public usuarioPesquisarFormGroup: FormGroup;
-  displayedColumns: string[] = ["select", "nome"];
+  displayedColumns: string[] = ["select", "nome", "login", "role"];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -50,6 +50,7 @@ export class UsuarioPesquisarComponent extends PrincipalComponente {
       role: []
     });
   }
+
   public pesquisarBaseDados() {
     super.pesquisar(true, this.usuarioPesquisarFormGroup);
   }

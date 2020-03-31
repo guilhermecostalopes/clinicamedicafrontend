@@ -36,6 +36,8 @@
   "VALOR_CONSULTA": "Query value",
   "FICHAS_DE_PACIENTES": "Patient records",
   "FICHA_DE_PACIENTE": "Patient record",
+  "ROLE_DO_USUARIO": "User role",
+  "LOGIN_DO_USUARIO": "User login",
   "NOME_DO_USUARIO": "Username",
   "NOME_DO_PLANO_SAUDE": "Health plan name",
   "NOME_DA_ESPECIALIDADE": "Specialty name",
