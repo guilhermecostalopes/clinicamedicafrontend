@@ -56,7 +56,11 @@ export class AuthInterceptor extends ComumComponente
             errorMessage = "Sem permissão para acessa a página !";
             this.mensagemTela("WARNING", errorMessage);
             return throwError(errorMessage);
-          } else if (error.status === 0) {
+          } else if (error.status === 409) {
+            errorMessage = error.error[0].texto;
+            this.mensagemTela("ERROR", errorMessage);
+            return throwError(errorMessage);
+          } else if (error.status === 0 || error.status === 400) {
             errorMessage = "Favor contactar o administrador do sistema !";
             this.mensagemTela("ERROR", errorMessage);
             return throwError(errorMessage);
