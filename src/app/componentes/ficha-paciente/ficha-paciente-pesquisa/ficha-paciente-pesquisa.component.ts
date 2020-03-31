@@ -6,6 +6,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { PrincipalComponente } from "src/app/componentes/principal.componente";
 import { FichaPacienteService } from "../service/ficha-paciente.service";
 import { FichaPacienteModel } from "../model/ficha-paciente.model";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-ficha-paciente-pesquisa",
@@ -30,17 +31,18 @@ export class FichaPacientePesquisaComponent extends PrincipalComponente {
     public service: FichaPacienteService,
     public alertService: AlertService,
     public dialog: MatDialog,
-    public routaAtual: ActivatedRoute
+    public routaAtual: ActivatedRoute,
+    public translate: TranslateService
   ) {
     super(
       new FichaPacienteModel(),
-      "Pesquisar fichas de paciente",
       "fichas-paciente",
       service,
       router,
       alertService,
       dialog,
-      routaAtual
+      routaAtual,
+      translate
     );
   }
 

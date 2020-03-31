@@ -1,16 +1,12 @@
 import { Component } from "@angular/core";
-import {
-  FormGroup,
-  FormControl,
-  Validators,
-  FormBuilder
-} from "@angular/forms";
+import { FormGroup, FormBuilder } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 import { AlertService } from "ngx-alerts";
 import { MatDialog } from "@angular/material/dialog";
 import { PrincipalComponente } from "src/app/componentes/principal.componente";
 import { PlanoSaudeService } from "../service/plano-saude.service";
 import { PlanoSaudeModel } from "../model/plano-saude.model";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-plano-saude-pesquisa",
@@ -28,17 +24,18 @@ export class PlanoSaudePesquisaComponent extends PrincipalComponente {
     public service: PlanoSaudeService,
     public alertService: AlertService,
     public dialog: MatDialog,
-    public routaAtual: ActivatedRoute
+    public routaAtual: ActivatedRoute,
+    public translate: TranslateService
   ) {
     super(
       new PlanoSaudeModel(),
-      "Pesquisar planos de saúde",
       "planos-saude",
       service,
       router,
       alertService,
       dialog,
-      routaAtual
+      routaAtual,
+      translate
     );
   }
 

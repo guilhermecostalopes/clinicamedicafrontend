@@ -26,5 +26,9 @@
   "NOME_DA_ESPECIALIDADE": "Specialty name",
   "INCLUIR_ESPECIALIDADE": "Include specialty",
   "RESULTADO_POR_ESPECIALIDADE": "Result by specialty",
-  "ALTERAR_ESPECIALIDADE": "Change specialty"
+  "ALTERAR_ESPECIALIDADE": "Change specialty",
+  "USUARIOS": "Users",
+  "USUARIO": "User",
+  "NOME_DO_USUARIO": "Username",
+  "RESULTADO_POR_USUARIO": "Result per user"
 }

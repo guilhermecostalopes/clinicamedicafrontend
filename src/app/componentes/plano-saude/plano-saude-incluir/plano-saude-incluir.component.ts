@@ -11,6 +11,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { PrincipalComponente } from "src/app/componentes/principal.componente";
 import { PlanoSaudeService } from "../service/plano-saude.service";
 import { PlanoSaudeModel } from "../model/plano-saude.model";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: "app-plano-saude-incluir",
@@ -26,17 +27,18 @@ export class PlanoSaudeIncluirComponent extends PrincipalComponente {
     public service: PlanoSaudeService,
     public alertService: AlertService,
     public dialog: MatDialog,
-    public routaAtual: ActivatedRoute
+    public routaAtual: ActivatedRoute,
+    public translate: TranslateService
   ) {
     super(
       new PlanoSaudeModel(),
-      "Incluir plano de saúde",
       "planos-saude",
       service,
       router,
       alertService,
       dialog,
-      routaAtual
+      routaAtual,
+      translate
     );
   }
 

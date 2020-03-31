@@ -16,6 +16,7 @@ import { EpecialidadeService } from "../../especialidade/service/epecialidade.se
 import { EnumModel } from "src/app/core/model/enum.model";
 import { PacienteService } from "../../paciente/service/paciente.service";
 import { PacienteModel } from "../../paciente/model/paciente.model";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-ficha-paciente-incluir",
@@ -37,17 +38,18 @@ export class FichaPacienteIncluirComponent extends PrincipalComponente {
     public service: FichaPacienteService,
     public alertService: AlertService,
     public dialog: MatDialog,
-    public routaAtual: ActivatedRoute
+    public routaAtual: ActivatedRoute,
+    public translate: TranslateService
   ) {
     super(
       new FichaPacienteModel(),
-      "Incluir ficha de paciente",
       "fichas-paciente",
       service,
       router,
       alertService,
       dialog,
-      routaAtual
+      routaAtual,
+      translate
     );
   }
 

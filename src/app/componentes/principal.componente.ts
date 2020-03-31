@@ -8,6 +8,7 @@ import { MatTableDataSource } from "@angular/material/table";
 import { DialogComponent } from "../core/dialog/dialog.component";
 import { FormBuilder } from "@angular/forms";
 import { ComumComponente } from "../core/comum.component";
+import { TranslateService } from "@ngx-translate/core";
 
 export abstract class PrincipalComponente extends ComumComponente
   implements OnInit {
@@ -41,13 +42,13 @@ export abstract class PrincipalComponente extends ComumComponente
 
   constructor(
     public modelo: any,
-    public label: string,
     public pagina: string,
     public servico: any,
     public router: Router,
     public alertService: AlertService,
     public dialog: MatDialog,
-    public routaAtual: ActivatedRoute
+    public routaAtual: ActivatedRoute,
+    public translate: TranslateService
   ) {
     super(alertService);
   }

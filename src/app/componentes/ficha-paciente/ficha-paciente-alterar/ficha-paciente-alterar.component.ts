@@ -11,7 +11,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { PrincipalComponente } from "src/app/componentes/principal.componente";
 import { FichaPacienteService } from "../service/ficha-paciente.service";
 import { FichaPacienteModel } from "../model/ficha-paciente.model";
-import { EnumModel } from "src/app/core/model/enum.model";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-ficha-paciente-alterar",
@@ -27,17 +27,18 @@ export class FichaPacienteAlterarComponent extends PrincipalComponente {
     public service: FichaPacienteService,
     public alertService: AlertService,
     public dialog: MatDialog,
-    public routaAtual: ActivatedRoute
+    public routaAtual: ActivatedRoute,
+    public translate: TranslateService
   ) {
     super(
       new FichaPacienteModel(),
-      "Alterar ficha de paciente",
       "fichas-paciente",
       service,
       router,
       alertService,
       dialog,
-      routaAtual
+      routaAtual,
+      translate
     );
   }
 

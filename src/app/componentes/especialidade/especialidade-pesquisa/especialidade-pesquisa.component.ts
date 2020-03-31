@@ -1,4 +1,4 @@
-import { Component, ViewChild } from "@angular/core";
+import { Component } from "@angular/core";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 import { AlertService } from "ngx-alerts";
@@ -6,7 +6,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { PrincipalComponente } from "src/app/componentes/principal.componente";
 import { EpecialidadeService } from "../service/epecialidade.service";
 import { EspecialidadeModel } from "../model/especialidade.model";
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-especialidade-pesquisa",
@@ -32,12 +32,12 @@ export class EspecialidadePesquisaComponent extends PrincipalComponente {
     super(
       new EspecialidadeModel(),
       "especialidades",
-      "especialidades",
       service,
       router,
       alertService,
       dialog,
-      routaAtual
+      routaAtual,
+      translate
     );
   }
 
