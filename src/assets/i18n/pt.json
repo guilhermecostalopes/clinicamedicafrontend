@@ -34,7 +34,13 @@
   "RESULTADO_POR_USUARIO": "Resultado por usuário",
   "ALTERAR_USUARIO": "Alterar usuário",
   "PACIENTE": "Paciente",
+  "NOME_DO_PACIENTE": "Nome do paciente",
   "NUMERO_CARTEIRA_PACIENTE": "Número da carteira do plano do paciente",
   "PLANO_DE_SAUDE": "Plano de saúde",
-  "DATA_CONSULTA": "Data da consulta"
+  "DATA_CONSULTA": "Data da consulta",
+  "VALOR_CONSULTA": "Valor da consulta",
+  "FICHAS_DE_PACIENTES": "Fichas de pacientes",
+  "FICHA_DE_PACIENTE": "Ficha de paciente",
+  "NOME_DO_PLANO_SAUDE": "Nome do plano de saúde",
+  "RESULTADO_POR_FICHA_DE_PACIENTE": "Resultado por ficha de paciente"
 }

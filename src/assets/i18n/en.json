@@ -34,7 +34,13 @@
   "RESULTADO_POR_USUARIO": "Result per user",
   "ALTERAR_USUARIO": "Change user",
   "PACIENTE": "Patient",
+  "NOME_DO_PACIENTE": "Patient's name",
   "NUMERO_CARTEIRA_PACIENTE": "Patient plan card number",
   "PLANO_DE_SAUDE": "Health insurance",
-  "DATA_CONSULTA": "Date of consultation"
+  "DATA_CONSULTA": "Date of consultation",
+  "VALOR_CONSULTA": "Query value",
+  "FICHAS_DE_PACIENTES": "Patient records",
+  "FICHA_DE_PACIENTE": "Patient record",
+  "NOME_DO_PLANO_SAUDE": "Health plan name",
+  "RESULTADO_POR_FICHA_DE_PACIENTE": "Result per patient record"
 }
