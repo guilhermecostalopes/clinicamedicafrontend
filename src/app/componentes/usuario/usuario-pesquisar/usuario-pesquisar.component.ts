@@ -4,9 +4,9 @@ import { FormGroup, FormBuilder } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 import { AlertService } from "ngx-alerts";
 import { MatDialog } from "@angular/material/dialog";
-import { TranslateService } from "@ngx-translate/core";
 import { UsuarioService } from "../service/usuario.service";
 import { UsuarioPesquisarModel } from "../model/usuarioPesquisar.model";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-usuario-pesquisar",

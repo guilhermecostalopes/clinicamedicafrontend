@@ -4,10 +4,10 @@ import {
   CLINICA_MEDICA_API_REFRESH
 } from "src/app/core/services/clinicamedica.api";
 import { HttpClient } from "@angular/common/http";
-import { UsuarioModel } from "../model/usuario.model";
 import { Observable } from "rxjs";
 import { tap, catchError } from "rxjs/operators";
 import { HandleError } from "src/app/core/services/httperror/http-error-handler.service";
+import { UsuarioModel } from "src/app/componentes/usuario/model/usuario.model";
 
 @Injectable({
   providedIn: "root"
