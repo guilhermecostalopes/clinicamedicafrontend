@@ -6,7 +6,7 @@ Angular 8 ou superior
 
 # Backend
 
-Link do projeto: https://github.com/guilhermecostalopes/clinicamedicabackend
+Link do projeto: https://github.com/guilhermecostalopes/clinicamedicajavafrontend 
 
 # Commands
 
