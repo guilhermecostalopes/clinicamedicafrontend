@@ -8,7 +8,7 @@ import { TranslateService } from "@ngx-translate/core";
 })
 export class AppComponent {
   title = "Sistema de clinica médica";
-  public translate : any;
+  public translate: any;
   constructor(translate: TranslateService) {
     translate.addLangs(["pt", "en"]);
     translate.setDefaultLang("pt");

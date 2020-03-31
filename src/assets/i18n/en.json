@@ -14,7 +14,7 @@
   "VERSAO": "version",
   "SISTEMA": "System",
   "PESQUISAR": "Search",
-  "NOVO": "Novo",
+  "NOVO": "New",
   "SALVAR": "To save",
   "VOLTAR": "Come back",
   "LIMPAR": "To clean",
@@ -24,5 +24,7 @@
   "ESPECIALIDADES": "Specialties",
   "ESPECIALIDADE": "Specialty",
   "NOME_DA_ESPECIALIDADE": "Specialty name",
-  "INCLUIR_ESPECIALIDADE": "Include specialty"
+  "INCLUIR_ESPECIALIDADE": "Include specialty",
+  "RESULTADO_POR_ESPECIALIDADE": "Result by specialty",
+  "ALTERAR_ESPECIALIDADE": "Change specialty"
 }

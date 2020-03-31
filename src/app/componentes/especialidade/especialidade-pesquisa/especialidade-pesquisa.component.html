@@ -36,7 +36,7 @@
 <div [hidden]="!mostrarPesquisa">
   <mat-card>
     <mat-card-content>
-      <mat-card-title>Resultado por {{label}}</mat-card-title>
+      <mat-card-title>{{ 'RESULTADO_POR_ESPECIALIDADE' | translate }}</mat-card-title>
     </mat-card-content>
     <div class="example-table-container">
       <table mat-table [dataSource]="entidadePesquisa" class="example-table" matSort>

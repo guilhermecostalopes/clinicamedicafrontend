@@ -35,7 +35,8 @@ export class AuthInterceptor extends ComumComponente
     if (this.shared.isLoggeIn) {
       authRequest = req.clone({
         setHeaders: {
-          Authorization: sessionStorage.getItem("token")
+          Authorization: sessionStorage.getItem("token"),
+          Languagem: sessionStorage.getItem("language")
         }
       });
       return next.handle(authRequest).pipe(
