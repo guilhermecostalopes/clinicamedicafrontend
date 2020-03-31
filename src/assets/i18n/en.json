@@ -42,5 +42,6 @@
   "FICHAS_DE_PACIENTES": "Patient records",
   "FICHA_DE_PACIENTE": "Patient record",
   "NOME_DO_PLANO_SAUDE": "Health plan name",
+  "RESULTADO_PLANO_SAUDE": "Result by health plan",
   "RESULTADO_POR_FICHA_DE_PACIENTE": "Result per patient record"
 }

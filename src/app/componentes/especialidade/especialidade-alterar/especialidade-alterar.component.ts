@@ -11,7 +11,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { PrincipalComponente } from "src/app/componentes/principal.componente";
 import { EpecialidadeService } from "../service/epecialidade.service";
 import { EspecialidadeModel } from "../model/especialidade.model";
-import { TranslateService } from "@ngx-translate/core/public_api";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-especialidade-alterar",

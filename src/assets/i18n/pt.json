@@ -20,6 +20,10 @@
   "ALTERAR": "Alterar",
   "EXCLUIR": "Excluir",
   "NOME": "Nome",
+  "LOGIN": "Login",
+  "ROLE": "Role",
+  "SENHA":"Senha",
+  "CONFIRME_SENHA":"Confirme a Senha",
   "PESQUISAR": "Pesquisar",
   "ESPECIALIDADES": "Especialidades",
   "ESPECIALIDADE": "Especialidade",
@@ -42,5 +46,6 @@
   "FICHAS_DE_PACIENTES": "Fichas de pacientes",
   "FICHA_DE_PACIENTE": "Ficha de paciente",
   "NOME_DO_PLANO_SAUDE": "Nome do plano de saúde",
+  "RESULTADO_PLANO_SAUDE": "Resultado por plano de saúde",
   "RESULTADO_POR_FICHA_DE_PACIENTE": "Resultado por ficha de paciente"
 }

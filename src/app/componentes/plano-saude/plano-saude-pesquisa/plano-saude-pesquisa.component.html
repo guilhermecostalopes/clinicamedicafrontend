@@ -1,26 +1,27 @@
 <mat-card>
   <form [formGroup]="planoSaudePesquisarFormGroup">
     <mat-card-content>
-      <mat-card-title>{{label}}</mat-card-title>
+      <mat-card-title>{{ 'PESQUISAR' | translate }} {{ 'PLANO_DE_SAUDE' | translate }}</mat-card-title>
     </mat-card-content>
     <mat-card-content>
-      <button mat-mini-fab type="button" matTooltip="Pesquisar {{label}}" mat-fab color="primary" mat-card-icon
-        class="shadow-none" (click)="pesquisarBaseDados()">
+      <button mat-mini-fab type="button" matTooltip="{{ 'PESQUISAR' | translate }} {{ 'PLANO_DE_SAUDE' | translate }}"
+        mat-fab color="primary" mat-card-icon class="shadow-none" (click)="pesquisarBaseDados()">
         <mat-icon>search</mat-icon>
       </button>&nbsp;
-      <button mat-mini-fab type="button" matTooltip="Novo Registro de {{label}}" mat-fab color="primary" mat-card-icon
-        class="shadow-none" (click)="novo()">
+      <button mat-mini-fab type="button" matTooltip="{{ 'NOVO' | translate }} {{ 'PLANO_DE_SAUDE' | translate }}"
+        mat-fab color="primary" mat-card-icon class="shadow-none" (click)="novo()">
         <mat-icon>add_circle_outline</mat-icon>
       </button>&nbsp;
-      <button mat-mini-fab type="button" matTooltip="Limpar {{label}}" mat-fab color="primary" mat-card-icon
-        class="shadow-none" (click)="limpar()">
+      <button mat-mini-fab type="button" matTooltip="{{ 'LIMPAR' | translate }} {{ 'PLANO_DE_SAUDE' | translate }}"
+        mat-fab color="primary" mat-card-icon class="shadow-none" (click)="limpar()">
         <mat-icon>clear_all</mat-icon>
       </button>&nbsp;
-      <button mat-mini-fab type="button" matTooltip="Alterar {{label}}" mat-fab color="primary" mat-card-icon
-        class="shadow-none" (click)="preencherAlteracao()">
+      <button mat-mini-fab type="button" matTooltip="{{ 'ALTERAR' | translate }} {{ 'PLANO_DE_SAUDE' | translate }}"
+        mat-fab color="primary" mat-card-icon class="shadow-none" (click)="preencherAlteracao()">
         <mat-icon>edit</mat-icon>
       </button>&nbsp;
-      <button mat-mini-fab type="button" matTooltip="Excluir Registro de {{label}}" mat-fab color="warn" mat-card-icon
+      <button mat-mini-fab type="button"
+        matTooltip="{{ 'EXCLUIR' | translate }} {{ 'PLANO_DE_SAUDE' | translate }}" mat-fab color=" warn" mat-card-icon
         class="shadow-none" (click)="excluir()">
         <mat-icon>delete</mat-icon>
       </button>
@@ -36,7 +37,7 @@
 <div [hidden]="!mostrarPesquisa">
   <mat-card>
     <mat-card-content>
-      <mat-card-title>Resultado por {{label}}</mat-card-title>
+      <mat-card-title>{{ 'RESULTADO_POR_FICHA_DE_PACIENTE' | translate }}</mat-card-title>
     </mat-card-content>
     <div class="example-table-container">
       <table mat-table [dataSource]="entidadePesquisa" class="example-table" matSort>

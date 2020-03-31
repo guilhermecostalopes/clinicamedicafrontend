@@ -15,6 +15,7 @@ import { UsuarioPesquisarModel } from "../model/usuarioPesquisar.model";
 })
 export class UsuarioPesquisarComponent extends PrincipalComponente {
   public usuarioPesquisarFormGroup: FormGroup;
+  displayedColumns: string[] = ["select", "nome"];
 
   constructor(
     private formBuilder: FormBuilder,
