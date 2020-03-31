@@ -72,6 +72,14 @@ export class UsuarioIncluirComponent extends PrincipalComponente {
           Validators.required
         ])
       ),
+      confirmacaoSenha: new FormControl(
+        { value: "" },
+        Validators.compose([
+          Validators.maxLength(14),
+          Validators.minLength(8),
+          Validators.required
+        ])
+      ),
       role: new FormControl(
         { value: "" },
         Validators.compose([Validators.required])
