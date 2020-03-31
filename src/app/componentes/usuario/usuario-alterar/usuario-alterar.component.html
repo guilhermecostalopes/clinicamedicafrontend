@@ -12,7 +12,7 @@
         </mat-form-field><br>
         <mat-form-field class="formulario-full-width">
           <input matInput placeholder="{{ 'LOGIN' | translate }}" id="login" formControlName="login" name="login"
-            [(ngModel)]="modelo.login" required />
+            [(ngModel)]="modelo.login" [textMask]="{mask: cnpjCpfMask}" required />
         </mat-form-field><br>
         <mat-form-field class="formulario-full-width">
           <mat-select placeholder="{{ 'ROLE' | translate }}" name="role" formControlName="role" id="role"

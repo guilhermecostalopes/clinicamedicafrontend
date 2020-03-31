@@ -60,7 +60,7 @@ export class UsuarioIncluirComponent extends PrincipalComponente {
         ])
       ),
       login: new FormControl(
-        { value: "" },
+        { value: " " },
         Validators.compose([
           Validators.maxLength(255),
           Validators.minLength(5),

@@ -14,6 +14,7 @@ import { AuthInterceptor } from "../security/interceptor/auth.interceptor";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { AppRoutingModule } from "../app-routing.module";
+import { TextMaskModule } from 'angular2-text-mask';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -28,6 +29,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     AlertModule.forRoot({ maxMessages: 5, timeout: 5000, position: "right" }),
     HttpClientModule,
+    TextMaskModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -54,6 +56,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     AlertModule,
     HttpClientModule,
+    TextMaskModule,
     TranslateModule
   ]
 })

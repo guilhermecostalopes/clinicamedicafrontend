@@ -18,50 +18,58 @@ export abstract class ComumComponente implements OnInit {
     }
   }
 
-  protected cnpjCpfMask(rawValue: string) {
+  public cpfMask() {
+    return [
+      /[0-9]/,
+      /[0-9]/,
+      /[0-9]/,
+      ".",
+      /[0-9]/,
+      /[0-9]/,
+      /[0-9]/,
+      ".",
+      /[0-9]/,
+      /[0-9]/,
+      /[0-9]/,
+      "-",
+      /[0-9]/,
+      /[0-9]/
+    ];
+  }
+
+  public cnpjMask() {
+    return [
+      /[0-9]/,
+      /[0-9]/,
+      ".",
+      /[0-9]/,
+      /[0-9]/,
+      /[0-9]/,
+      ".",
+      /[0-9]/,
+      /[0-9]/,
+      /[0-9]/,
+      "/",
+      /[0-9]/,
+      /[0-9]/,
+      /[0-9]/,
+      /[0-9]/,
+      "-",
+      /[0-9]/,
+      /[0-9]/
+    ];
+  }
+
+  public cnpjCpfMask(rawValue: string) {
     const numbers = rawValue.match(/\d/g);
     let numberLength = 0;
     if (numbers) {
       numberLength = numbers.join("").length;
     }
     if (numberLength <= 11) {
-      return [
-        /[0-9]/,
-        /[0-9]/,
-        /[0-9]/,
-        ".",
-        /[0-9]/,
-        /[0-9]/,
-        /[0-9]/,
-        ".",
-        /[0-9]/,
-        /[0-9]/,
-        /[0-9]/,
-        "-",
-        /[0-9]/,
-        /[0-9]/
-      ];
+      this.cpfMask();
     } else {
-      return [
-        /[0-9]/,
-        /[0-9]/,
-        ".",
-        /[0-9]/,
-        /[0-9]/,
-        /[0-9]/,
-        ".",
-        /[0-9]/,
-        /[0-9]/,
-        /[0-9]/,
-        "/",
-        /[0-9]/,
-        /[0-9]/,
-        /[0-9]/,
-        /[0-9]/,
-        "-",
-        /[0-9]/,
-        /[0-9]/
-      ];
+      this.cnpjMask();
     }
   }
 }
