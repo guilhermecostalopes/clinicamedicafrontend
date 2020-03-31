@@ -11,7 +11,7 @@ import { TranslateService } from "@ngx-translate/core";
 import { AlertService } from "ngx-alerts";
 import { EpecialidadeService } from "../../especialidade/service/epecialidade.service";
 import { PrincipalComponente } from "../../principal.componente";
-import { UsuarioAlterarModel } from "../model/usuarioAlterar.model";
+import { UsuarioModel } from '../model/usuario.model';
 
 @Component({
   selector: "app-usuario-alterar",
@@ -30,7 +30,7 @@ export class UsuarioAlterarComponent extends PrincipalComponente {
     public translate: TranslateService
   ) {
     super(
-      new UsuarioAlterarModel(),
+      new UsuarioModel(),
       "usuarios",
       service,
       router,

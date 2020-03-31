@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { LoginService } from "../service/login.service";
-import { UsuarioModel } from "../model/usuario.model";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { SharedService } from "src/app/core/services/shared/shared.service";
 import { Router } from "@angular/router";
@@ -18,8 +17,8 @@ export class LoginComponent extends ComumComponente implements OnInit {
   hide: any;
   loading: boolean;
   formularioLogin: FormGroup;
-  loginResource: UsuarioModel;
-  user = new UsuarioModel();
+  loginResource: CurrrentUserModel;
+  user = new CurrrentUserModel();
   shared: SharedService;
   mensagem: string;
 

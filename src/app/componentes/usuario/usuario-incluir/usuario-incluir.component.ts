@@ -11,7 +11,7 @@ import { EpecialidadeService } from "../../especialidade/service/epecialidade.se
 import { AlertService } from "ngx-alerts";
 import { MatDialog } from "@angular/material/dialog";
 import { TranslateService } from "@ngx-translate/core";
-import { UsuarioIncluirModel } from "../model/usuarioIncluir.model";
+import { UsuarioModel } from "../model/usuario.model";
 
 @Component({
   selector: "app-usuario-incluir",
@@ -30,7 +30,7 @@ export class UsuarioIncluirComponent extends PrincipalComponente {
     public translate: TranslateService
   ) {
     super(
-      new UsuarioIncluirModel(),
+      new UsuarioModel(),
       "usuarios",
       service,
       router,
