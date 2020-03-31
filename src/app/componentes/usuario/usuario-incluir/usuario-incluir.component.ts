@@ -1,17 +1,18 @@
 import { Component } from "@angular/core";
-import { PrincipalComponente } from "../../principal.componente";
 import {
   FormBuilder,
-  FormGroup,
   FormControl,
+  FormGroup,
   Validators
 } from "@angular/forms";
-import { Router, ActivatedRoute } from "@angular/router";
-import { EpecialidadeService } from "../../especialidade/service/epecialidade.service";
-import { AlertService } from "ngx-alerts";
 import { MatDialog } from "@angular/material/dialog";
+import { ActivatedRoute, Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
+import { AlertService } from "ngx-alerts";
+import { PrincipalComponente } from "../../principal.componente";
 import { UsuarioModel } from "../model/usuario.model";
+import { UsuarioService } from "../service/usuario.service";
+import { EnumModel } from "src/app/core/model/enum.model";
 
 @Component({
   selector: "app-usuario-incluir",
@@ -20,10 +21,11 @@ import { UsuarioModel } from "../model/usuario.model";
 })
 export class UsuarioIncluirComponent extends PrincipalComponente {
   public usuarioIncluirFormGroup: FormGroup;
+  public roles: EnumModel[] = [];
   constructor(
     private formBuilder: FormBuilder,
     public router: Router,
-    public service: EpecialidadeService,
+    public service: UsuarioService,
     public alertService: AlertService,
     public dialog: MatDialog,
     public routaAtual: ActivatedRoute,
@@ -44,6 +46,7 @@ export class UsuarioIncluirComponent extends PrincipalComponente {
   ngOnInit(): void {
     super.ngOnInit();
     this.criarFormGroup();
+    this.buscarRoles();
   }
 
   public criarFormGroup() {
@@ -144,5 +147,16 @@ export class UsuarioIncluirComponent extends PrincipalComponente {
   public limpar() {
     this.mostrarPesquisa = false;
     this.usuarioIncluirFormGroup.reset();
+  }
+
+  private buscarRoles() {
+    this.service.buscarRoles().subscribe((data: any) => {
+      data.forEach((e: any) => {
+        let enun = new EnumModel();
+        enun.key = e.key;
+        enun.texto = e.texto;
+        this.roles.push(enun);
+      });
+    });
   }
 }

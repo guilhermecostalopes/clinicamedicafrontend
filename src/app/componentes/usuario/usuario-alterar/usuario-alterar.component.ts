@@ -9,9 +9,10 @@ import { MatDialog } from "@angular/material/dialog";
 import { ActivatedRoute, Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 import { AlertService } from "ngx-alerts";
-import { EpecialidadeService } from "../../especialidade/service/epecialidade.service";
+import { EnumModel } from "src/app/core/model/enum.model";
 import { PrincipalComponente } from "../../principal.componente";
-import { UsuarioModel } from '../model/usuario.model';
+import { UsuarioModel } from "../model/usuario.model";
+import { UsuarioService } from "../service/usuario.service";
 
 @Component({
   selector: "app-usuario-alterar",
@@ -20,10 +21,11 @@ import { UsuarioModel } from '../model/usuario.model';
 })
 export class UsuarioAlterarComponent extends PrincipalComponente {
   public usuarioAlterarFormGroup: FormGroup;
+  public roles: EnumModel[] = [];
   constructor(
     private formBuilder: FormBuilder,
     public router: Router,
-    public service: EpecialidadeService,
+    public service: UsuarioService,
     public alertService: AlertService,
     public dialog: MatDialog,
     public routaAtual: ActivatedRoute,
@@ -44,6 +46,7 @@ export class UsuarioAlterarComponent extends PrincipalComponente {
   ngOnInit(): void {
     super.ngOnInit();
     this.criarFormGroup();
+    this.buscarRoles();
   }
 
   public criarFormGroup() {
@@ -118,5 +121,16 @@ export class UsuarioAlterarComponent extends PrincipalComponente {
   public limpar() {
     this.mostrarPesquisa = false;
     this.usuarioAlterarFormGroup.reset();
+  }
+
+  private buscarRoles() {
+    this.service.buscarRoles().subscribe((data: any) => {
+      data.forEach((e: any) => {
+        let enun = new EnumModel();
+        enun.key = e.key;
+        enun.texto = e.texto;
+        this.roles.push(enun);
+      });
+    });
   }
 }

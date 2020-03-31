@@ -14,8 +14,12 @@
             [(ngModel)]="modelo.login" required />
         </mat-form-field><br>
         <mat-form-field class="formulario-full-width">
-          <input matInput placeholder="{{ 'ROLE' | translate }}" id="role" formControlName="role" name="role"
-            [(ngModel)]="modelo.role" required />
+          <mat-select placeholder="{{ 'ROLE' | translate }}" name="role" formControlName="role" id="role"
+            [(ngModel)]="modelo.role" required>
+            <mat-option>Nenhum</mat-option>
+            <mat-option *ngFor="let role of roles" [value]="role.key">{{role.texto}}
+            </mat-option>
+          </mat-select>
         </mat-form-field><br>
         <mat-form-field class="formulario-full-width">
           <input matInput placeholder="{{ 'SENHA' | translate }}" id="senha" formControlName="senha" name="senha"
