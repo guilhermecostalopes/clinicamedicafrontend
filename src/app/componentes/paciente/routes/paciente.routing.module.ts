@@ -1,21 +1,21 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { EspecialidadePesquisaComponent } from "../../especialidade/especialidade-pesquisa/especialidade-pesquisa.component";
-import { EspecialidadeIncluirComponent } from "../../especialidade/especialidade-incluir/especialidade-incluir.component";
-import { EspecialidadeAlterarComponent } from "../../especialidade/especialidade-alterar/especialidade-alterar.component";
+import { PacienteIncluirComponent } from '../view/paciente-incluir/paciente-incluir.component';
+import { PacienteAlterarComponent } from '../view/paciente-alterar/paciente-alterar.component';
+import { PacientePesquisarComponent } from '../view/paciente-pesquisar/paciente-pesquisar.component';
 
 const moduleRoutes: Routes = [
   {
     path: "pacientes/pesquisar",
-    component: EspecialidadePesquisaComponent
+    component: PacientePesquisarComponent
   },
   {
     path: "pacientes/incluir",
-    component: EspecialidadeIncluirComponent
+    component: PacienteIncluirComponent
   },
   {
     path: "pacientes/:codigo/alterar",
-    component: EspecialidadeAlterarComponent
+    component: PacienteAlterarComponent
   }
 ];
 
