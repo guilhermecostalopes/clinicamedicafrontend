@@ -11,7 +11,7 @@ import { TranslateService } from "@ngx-translate/core";
 @Component({
   selector: "app-ficha-paciente-pesquisa",
   templateUrl: "./ficha-paciente-pesquisa.component.html",
-  styleUrls: ["./ficha-paciente-pesquisa.component.css"]
+  styleUrls: ["./ficha-paciente-pesquisa.component.scss"]
 })
 export class FichaPacientePesquisaComponent extends PrincipalComponente {
   public fichaSaudePesquisarFormGroup: FormGroup;

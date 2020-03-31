@@ -11,7 +11,7 @@ import { TranslateService } from "@ngx-translate/core";
 @Component({
   selector: "app-usuario-pesquisar",
   templateUrl: "./usuario-pesquisar.component.html",
-  styleUrls: ["./usuario-pesquisar.component.css"]
+  styleUrls: ["./usuario-pesquisar.component.scss"]
 })
 export class UsuarioPesquisarComponent extends PrincipalComponente {
   public usuarioPesquisarFormGroup: FormGroup;

@@ -17,7 +17,7 @@ import { EnumModel } from "src/app/core/model/enum.model";
 @Component({
   selector: "app-usuario-incluir",
   templateUrl: "./usuario-incluir.component.html",
-  styleUrls: ["./usuario-incluir.component.css"]
+  styleUrls: ["./usuario-incluir.component.scss"]
 })
 export class UsuarioIncluirComponent extends PrincipalComponente {
   public usuarioIncluirFormGroup: FormGroup;

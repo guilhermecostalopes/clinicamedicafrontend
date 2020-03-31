@@ -17,7 +17,7 @@ import { UsuarioService } from "../service/usuario.service";
 @Component({
   selector: "app-usuario-alterar",
   templateUrl: "./usuario-alterar.component.html",
-  styleUrls: ["./usuario-alterar.component.css"]
+  styleUrls: ["./usuario-alterar.component.scss"]
 })
 export class UsuarioAlterarComponent extends PrincipalComponente {
   public usuarioAlterarFormGroup: FormGroup;

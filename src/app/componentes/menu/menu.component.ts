@@ -5,7 +5,7 @@ import { TranslateService } from "@ngx-translate/core";
 @Component({
   selector: "app-menu",
   templateUrl: "./menu.component.html",
-  styleUrls: ["./menu.component.css"]
+  styleUrls: ["./menu.component.scss"]
 })
 export class MenuComponent {
   options: FormGroup;

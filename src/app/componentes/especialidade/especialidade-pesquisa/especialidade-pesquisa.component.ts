@@ -11,7 +11,7 @@ import { TranslateService } from "@ngx-translate/core";
 @Component({
   selector: "app-especialidade-pesquisa",
   templateUrl: "./especialidade-pesquisa.component.html",
-  styleUrls: ["./especialidade-pesquisa.component.css"]
+  styleUrls: ["./especialidade-pesquisa.component.scss"]
 })
 export class EspecialidadePesquisaComponent extends PrincipalComponente {
   //@ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;

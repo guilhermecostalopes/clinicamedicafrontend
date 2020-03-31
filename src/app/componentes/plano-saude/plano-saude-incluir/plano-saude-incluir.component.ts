@@ -16,7 +16,7 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: "app-plano-saude-incluir",
   templateUrl: "./plano-saude-incluir.component.html",
-  styleUrls: ["./plano-saude-incluir.component.css"]
+  styleUrls: ["./plano-saude-incluir.component.scss"]
 })
 export class PlanoSaudeIncluirComponent extends PrincipalComponente {
   public planoSaudeIncluirFormGroup: FormGroup;

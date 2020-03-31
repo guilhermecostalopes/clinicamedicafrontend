@@ -16,7 +16,7 @@ import { TranslateService } from "@ngx-translate/core";
 @Component({
   selector: "app-especialidade-alterar",
   templateUrl: "./especialidade-alterar.component.html",
-  styleUrls: ["./especialidade-alterar.component.css"]
+  styleUrls: ["./especialidade-alterar.component.scss"]
 })
 export class EspecialidadeAlterarComponent extends PrincipalComponente {
   public especialidadeAlterarFormGroup: FormGroup;

@@ -16,7 +16,7 @@ import { PlanoSaudeService } from "../service/plano-saude.service";
 @Component({
   selector: "app-plano-saude-alterar",
   templateUrl: "./plano-saude-alterar.component.html",
-  styleUrls: ["./plano-saude-alterar.component.css"]
+  styleUrls: ["./plano-saude-alterar.component.scss"]
 })
 export class PlanoSaudeAlterarComponent extends PrincipalComponente {
   public planoSaudeAlterarFormGroup: FormGroup;
