@@ -4,9 +4,9 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { AlertService } from "ngx-alerts";
 import { MatDialog } from "@angular/material/dialog";
 import { PrincipalComponente } from "src/app/componentes/principal.componente";
-import { PlanoSaudeService } from "../service/plano-saude.service";
-import { PlanoSaudeModel } from "../model/plano-saude.model";
 import { TranslateService } from "@ngx-translate/core";
+import { PlanoSaudeService } from '../../service/plano-saude.service';
+import { PlanoSaudeModel } from '../../model/plano-saude.model';
 
 @Component({
   selector: "app-plano-saude-pesquisa",
