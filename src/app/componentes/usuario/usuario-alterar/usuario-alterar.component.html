@@ -4,6 +4,7 @@
       <mat-card-content>
         <mat-card-title>{{ 'ALTERAR_USUARIO' | translate }}</mat-card-title>
       </mat-card-content>
+      <input formControlName="id" name="id" [(ngModel)]="modelo.id" formControlName="id" type="hidden" />
       <mat-card-content>
         <mat-form-field class="formulario-full-width">
           <input matInput placeholder="{{ 'NOME' | translate }}" id="nome" formControlName="nome" name="nome"
