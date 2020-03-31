@@ -10,9 +10,9 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 import { AlertService } from "ngx-alerts";
 import { EnumModel } from "src/app/core/model/enum.model";
-import { PrincipalComponente } from "../../principal.componente";
-import { UsuarioModel } from "../model/usuario.model";
-import { UsuarioService } from "../service/usuario.service";
+import { PrincipalComponente } from 'src/app/componentes/principal.componente';
+import { UsuarioService } from '../../service/usuario.service';
+import { UsuarioModel } from '../../model/usuario.model';
 
 @Component({
   selector: "app-usuario-alterar",
