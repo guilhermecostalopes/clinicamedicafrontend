@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { EspecialidadePesquisaComponent } from "../especialidade-pesquisa/especialidade-pesquisa.component";
-import { EspecialidadeIncluirComponent } from "../especialidade-incluir/especialidade-incluir.component";
-import { EspecialidadeAlterarComponent } from "../especialidade-alterar/especialidade-alterar.component";
+import { EspecialidadePesquisaComponent } from "../view/especialidade-pesquisa/especialidade-pesquisa.component";
+import { EspecialidadeIncluirComponent } from "../view/especialidade-incluir/especialidade-incluir.component";
+import { EspecialidadeAlterarComponent } from "../view/especialidade-alterar/especialidade-alterar.component";
 
 const moduleRoutes: Routes = [
   {

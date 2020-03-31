@@ -4,9 +4,9 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { AlertService } from "ngx-alerts";
 import { MatDialog } from "@angular/material/dialog";
 import { PrincipalComponente } from "src/app/componentes/principal.componente";
-import { EpecialidadeService } from "../service/epecialidade.service";
-import { EspecialidadeModel } from "../model/especialidade.model";
 import { TranslateService } from "@ngx-translate/core";
+import { EpecialidadeService } from '../../service/epecialidade.service';
+import { EspecialidadeModel } from '../../model/especialidade.model';
 
 @Component({
   selector: "app-especialidade-pesquisa",
