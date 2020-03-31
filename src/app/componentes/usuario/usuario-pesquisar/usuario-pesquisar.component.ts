@@ -5,8 +5,8 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { AlertService } from "ngx-alerts";
 import { MatDialog } from "@angular/material/dialog";
 import { TranslateService } from "@ngx-translate/core";
-import { EspecialidadeModel } from "../../especialidade/model/especialidade.model";
 import { UsuarioService } from "../service/usuario.service";
+import { UsuarioPesquisarModel } from "../model/usuarioPesquisar.model";
 
 @Component({
   selector: "app-usuario-pesquisar",
@@ -26,8 +26,7 @@ export class UsuarioPesquisarComponent extends PrincipalComponente {
     public translate: TranslateService
   ) {
     super(
-      new EspecialidadeModel(),
-      "usuarios",
+      new UsuarioPesquisarModel(),
       "usuarios",
       service,
       router,

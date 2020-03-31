@@ -30,5 +30,11 @@
   "USUARIOS": "Users",
   "USUARIO": "User",
   "NOME_DO_USUARIO": "Username",
-  "RESULTADO_POR_USUARIO": "Result per user"
+  "INCLUIR_USUARIO": "Add user",
+  "RESULTADO_POR_USUARIO": "Result per user",
+  "ALTERAR_USUARIO": "Change user",
+  "PACIENTE": "Patient",
+  "NUMERO_CARTEIRA_PACIENTE": "Patient plan card number",
+  "PLANO_DE_SAUDE": "Health insurance",
+  "DATA_CONSULTA": "Date of consultation"
 }

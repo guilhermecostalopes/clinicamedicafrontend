@@ -3,7 +3,7 @@
   "MENU": {
     "DASHBOARD": "Dashboard",
     "ESPECIALIDADES": "Especialidades",
-    "PLANO_DE_SAUDE": "Plano de saudes",
+    "PLANO_DE_SAUDE": "Planos de saude",
     "PACIENTES": "Pacientes",
     "FICHA_DE_PACIENTES": "Fichas de pacientes",
     "USUARIOS": "Usuários"
@@ -30,5 +30,11 @@
   "USUARIOS": "Usuários",
   "USUARIO": "Usuário",
   "NOME_DO_USUARIO": "Nome do usuário",
-  "RESULTADO_POR_USUARIO": "Resultado por usuário"
+  "INCLUIR_USUARIO": "Incluir usuário",
+  "RESULTADO_POR_USUARIO": "Resultado por usuário",
+  "ALTERAR_USUARIO": "Alterar usuário",
+  "PACIENTE": "Paciente",
+  "NUMERO_CARTEIRA_PACIENTE": "Número da carteira do plano do paciente",
+  "PLANO_DE_SAUDE": "Plano de saúde",
+  "DATA_CONSULTA": "Data da consulta"
 }
