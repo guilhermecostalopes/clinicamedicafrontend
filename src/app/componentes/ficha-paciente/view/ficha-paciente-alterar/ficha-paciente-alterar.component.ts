@@ -9,9 +9,9 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { AlertService } from "ngx-alerts";
 import { MatDialog } from "@angular/material/dialog";
 import { PrincipalComponente } from "src/app/componentes/principal.componente";
-import { FichaPacienteService } from "../service/ficha-paciente.service";
-import { FichaPacienteModel } from "../model/ficha-paciente.model";
 import { TranslateService } from "@ngx-translate/core";
+import { FichaPacienteService } from '../../service/ficha-paciente.service';
+import { FichaPacienteModel } from '../../model/ficha-paciente.model';
 
 @Component({
   selector: "app-ficha-paciente-alterar",

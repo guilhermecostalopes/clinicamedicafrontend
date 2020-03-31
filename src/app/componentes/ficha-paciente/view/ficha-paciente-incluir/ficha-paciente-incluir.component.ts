@@ -9,14 +9,14 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { AlertService } from "ngx-alerts";
 import { MatDialog } from "@angular/material/dialog";
 import { PrincipalComponente } from "src/app/componentes/principal.componente";
-import { FichaPacienteService } from "../service/ficha-paciente.service";
-import { FichaPacienteModel } from "../model/ficha-paciente.model";
-import { PlanoSaudeService } from "../../plano-saude/service/plano-saude.service";
-import { EpecialidadeService } from "../../especialidade/service/epecialidade.service";
-import { EnumModel } from "src/app/core/model/enum.model";
-import { PacienteService } from "../../paciente/service/paciente.service";
-import { PacienteModel } from "../../paciente/model/paciente.model";
-import { TranslateService } from "@ngx-translate/core";
+import { EnumModel } from 'src/app/core/model/enum.model';
+import { PacienteModel } from 'src/app/componentes/paciente/model/paciente.model';
+import { PacienteService } from 'src/app/componentes/paciente/service/paciente.service';
+import { PlanoSaudeService } from 'src/app/componentes/plano-saude/service/plano-saude.service';
+import { EpecialidadeService } from 'src/app/componentes/especialidade/service/epecialidade.service';
+import { FichaPacienteService } from '../../service/ficha-paciente.service';
+import { TranslateService } from '@ngx-translate/core';
+import { FichaPacienteModel } from '../../model/ficha-paciente.model';
 
 @Component({
   selector: "app-ficha-paciente-incluir",
