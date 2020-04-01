@@ -47,7 +47,7 @@ export class LoginComponent extends ComumComponente implements OnInit {
   }
 
   alterarSenha() {
-    this.router.navigate(["/alterar-senha"]);
+    this.router.navigate(["/esqueceu-senha"]);
   }
 
   logar() {

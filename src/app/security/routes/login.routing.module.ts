@@ -5,7 +5,7 @@ import { EsqueceuSenhaComponent } from "../view/esqueceu-senha/esqueceu-senha.co
 import { LoginComponent } from "../view/login/login.component";
 import { NovoUsarioComponent } from "../view/novo-usario/novo-usario.component";
 
-const moduleRoutes: Routes = [
+const SecurityRoutes: Routes = [
   {
     path: "",
     children: [
@@ -32,10 +32,7 @@ const moduleRoutes: Routes = [
 @NgModule({
   exports: [RouterModule],
   imports: [
-    RouterModule.forRoot(moduleRoutes, {
-      useHash: true,
-      enableTracing: false
-    })
+    RouterModule.forChild(SecurityRoutes)
   ],
   providers: [],
   declarations: []

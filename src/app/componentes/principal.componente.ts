@@ -61,14 +61,14 @@ export abstract class PrincipalComponente extends ComumComponente
   }
 
   private breadcrumb() {
-    const rotaAtalMomento = this.routaAtual.snapshot.url[1];
+    const rotaAtalMomento = this.routaAtual.snapshot.url[0].path;
     if (String(rotaAtalMomento) === "incluir") {
       this.bread = "Pesquisar >> ";
       this.tituloMenu = " Incluir ";
     } else if (String(rotaAtalMomento) === "pesquisar") {
       this.tituloMenu = " Pesquisar ";
     } else {
-      const rota = this.routaAtual.snapshot.url[2];
+      const rota = this.routaAtual.snapshot.url[1].path;
       if (String(rota) === "visualizar") {
         this.tituloMenu = " Visualizar ";
       } else {
@@ -156,7 +156,7 @@ export abstract class PrincipalComponente extends ComumComponente
   }
 
   public limparAlterar() {
-    this.id = Number(this.routaAtual.snapshot.url[1].path);
+    this.id = Number(this.routaAtual.snapshot.url[0].path);
     this.preenchendoCampoAlteracao();
   }
 

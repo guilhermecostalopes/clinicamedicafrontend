@@ -11,6 +11,8 @@ import { EspecialidadeModule } from "./componentes/especialidade/especialidade.m
 import { EpecialidadeService } from "./componentes/especialidade/service/epecialidade.service";
 import { FichaPacienteModule } from "./componentes/ficha-paciente/ficha-paciente.module";
 import { FichaPacienteService } from "./componentes/ficha-paciente/service/ficha-paciente.service";
+import { AppBlankComponent } from "./componentes/layouts/blank/blank.component";
+import { FullComponent } from "./componentes/layouts/full.component";
 import { MenuComponent } from "./componentes/menu/menu.component";
 import { PacienteModule } from "./componentes/paciente/paciente.module";
 import { PacienteService } from "./componentes/paciente/service/paciente.service";
@@ -24,7 +26,7 @@ import { LoginService } from "./security/service/login.service";
 
 registerLocaleData(localePt, "pt");
 @NgModule({
-  declarations: [AppComponent, MenuComponent],
+  declarations: [AppComponent, MenuComponent, FullComponent, AppBlankComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

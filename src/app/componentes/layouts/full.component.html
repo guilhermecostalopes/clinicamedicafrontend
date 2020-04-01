@@ -1,0 +1,28 @@
+<div class="main-container" [dir]="dir" [ngClass]="{'minisidebar': minisidebar,
+        'boxed': boxed, 'danger': danger, 'blue': blue, 'green': green,
+        'dark': dark, 'sidebar-opened': sidebarOpened,
+        'sidebar-closed': !sidebarOpened }">
+  <mat-toolbar color="primary" class="topbar telative">
+    <div class="navbar-header"></div>
+    <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed">
+      <mat-icon>menu</mat-icon>
+    </button>
+    {{ 'SISTEMA' | translate }} {{ 'NOME_DO_SISTEMA' | translate }}
+    <span fxFlex></span>
+    <app-header></app-header>
+  </mat-toolbar>
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0"
+    [ngClass]="{'minisidebar': minisidebar}">
+  </mat-sidenav-container>
+  <mat-sidenav #snav id="snav" class="pl-xs" [mode]="mobileQuery.matches ? 'side' : 'over'" fixedTopGap="0"
+    [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches" (open)="sidebarOpened = true"
+    (close)="sidebarOpened = false" [perfectScrollbar]="config">
+  </mat-sidenav>
+  <mat-sidenav-container class="page-wrapper">
+    <perfect-scrollbar [config]="config">
+      <div class="page-content">
+        <router-outlet></router-outlet>
+      </div>
+    </perfect-scrollbar>
+  </mat-sidenav-container>
+</div>

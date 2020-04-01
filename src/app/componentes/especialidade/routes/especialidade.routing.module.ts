@@ -7,18 +7,18 @@ import { AuthGuardService } from 'src/app/security/authguard/auth-guard.service'
 
 const moduleRoutes: Routes = [
   {
-    path: "especialidades/pesquisar",
-    canActivate: [AuthGuardService],
+    path: "pesquisar",
+    //canActivate: [AuthGuardService],
     component: EspecialidadePesquisaComponent
   },
   {
-    path: "especialidades/incluir",
-    canActivate: [AuthGuardService],
+    path: "incluir",
+    //canActivate: [AuthGuardService],
     component: EspecialidadeIncluirComponent
   },
   {
-    path: "especialidades/:codigo/alterar",
-    canActivate: [AuthGuardService],
+    path: ":codigo/alterar",
+    //canActivate: [AuthGuardService],
     component: EspecialidadeAlterarComponent
   }
 ];
@@ -26,10 +26,7 @@ const moduleRoutes: Routes = [
 @NgModule({
   exports: [RouterModule],
   imports: [
-    RouterModule.forRoot(moduleRoutes, {
-      useHash: true,
-      enableTracing: false
-    })
+    RouterModule.forChild(moduleRoutes)
   ],
   providers: [],
   declarations: []

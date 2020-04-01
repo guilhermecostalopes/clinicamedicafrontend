@@ -1,28 +1,39 @@
-import { NgModule } from "@angular/core";
-import { MaterialModule } from "./material-module/material.module";
 import { CommonModule } from "@angular/common";
 import {
+  HttpClient,
   HttpClientModule,
-  HTTP_INTERCEPTORS,
-  HttpClient
+  HTTP_INTERCEPTORS
 } from "@angular/common/http";
+import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { AlertModule } from "ngx-alerts";
-import { DialogComponent } from "./dialog/dialog.component";
-import { LoaderService } from "./services/loader/loader.service";
-import { AuthInterceptor } from "../security/interceptor/auth.interceptor";
-import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
-import { AppRoutingModule } from "../app-routing.module";
-import { TextMaskModule } from 'angular2-text-mask';
+import { TextMaskModule } from "angular2-text-mask";
+import { AlertModule } from "ngx-alerts";
+import {
+  PerfectScrollbarConfigInterface,
+  PerfectScrollbarModule,
+  PERFECT_SCROLLBAR_CONFIG
+} from "ngx-perfect-scrollbar";
+//import { AppRoutingModule } from "../app-routing.module";
+import { MenuItems } from "../componentes/shared/menu/menu-items";
+import { AuthInterceptor } from "../security/interceptor/auth.interceptor";
+import { DialogComponent } from "./dialog/dialog.component";
+import { MaterialModule } from "./material-module/material.module";
+import { LoaderService } from "./services/loader/loader.service";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
+
 @NgModule({
   imports: [
-    AppRoutingModule,
+    PerfectScrollbarModule,
+    //AppRoutingModule,
     CommonModule,
     MaterialModule,
     FormsModule,
@@ -40,6 +51,11 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   declarations: [DialogComponent],
   providers: [
+    MenuItems,
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    },
     LoaderService,
     {
       provide: HTTP_INTERCEPTORS,
@@ -49,7 +65,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   entryComponents: [DialogComponent],
   exports: [
-    AppRoutingModule,
+    PerfectScrollbarModule,
+    //AppRoutingModule,
     CommonModule,
     MaterialModule,
     FormsModule,
