@@ -3,7 +3,7 @@
   "MENU": {
     "DASHBOARD": "Dashboard",
     "ESPECIALIDADES": "Specialties",
-    "PLANO_DE_SAUDE": "Saudade plan",
+    "PLANO_DE_SAUDE": "Health insurance",
     "PACIENTES": "Patients",
     "FICHA_DE_PACIENTES": "Patient records",
     "USUARIOS": "Users"
@@ -12,7 +12,8 @@
     "DOCUMENTO": "User CPF or CNPJ",
     "SISTEMA": "Login to the medical clinic system",
     "SENHA": "User password",
-    "ALTERAR_SENHA": "Change the password"
+    "ALTERAR_SENHA": "Change the password",
+    "LOGOUT": "Logout"
   },
   "ESPECIALIDADES": {
     "INCLUIR": "Add specialty",
@@ -20,19 +21,21 @@
     "RESULTADO_POR": "Result by specialty",
     "NOME": "Specialty name",
     "PLURAL": "Specialties",
-    "SINGULAR ": "Specialty"
+    "SINGULAR": "Specialty"
   },
   "PLANOS_DE_SAUDE": {
     "INCLUIR": "Include health plan",
     "ALTERAR": "Change health plan",
     "RESULTADO_POR": "Result by health plan",
     "NOME": "Health plan name",
-    "SINGULAR": "Health insurance"
+    "SINGULAR": "Health insurance",
+    "PLURAL": "Health insurance"
   },
   "PACIENTES": {
     "INCLUIR": "Include patient record",
     "NOME": "Patient's name",
-    "SINGULAR": "Patient"
+    "SINGULAR": "Patient",
+    "NUMERO_CARTEIRA": "Patient plan card number"
   },
   "USUARIOS": {
     "INCLUIR": "Add user",
@@ -40,14 +43,20 @@
     "RESULTADO_POR": "Result per user",
     "NOME": "Username",
     "PLURAL": "Users",
-    "SINGULAR": "User"
+    "SINGULAR": "User",
+    "ROLE": "User role",
+    "LOGIN": "User login",
+    "SENHA": "Password",
+    "CONFIRME_SENHA": "Confirm the Password"
   },
   "FICHA_DE_PACIENTE": {
     "INCLUIR": "Include patient record",
     "ALTERAR": "Change patient record",
     "RESULTADO_POR": "Result per patient record",
     "PLURAL": "Patient records",
-    "SINGULAR": "Patient record"
+    "SINGULAR": "Patient record",
+    "DATA": "Date of consultation",
+    "VALOR": "Query value"
   },
   "CRUD": {
     "PESQUISAR": "Search",
@@ -60,17 +69,6 @@
   },
   "EDITAR_SEU_REGISTRO": "Edit your record",
   "CAMPOS_OBRIGATORIOS": "Fields with * are required !",
-  "LOGOUT": "Logout",
   "VERSAO": "version",
-  "SISTEMA": "System",
-  "NOME": "Name",
-  "LOGIN": "Login",
-  "ROLE": "Role",
-  "SENHA": "Password",
-  "CONFIRME_SENHA": "Confirm the Password",
-  "NUMERO_CARTEIRA_PACIENTE": "Patient plan card number",
-  "DATA_CONSULTA": "Date of consultation",
-  "VALOR_CONSULTA": "Query value",
-  "ROLE_DO_USUARIO": "User role",
-  "LOGIN_DO_USUARIO": "User login"
+  "SISTEMA": "System"
 }

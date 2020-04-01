@@ -12,7 +12,8 @@
     "DOCUMENTO": "CPF ou CNPJ do usuário",
     "SISTEMA": "Login no sistema de clinica médica",
     "SENHA": "Senha do usuário",
-    "ALTERAR_SENHA": "Alterar a senha"
+    "ALTERAR_SENHA": "Alterar a senha",
+    "LOGOUT": "Sair"
   },
   "ESPECIALIDADES": {
     "INCLUIR": "Incluir especialidade",
@@ -20,19 +21,21 @@
     "RESULTADO_POR": "Resultado por especialidade",
     "NOME": "Nome da especialidade",
     "PLURAL": "Especialidades",
-    "SINGULAR ": "Especialidade"
+    "SINGULAR": "Especialidade"
   },
   "PLANOS_DE_SAUDE": {
     "INCLUIR": "Incluir plano de saúde",
     "ALTERAR": "Alterar plano de saúde",
     "RESULTADO_POR": "Resultado por plano de saúde",
     "NOME": "Nome do plano de saúde",
-    "SINGULAR": "Plano de saúde"
+    "SINGULAR": "Plano de saúde",
+    "PLURAL": "Planos de saúde"
   },
   "PACIENTES": {
     "INCLUIR": "Incluir paciente",
     "NOME": "Nome do paciente",
-    "SINGULAR": "Paciente"
+    "SINGULAR": "Paciente",
+    "NUMERO_CARTEIRA": "Número da carteira do plano do paciente"
   },
   "USUARIOS": {
     "INCLUIR": "Incluir usuário",
@@ -40,14 +43,20 @@
     "RESULTADO_POR": "Resultado por usuário",
     "NOME": "Nome do usuário",
     "PLURAL": "Usuários",
-    "SINGULAR": "Usuário"
+    "SINGULAR": "Usuário",
+    "ROLE": "Grupo do usuário",
+    "LOGIN": "Login do usuário",
+    "SENHA": "Senha",
+    "CONFIRME_SENHA": "Confirme a Senha"
   },
   "FICHA_DE_PACIENTE": {
     "INCLUIR": "Incluir ficha de paciente",
     "ALTERAR": "Alterar ficha de paciente",
     "RESULTADO_POR": "Resultado por ficha de paciente",
-    "PLURAL": "Ficha de paciente",
-    "SINGULAR": "Fichas de pacientes"
+    "PLURAL": "Fichas de pacientes",
+    "SINGULAR": "Ficha de paciente",
+    "DATA": "Data da consulta",
+    "VALOR": "Valor da consulta"
   },
   "CRUD": {
     "PESQUISAR": "Pesquisar",
@@ -60,17 +69,6 @@
   },
   "EDITAR_SEU_REGISTRO": "Editar seu registro",
   "CAMPOS_OBRIGATORIOS": "Campos com * são obrigatórios !",
-  "LOGOUT": "Sair",
   "VERSAO": "versão",
-  "SISTEMA": "Sistema",
-  "NOME": "Nome",
-  "LOGIN": "Login",
-  "ROLE": "Função",
-  "SENHA": "Senha",
-  "CONFIRME_SENHA": "Confirme a Senha",
-  "NUMERO_CARTEIRA_PACIENTE": "Número da carteira do plano do paciente",
-  "DATA_CONSULTA": "Data da consulta",
-  "VALOR_CONSULTA": "Valor da consulta",
-  "ROLE_DO_USUARIO": "Grupo do usuário",
-  "LOGIN_DO_USUARIO": "Login do usuário"
+  "SISTEMA": "Sistema"
 }

@@ -2,20 +2,20 @@
   <mat-card-content>
     <form [formGroup]="usuarioAlterarFormGroup">
       <mat-card-content>
-        <mat-card-title>{{ 'ALTERAR_USUARIO' | translate }}</mat-card-title>
+        <mat-card-title>{{ 'USUARIOS.ALTERAR' | translate }}</mat-card-title>
       </mat-card-content>
       <input formControlName="id" name="id" [(ngModel)]="modelo.id" formControlName="id" type="hidden" />
       <mat-card-content>
         <mat-form-field class="formulario-full-width">
-          <input matInput placeholder="{{ 'NOME' | translate }}" id="nome" formControlName="nome" name="nome"
+          <input matInput placeholder="{{ 'USUARIOS.NOME' | translate }}" id="nome" formControlName="nome" name="nome"
             [(ngModel)]="modelo.nome" required />
         </mat-form-field><br>
         <mat-form-field class="formulario-full-width">
-          <input matInput placeholder="{{ 'LOGIN' | translate }}" id="login" formControlName="login" name="login"
-            [(ngModel)]="modelo.login" [textMask]="{mask: cnpjCpfMask}" required />
+          <input matInput placeholder="{{ 'USUARIOS.LOGIN' | translate }}" id="login" formControlName="login"
+            name="login" [(ngModel)]="modelo.login" [textMask]="{mask: cnpjCpfMask}" required />
         </mat-form-field><br>
         <mat-form-field class="formulario-full-width">
-          <mat-select placeholder="{{ 'ROLE' | translate }}" name="role" formControlName="role" id="role"
+          <mat-select placeholder="{{ 'USUARIOS.ROLE' | translate }}" name="role" formControlName="role" id="role"
             [(ngModel)]="modelo.role" required>
             <mat-option>Nenhum</mat-option>
             <mat-option *ngFor="let role of roles" [value]="role.key">{{role.texto}}
@@ -25,16 +25,18 @@
         <mat-card-content>
           <h6 class="text-danger m-t-0 m-b-10">{{ 'CAMPOS_OBRIGATORIOS' | translate }}</h6>
           <button (click)="salvarForm()" mat-mini-fab type="button"
-            matTooltip="{{ 'SALVAR' | translate }} {{ 'USUARIO' | translate }}" mat-fab color="primary" mat-card-icon
-            class="shadow-none">
+            matTooltip="{{ 'CRUD.SALVAR' | translate }} {{ 'USUARIOS.SINGULAR' | translate }}" mat-fab color="primary"
+            mat-card-icon class="shadow-none">
             <mat-icon>save</mat-icon>
           </button>&nbsp;
-          <button mat-mini-fab type="button" matTooltip="{{ 'LIMPAR' | translate }} {{ 'USUARIO' | translate }}" mat-fab
-            color="primary" mat-card-icon class="shadow-none" (click)="limpar()">
+          <button mat-mini-fab type="button"
+            matTooltip="{{ 'CRUD.LIMPAR' | translate }} {{ 'USUARIOS.SINGULAR' | translate }}" mat-fab color="primary"
+            mat-card-icon class="shadow-none" (click)="limpar()">
             <mat-icon>clear_all</mat-icon>
           </button>&nbsp;
-          <button mat-mini-fab type="button" matTooltip="{{ 'VOLTAR' | translate }} {{ 'USUARIO' | translate }}" mat-fab
-            color="primary" mat-card-icon class="shadow-none" (click)="voltar()">
+          <button mat-mini-fab type="button"
+            matTooltip="{{ 'CRUD.VOLTAR' | translate }} {{ 'USUARIOS.SINGULAR' | translate }}" mat-fab color="primary"
+            mat-card-icon class="shadow-none" (click)="voltar()">
             <mat-icon>backspace</mat-icon>
           </button>
         </mat-card-content>
