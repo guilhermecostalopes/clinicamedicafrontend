@@ -8,6 +8,12 @@
     "FICHA_DE_PACIENTES": "Patient records",
     "USUARIOS": "Users"
   },
+  "LOGIN_PAGINA": {
+    "DOCUMENTO": "User CPF or CNPJ",
+    "SISTEMA": "Login to the medical clinic system",
+    "SENHA": "User password",
+    "ALTERAR_SENHA":"Change the password"
+  },
   "EDITAR_SEU_REGISTRO": "Edit your record",
   "CAMPOS_OBRIGATORIOS": "Fields with * are required !",
   "LOGOUT": "Logout",

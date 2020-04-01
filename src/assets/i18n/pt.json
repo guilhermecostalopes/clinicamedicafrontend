@@ -8,6 +8,12 @@
     "FICHA_DE_PACIENTES": "Fichas de pacientes",
     "USUARIOS": "Usuários"
   },
+  "LOGIN_PAGINA": {
+    "DOCUMENTO": "CPF ou CNPJ do usuário",
+    "SISTEMA": "Login no sistema de clinica médica",
+    "SENHA": "Senha do usuário",
+    "ALTERAR_SENHA":"Alterar a senha"
+  },
   "EDITAR_SEU_REGISTRO": "Editar seu registro",
   "CAMPOS_OBRIGATORIOS": "Campos com * são obrigatórios !",
   "LOGOUT": "Sair",

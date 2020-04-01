@@ -4,28 +4,30 @@
       <mat-card-content>
         <form [formGroup]="formularioLogin">
           <div class="text-center"><img alt="homepage" src="assets/images/logo-icon.png">
-            <h4 class="m-t-0">Logar no sistema de consultas</h4>
+            <h4 class="m-t-0">{{ 'LOGIN_PAGINA.SISTEMA' | translate }}</h4>
           </div>
           <div fxLayout="row" fxLayoutWrap="wrap">
             <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
               <mat-form-field>
-                <input matInput placeholder="CPF ou CNPJ do usuário" required matTooltip="CPF ou CNPJ do usuário"
-                  id="login" formControlName="login" name="login">
+                <input matInput placeholder="{{ 'LOGIN_PAGINA.DOCUMENTO' | translate }}" required
+                  matTooltip="{{ 'LOGIN_PAGINA.DOCUMENTO' | translate }}" id="login" formControlName="login"
+                  name="login">
               </mat-form-field>
             </div>
             <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
               <mat-form-field>
-                <input matInput type="password" placeholder="Senha do usuário" required matTooltip="Senha do usuário"
-                  id="senha" formControlName="senha" name="senha" [type]="hide ? 'text' : 'password'">
+                <input matInput type="password" placeholder="{{ 'LOGIN_PAGINA.SENHA' | translate }}" required
+                  matTooltip="{{ 'LOGIN_PAGINA.SENHA' | translate }}" id="senha" formControlName="senha" name="senha"
+                  [type]="hide ? 'text' : 'password'">
                 <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
               </mat-form-field>
             </div>
             <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
               <button mat-raised-button color="primary" class="btn-block btn-lg m-t-20 m-b-20" type="button"
-                [disabled]="loading" (click)="logar()">Login
+                [disabled]="loading" (click)="logar()">{{ 'LOGIN' | translate }}
               </button> &nbsp;&nbsp;&nbsp;
               <button mat-raised-button color="primary" class="btn-block btn-lg m-t-20 m-b-20" type="button"
-                [disabled]="loading" (click)="alterarSenha()">Alterar a senha
+                [disabled]="loading" (click)="alterarSenha()">{{ 'LOGIN_PAGINA.ALTERAR_SENHA' | translate }}
               </button>
             </div>
           </div>

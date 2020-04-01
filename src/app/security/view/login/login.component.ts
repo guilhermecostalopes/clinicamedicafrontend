@@ -7,6 +7,7 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import { ComumComponente } from "src/app/core/comum.component";
 import { CurrrentUserModel } from '../../model/currrent-user.model';
 import { LoginService } from '../../service/login.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: "app-login",
@@ -27,7 +28,8 @@ export class LoginComponent extends ComumComponente implements OnInit {
     public router: Router,
     public snackBar: MatSnackBar,
     public alertService: AlertService,
-    public loginService: LoginService
+    public loginService: LoginService,
+    public translate: TranslateService
   ) {
     super(alertService);
     this.shared = SharedService.getInstance();
