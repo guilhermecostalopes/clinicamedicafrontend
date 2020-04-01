@@ -7,20 +7,25 @@ import { NovoUsarioComponent } from "../view/novo-usario/novo-usario.component";
 
 const moduleRoutes: Routes = [
   {
-    path: "login",
-    component: LoginComponent
-  },
-  {
-    path: "esqueceu-senha",
-    component: EsqueceuSenhaComponent
-  },
-  {
-    path: "novo-usario",
-    component: NovoUsarioComponent
-  },
-  {
-    path: "alterar-senha",
-    component: AlterarSenhaComponent
+    path: "",
+    children: [
+      {
+        path: "login",
+        component: LoginComponent
+      },
+      {
+        path: "esqueceu-senha",
+        component: EsqueceuSenhaComponent
+      },
+      {
+        path: "novo-usario",
+        component: NovoUsarioComponent
+      },
+      {
+        path: "alterar-senha",
+        component: AlterarSenhaComponent
+      }
+    ]
   }
 ];
 
