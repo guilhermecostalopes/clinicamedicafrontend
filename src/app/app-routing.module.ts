@@ -6,17 +6,15 @@ import { NgModule } from '@angular/core';
 const PrincipalRoutes: Routes = [
   {
     path: "",
-    component: FullComponent,
+    component: AppBlankComponent,
     children: [
       {
         path: "dashboard",
         loadChildren: () => import('./componentes/dashboard/dashboard.module').then(m => m.DashboardModule)
-        //loadChildren: "/src/componentes/dashboard/dashboard.module#DashboardModule"
       },
       {
         path: "especialidades",
         loadChildren: () => import('./componentes/especialidade/especialidade.module').then(m => m.EspecialidadeModule)
-        //loadChildren: "/src/componentes/dashboard/dashboard.module#DashboardModule"
       }
     ],
   },
