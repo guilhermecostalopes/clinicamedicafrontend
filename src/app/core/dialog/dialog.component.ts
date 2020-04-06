@@ -5,7 +5,7 @@ import { FormGroup, FormBuilder } from "@angular/forms";
 @Component({
   selector: "app-dialog",
   templateUrl: "./dialog.component.html",
-  styleUrls: ["./dialog.component.css"]
+  styleUrls: ["./dialog.component.scss"]
 })
 export class DialogComponent implements OnInit {
   public form: FormGroup;
