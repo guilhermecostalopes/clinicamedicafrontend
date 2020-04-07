@@ -11,6 +11,7 @@ import { PrincipalComponente } from "src/app/componentes/principal.componente";
 import { TranslateService } from "@ngx-translate/core";
 import { FichaPacienteService } from '../../service/ficha-paciente.service';
 import { FichaPacienteModel } from '../../model/ficha-paciente.model';
+import { SnackBarComponent } from 'src/app/core/snack-bar/snack-bar.component';
 
 @Component({
   selector: "app-ficha-paciente-alterar",
@@ -26,7 +27,8 @@ export class FichaPacienteAlterarComponent extends PrincipalComponente {
     public service: FichaPacienteService,
     public dialog: MatDialog,
     public routaAtual: ActivatedRoute,
-    public translate: TranslateService
+    public translate: TranslateService,
+    public snackBar: SnackBarComponent
   ) {
     super(
       new FichaPacienteModel(),
@@ -35,7 +37,8 @@ export class FichaPacienteAlterarComponent extends PrincipalComponente {
       router,
       dialog,
       routaAtual,
-      translate
+      translate,
+      snackBar
     );
   }
 

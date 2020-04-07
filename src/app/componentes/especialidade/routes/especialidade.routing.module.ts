@@ -7,7 +7,7 @@ import { AuthGuardService } from 'src/app/security/authguard/auth-guard.service'
 
 const moduleRoutes: Routes = [
   {
-    path: "pesquisar",
+    path: "especialidades/pesquisar",
     //canActivate: [AuthGuardService],
     component: EspecialidadePesquisaComponent
   },

@@ -12,6 +12,7 @@ import { EnumModel } from "src/app/core/model/enum.model";
 import { PrincipalComponente } from 'src/app/componentes/principal.componente';
 import { UsuarioService } from '../../service/usuario.service';
 import { UsuarioModel } from '../../model/usuario.model';
+import { SnackBarComponent } from 'src/app/core/snack-bar/snack-bar.component';
 
 @Component({
   selector: "app-usuario-alterar",
@@ -27,7 +28,8 @@ export class UsuarioAlterarComponent extends PrincipalComponente {
     public service: UsuarioService,
     public dialog: MatDialog,
     public routaAtual: ActivatedRoute,
-    public translate: TranslateService
+    public translate: TranslateService,
+    public snackBar: SnackBarComponent
   ) {
     super(
       new UsuarioModel(),
@@ -36,7 +38,8 @@ export class UsuarioAlterarComponent extends PrincipalComponente {
       router,
       dialog,
       routaAtual,
-      translate
+      translate,
+      snackBar
     );
   }
 

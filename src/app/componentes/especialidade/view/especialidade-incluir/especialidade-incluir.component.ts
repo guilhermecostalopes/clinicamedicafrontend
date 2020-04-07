@@ -11,6 +11,7 @@ import { PrincipalComponente } from "src/app/componentes/principal.componente";
 import { TranslateService } from "@ngx-translate/core";
 import { EpecialidadeService } from '../../service/epecialidade.service';
 import { EspecialidadeModel } from '../../model/especialidade.model';
+import { SnackBarComponent } from 'src/app/core/snack-bar/snack-bar.component';
 
 @Component({
   selector: "app-especialidade-incluir",
@@ -26,7 +27,8 @@ export class EspecialidadeIncluirComponent extends PrincipalComponente {
     public service: EpecialidadeService,
     public dialog: MatDialog,
     public routaAtual: ActivatedRoute,
-    public translate: TranslateService
+    public translate: TranslateService,
+    public snackBar: SnackBarComponent
   ) {
     super(
       new EspecialidadeModel(),
@@ -35,7 +37,8 @@ export class EspecialidadeIncluirComponent extends PrincipalComponente {
       router,
       dialog,
       routaAtual,
-      translate
+      translate,
+      snackBar
     );
   }
 

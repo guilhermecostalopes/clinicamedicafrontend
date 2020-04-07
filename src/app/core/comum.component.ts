@@ -1,19 +1,20 @@
 import { OnInit } from "@angular/core";
+import { SnackBarComponent } from "./snack-bar/snack-bar.component";
 
 export abstract class ComumComponente implements OnInit {
-  constructor() { }
+  constructor(public snackBar: SnackBarComponent) { }
 
   ngOnInit(): void { }
 
   protected mensagemTela(tipoMensagem: string, mensagem: string) {
     if (tipoMensagem === "ERROR") {
-      //this.alertService.danger({ html: mensagem });
+      this.snackBar.openSnackBar(mensagem, 'error')
     } else if (tipoMensagem === "SUCCESS") {
-      //this.alertService.success({ html: mensagem });
+      this.snackBar.openSnackBar(mensagem, 'success')
     } else if (tipoMensagem === "WARNING") {
-      //this.alertService.warning({ html: mensagem });
+      this.snackBar.openSnackBar(mensagem, 'warning')
     } else {
-      //this.alertService.info({ html: mensagem });
+      this.snackBar.openSnackBar(mensagem)
     }
   }
 

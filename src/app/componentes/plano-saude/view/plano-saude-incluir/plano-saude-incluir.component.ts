@@ -11,6 +11,7 @@ import { PrincipalComponente } from "src/app/componentes/principal.componente";
 import { TranslateService } from '@ngx-translate/core';
 import { PlanoSaudeService } from '../../service/plano-saude.service';
 import { PlanoSaudeModel } from '../../model/plano-saude.model';
+import { SnackBarComponent } from 'src/app/core/snack-bar/snack-bar.component';
 
 @Component({
   selector: "app-plano-saude-incluir",
@@ -26,7 +27,8 @@ export class PlanoSaudeIncluirComponent extends PrincipalComponente {
     public service: PlanoSaudeService,
     public dialog: MatDialog,
     public routaAtual: ActivatedRoute,
-    public translate: TranslateService
+    public translate: TranslateService,
+    public snackBar: SnackBarComponent
   ) {
     super(
       new PlanoSaudeModel(),
@@ -35,7 +37,8 @@ export class PlanoSaudeIncluirComponent extends PrincipalComponente {
       router,
       dialog,
       routaAtual,
-      translate
+      translate,
+      snackBar
     );
   }
 

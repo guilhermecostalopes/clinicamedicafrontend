@@ -6,6 +6,7 @@ import { TranslateService } from "@ngx-translate/core";
 import { PrincipalComponente } from 'src/app/componentes/principal.componente';
 import { UsuarioService } from '../../service/usuario.service';
 import { UsuarioPesquisarModel } from '../../model/usuarioPesquisar.model';
+import { SnackBarComponent } from 'src/app/core/snack-bar/snack-bar.component';
 
 @Component({
   selector: "app-usuario-pesquisar",
@@ -22,7 +23,8 @@ export class UsuarioPesquisarComponent extends PrincipalComponente {
     public service: UsuarioService,
     public dialog: MatDialog,
     public routaAtual: ActivatedRoute,
-    public translate: TranslateService
+    public translate: TranslateService,
+    public snackBar: SnackBarComponent
   ) {
     super(
       new UsuarioPesquisarModel(),
@@ -31,7 +33,8 @@ export class UsuarioPesquisarComponent extends PrincipalComponente {
       router,
       dialog,
       routaAtual,
-      translate
+      translate,
+      snackBar
     );
   }
 

@@ -9,6 +9,7 @@ import { catchError, finalize, retry } from "rxjs/operators";
 import { ComumComponente } from "src/app/core/comum.component";
 import { LoaderService } from "../../core/services/loader/loader.service";
 import { SharedService } from "../../core/services/shared/shared.service";
+import { SnackBarComponent } from 'src/app/core/snack-bar/snack-bar.component';
 
 @Injectable()
 export class AuthInterceptor extends ComumComponente
@@ -16,9 +17,10 @@ export class AuthInterceptor extends ComumComponente
   shared: SharedService;
 
   constructor(
-    public loaderService: LoaderService
+    public loaderService: LoaderService,
+    public snackBar: SnackBarComponent
   ) {
-    super();
+    super(snackBar);
     this.shared = SharedService.getInstance();
   }
 

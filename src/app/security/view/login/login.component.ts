@@ -7,6 +7,7 @@ import { ComumComponente } from "src/app/core/comum.component";
 import { SharedService } from "src/app/core/services/shared/shared.service";
 import { CurrrentUserModel } from "../../model/currrent-user.model";
 import { LoginService } from "../../service/login.service";
+import { SnackBarComponent } from 'src/app/core/snack-bar/snack-bar.component';
 
 @Component({
   selector: "app-login",
@@ -25,11 +26,11 @@ export class LoginComponent extends ComumComponente implements OnInit {
   constructor(
     public formBuilder: FormBuilder,
     public router: Router,
-    public snackBar: MatSnackBar,
     public loginService: LoginService,
-    public translate: TranslateService
+    public translate: TranslateService,
+    public snackBar: SnackBarComponent
   ) {
-    super();
+    super(snackBar);
     this.shared = SharedService.getInstance();
   }
 

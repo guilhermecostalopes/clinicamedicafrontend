@@ -9,7 +9,6 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { TextMaskModule } from "angular2-text-mask";
-import { AlertModule } from "ngx-alerts";
 import {
   PerfectScrollbarConfigInterface,
   PerfectScrollbarModule,
@@ -21,6 +20,8 @@ import { AuthInterceptor } from "../security/interceptor/auth.interceptor";
 import { DialogComponent } from "./dialog/dialog.component";
 import { MaterialModule } from "./material-module/material.module";
 import { LoaderService } from "./services/loader/loader.service";
+import { SnackBarComponent } from './snack-bar/snack-bar.component';
+//import { AppRoutingModule } from "../app-routing.module";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -38,7 +39,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    AlertModule.forRoot({ maxMessages: 5, timeout: 5000, position: "right" }),
     HttpClientModule,
     TextMaskModule,
     TranslateModule.forRoot({
@@ -49,7 +49,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       }
     })
   ],
-  declarations: [DialogComponent],
+  declarations: [DialogComponent, SnackBarComponent],
   providers: [
     MenuItems,
     {
@@ -57,6 +57,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     },
     LoaderService,
+    SnackBarComponent
+    ,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
@@ -71,10 +73,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    AlertModule,
     HttpClientModule,
     TextMaskModule,
     TranslateModule
   ]
 })
-export class ComumModule {}
+export class ComumModule { }

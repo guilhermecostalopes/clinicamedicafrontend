@@ -1,0 +1,38 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// CSS of the mat-snack-bar component. Cannot be removed
+.mat-snack-bar-container-success {
+  text-align: center !important;
+  color: white !important;
+  background-color: blue !important;
+  .mat-simple-snackbar-action {
+    color: white !important;
+  }
+}
+
+// CSS of the mat-snack-bar component. Cannot be removed
+.mat-snack-bar-container-error {
+  text-align: center !important;
+  color: white !important;
+  background-color: brown !important;
+  .mat-simple-snackbar-action {
+    color: white !important;
+  }
+}
+
+// CSS of the mat-snack-bar component. Cannot be removed
+.mat-snack-bar-container-warning {
+  text-align: center !important;
+  color: white !important;
+  background-color: coral !important;
+  .mat-simple-snackbar-action {
+    color: white !important;
+  }
+}

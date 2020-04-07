@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 import { ComumComponente } from "../core/comum.component";
 import { DialogComponent } from "../core/dialog/dialog.component";
+import { SnackBarComponent } from '../core/snack-bar/snack-bar.component';
 
 export abstract class PrincipalComponente extends ComumComponente
   implements OnInit {
@@ -46,9 +47,10 @@ export abstract class PrincipalComponente extends ComumComponente
     public router: Router,
     public dialog: MatDialog,
     public routaAtual: ActivatedRoute,
-    public translate: TranslateService
+    public translate: TranslateService,
+    public snackBar: SnackBarComponent
   ) {
-    super();
+    super(snackBar);
   }
 
   ngOnInit(): void {
