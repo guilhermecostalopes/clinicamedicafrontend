@@ -12,7 +12,7 @@
     "DOCUMENTO": "User CPF or CNPJ",
     "SISTEMA": "Login to the medical clinic system",
     "SENHA": "User password",
-    "ALTERAR_SENHA": "Change the password",
+    "RECUPERAR_SENHA": "Change the password",
     "LOGOUT": "Logout"
   },
   "ESPECIALIDADES": {
