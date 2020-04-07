@@ -12,12 +12,12 @@ const moduleRoutes: Routes = [
     component: EspecialidadePesquisaComponent
   },
   {
-    path: "incluir",
+    path: "especialidades/incluir",
     //canActivate: [AuthGuardService],
     component: EspecialidadeIncluirComponent
   },
   {
-    path: ":codigo/alterar",
+    path: "especialidades/:codigo/alterar",
     //canActivate: [AuthGuardService],
     component: EspecialidadeAlterarComponent
   }
