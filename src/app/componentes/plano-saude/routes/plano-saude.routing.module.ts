@@ -8,17 +8,17 @@ import { AuthGuardService } from 'src/app/security/authguard/auth-guard.service'
 const moduleRoutes: Routes = [
   {
     path: "planos-saude/pesquisar",
-    canActivate: [AuthGuardService],
+    //canActivate: [AuthGuardService],
     component: PlanoSaudePesquisaComponent
   },
   {
     path: "planos-saude/incluir",
-    canActivate: [AuthGuardService],
+    //canActivate: [AuthGuardService],
     component: PlanoSaudeIncluirComponent
   },
   {
     path: "planos-saude/:codigo/alterar",
-    canActivate: [AuthGuardService],
+    //canActivate: [AuthGuardService],
     component: PlanoSaudeAlterarComponent
   }
 ];

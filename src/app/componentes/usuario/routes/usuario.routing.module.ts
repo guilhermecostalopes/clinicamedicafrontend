@@ -8,17 +8,17 @@ import { AuthGuardService } from 'src/app/security/authguard/auth-guard.service'
 const moduleRoutes: Routes = [
   {
     path: "usuarios/pesquisar",
-    canActivate: [AuthGuardService],
+    //canActivate: [AuthGuardService],
     component: UsuarioPesquisarComponent
   },
   {
     path: "usuarios/incluir",
-    canActivate: [AuthGuardService],
+    //canActivate: [AuthGuardService],
     component: UsuarioIncluirComponent
   },
   {
     path: "usuarios/:codigo/alterar",
-    canActivate: [AuthGuardService],
+    //canActivate: [AuthGuardService],
     component: UsuarioAlterarComponent
   }
 ];

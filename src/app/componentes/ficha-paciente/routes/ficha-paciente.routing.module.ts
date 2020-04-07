@@ -8,17 +8,17 @@ import { AuthGuardService } from 'src/app/security/authguard/auth-guard.service'
 const moduleRoutes: Routes = [
   {
     path: "fichas-paciente/pesquisar",
-    canActivate: [AuthGuardService],
+    //canActivate: [AuthGuardService],
     component: FichaPacientePesquisaComponent
   },
   {
     path: "fichas-paciente/incluir",
-    canActivate: [AuthGuardService],
+    //canActivate: [AuthGuardService],
     component: FichaPacienteIncluirComponent
   },
   {
     path: "fichas-paciente/:codigo/alterar",
-    canActivate: [AuthGuardService],
+    //canActivate: [AuthGuardService],
     component: FichaPacienteAlterarComponent
   }
 ];
