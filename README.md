@@ -30,7 +30,6 @@ Link do projeto: https://github.com/guilhermecostalopes/clinicamedicaappmovel
 
 - Angular material : https://material.angular.io/
 - Typescript : https://www.typescriptlang.org/
-- ngx-alerts : https://www.npmjs.com/package/ngx-alerts
 - ngx-translate : https://github.com/ngx-translate/core
 - angular2-text-mask : https://www.npmjs.com/package/angular2-text-mask
 

@@ -1,17 +1,14 @@
-import { Injectable } from "@angular/core";
 import {
-  HttpEvent,
-  HttpInterceptor,
-  HttpHandler,
-  HttpRequest,
-  HttpErrorResponse
+  HttpErrorResponse, HttpEvent,
+  HttpHandler, HttpInterceptor,
+  HttpRequest
 } from "@angular/common/http";
+import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
-import { retry, catchError, finalize } from "rxjs/operators";
-import { AlertService } from "ngx-alerts";
+import { catchError, finalize, retry } from "rxjs/operators";
+import { ComumComponente } from "src/app/core/comum.component";
 import { LoaderService } from "../../core/services/loader/loader.service";
 import { SharedService } from "../../core/services/shared/shared.service";
-import { ComumComponente } from "src/app/core/comum.component";
 
 @Injectable()
 export class AuthInterceptor extends ComumComponente
@@ -19,10 +16,9 @@ export class AuthInterceptor extends ComumComponente
   shared: SharedService;
 
   constructor(
-    public alertService: AlertService,
     public loaderService: LoaderService
   ) {
-    super(alertService);
+    super();
     this.shared = SharedService.getInstance();
   }
 

@@ -1,13 +1,12 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { SharedService } from "src/app/core/services/shared/shared.service";
-import { Router } from "@angular/router";
-import { AlertService } from "ngx-alerts";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatSnackBar } from "@angular/material/snack-bar";
+import { Router } from "@angular/router";
+import { TranslateService } from "@ngx-translate/core";
 import { ComumComponente } from "src/app/core/comum.component";
+import { SharedService } from "src/app/core/services/shared/shared.service";
 import { CurrrentUserModel } from "../../model/currrent-user.model";
 import { LoginService } from "../../service/login.service";
-import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-login",
@@ -27,11 +26,10 @@ export class LoginComponent extends ComumComponente implements OnInit {
     public formBuilder: FormBuilder,
     public router: Router,
     public snackBar: MatSnackBar,
-    public alertService: AlertService,
     public loginService: LoginService,
     public translate: TranslateService
   ) {
-    super(alertService);
+    super();
     this.shared = SharedService.getInstance();
   }
 

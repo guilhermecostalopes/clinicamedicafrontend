@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
-import { AlertService } from "ngx-alerts";
 import { MatDialog } from "@angular/material/dialog";
 import { PrincipalComponente } from "src/app/componentes/principal.componente";
 import { TranslateService } from "@ngx-translate/core";
@@ -24,7 +23,6 @@ export class EspecialidadePesquisaComponent extends PrincipalComponente {
     private formBuilder: FormBuilder,
     public router: Router,
     public service: EpecialidadeService,
-    public alertService: AlertService,
     public dialog: MatDialog,
     public routaAtual: ActivatedRoute,
     public translate: TranslateService
@@ -34,7 +32,6 @@ export class EspecialidadePesquisaComponent extends PrincipalComponente {
       "especialidades",
       service,
       router,
-      alertService,
       dialog,
       routaAtual,
       translate

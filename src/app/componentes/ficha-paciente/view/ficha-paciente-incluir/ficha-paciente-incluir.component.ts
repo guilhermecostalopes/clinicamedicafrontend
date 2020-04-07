@@ -6,7 +6,6 @@ import {
   FormBuilder
 } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
-import { AlertService } from "ngx-alerts";
 import { MatDialog } from "@angular/material/dialog";
 import { PrincipalComponente } from "src/app/componentes/principal.componente";
 import { EnumModel } from 'src/app/core/model/enum.model';
@@ -36,7 +35,6 @@ export class FichaPacienteIncluirComponent extends PrincipalComponente {
     private formBuilder: FormBuilder,
     public router: Router,
     public service: FichaPacienteService,
-    public alertService: AlertService,
     public dialog: MatDialog,
     public routaAtual: ActivatedRoute,
     public translate: TranslateService
@@ -46,7 +44,6 @@ export class FichaPacienteIncluirComponent extends PrincipalComponente {
       "fichas-paciente",
       service,
       router,
-      alertService,
       dialog,
       routaAtual,
       translate

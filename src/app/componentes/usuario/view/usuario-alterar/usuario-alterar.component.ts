@@ -8,7 +8,6 @@ import {
 import { MatDialog } from "@angular/material/dialog";
 import { ActivatedRoute, Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
-import { AlertService } from "ngx-alerts";
 import { EnumModel } from "src/app/core/model/enum.model";
 import { PrincipalComponente } from 'src/app/componentes/principal.componente';
 import { UsuarioService } from '../../service/usuario.service';
@@ -26,7 +25,6 @@ export class UsuarioAlterarComponent extends PrincipalComponente {
     private formBuilder: FormBuilder,
     public router: Router,
     public service: UsuarioService,
-    public alertService: AlertService,
     public dialog: MatDialog,
     public routaAtual: ActivatedRoute,
     public translate: TranslateService
@@ -36,7 +34,6 @@ export class UsuarioAlterarComponent extends PrincipalComponente {
       "usuarios",
       service,
       router,
-      alertService,
       dialog,
       routaAtual,
       translate

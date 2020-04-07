@@ -8,7 +8,6 @@ import {
 import { MatDialog } from "@angular/material/dialog";
 import { ActivatedRoute, Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
-import { AlertService } from "ngx-alerts";
 import { PrincipalComponente } from "src/app/componentes/principal.componente";
 import { PlanoSaudeService } from '../../service/plano-saude.service';
 import { PlanoSaudeModel } from '../../model/plano-saude.model';
@@ -25,7 +24,6 @@ export class PlanoSaudeAlterarComponent extends PrincipalComponente {
     private formBuilder: FormBuilder,
     public router: Router,
     public service: PlanoSaudeService,
-    public alertService: AlertService,
     public dialog: MatDialog,
     public routaAtual: ActivatedRoute,
     public translate: TranslateService
@@ -35,7 +33,6 @@ export class PlanoSaudeAlterarComponent extends PrincipalComponente {
       "planos-saude",
       service,
       router,
-      alertService,
       dialog,
       routaAtual,
       translate

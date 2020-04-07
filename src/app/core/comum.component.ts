@@ -1,20 +1,19 @@
 import { OnInit } from "@angular/core";
-import { AlertService } from "ngx-alerts";
 
 export abstract class ComumComponente implements OnInit {
-  constructor(public alertService: AlertService) {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   protected mensagemTela(tipoMensagem: string, mensagem: string) {
     if (tipoMensagem === "ERROR") {
-      this.alertService.danger({ html: mensagem });
+      //this.alertService.danger({ html: mensagem });
     } else if (tipoMensagem === "SUCCESS") {
-      this.alertService.success({ html: mensagem });
+      //this.alertService.success({ html: mensagem });
     } else if (tipoMensagem === "WARNING") {
-      this.alertService.warning({ html: mensagem });
+      //this.alertService.warning({ html: mensagem });
     } else {
-      this.alertService.info({ html: mensagem });
+      //this.alertService.info({ html: mensagem });
     }
   }
 

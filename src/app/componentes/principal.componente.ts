@@ -1,14 +1,13 @@
 import { OnInit, ViewChild } from "@angular/core";
-import { Router, ActivatedRoute } from "@angular/router";
-import { AlertService } from "ngx-alerts";
-import { MatDialogConfig, MatDialog } from "@angular/material/dialog";
+import { FormBuilder } from "@angular/forms";
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
-import { DialogComponent } from "../core/dialog/dialog.component";
-import { FormBuilder } from "@angular/forms";
-import { ComumComponente } from "../core/comum.component";
+import { ActivatedRoute, Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
+import { ComumComponente } from "../core/comum.component";
+import { DialogComponent } from "../core/dialog/dialog.component";
 
 export abstract class PrincipalComponente extends ComumComponente
   implements OnInit {
@@ -45,12 +44,11 @@ export abstract class PrincipalComponente extends ComumComponente
     public pagina: string,
     public servico: any,
     public router: Router,
-    public alertService: AlertService,
     public dialog: MatDialog,
     public routaAtual: ActivatedRoute,
     public translate: TranslateService
   ) {
-    super(alertService);
+    super();
   }
 
   ngOnInit(): void {
@@ -169,7 +167,7 @@ export abstract class PrincipalComponente extends ComumComponente
       (data: any) => {
         this.modelo = data;
       },
-      (error: any) => {}
+      (error: any) => { }
     );
   }
 
