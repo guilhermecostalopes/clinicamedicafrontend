@@ -68,7 +68,7 @@ export class LoginService {
     return false;*/
   }
 
-  isAuthenticated(): boolean {
+  get isAuthenticated(): boolean {
     this.token = this.obterDadosToken(sessionStorage.getItem("token"));
     this.nome = this.obterDadosToken(sessionStorage.getItem("nome"));
     this.login = this.obterDadosToken(sessionStorage.getItem("login"));

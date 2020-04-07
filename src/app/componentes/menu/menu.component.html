@@ -1,4 +1,4 @@
-<ng-container *ngIf="!shouldRun">
+<ng-container *ngIf="logado">
   <mat-toolbar class="menu-header" color="primary" class="fixed-header">
     <mat-toolbar-row>
       <span>{{ 'SISTEMA' | translate }} {{ 'NOME_DO_SISTEMA' | translate }}</span>
@@ -69,3 +69,5 @@
 
   <mat-toolbar class="menu-footer">{{ 'SISTEMA' | translate }} {{ 'VERSAO' | translate }} : 0.0.1</mat-toolbar>
 </ng-container>
+
+<router-outlet *ngIf="!logado"></router-outlet>

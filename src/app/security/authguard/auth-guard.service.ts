@@ -9,7 +9,7 @@ export class AuthGuardService implements CanActivate {
   constructor(private loginService: LoginService, private router: Router) {}
 
   canActivate() {
-    if (this.loginService.isAuthenticated()) {
+    if (this.loginService.isAuthenticated) {
       this.loginService.refreshToken();
       return true;
     } else {
