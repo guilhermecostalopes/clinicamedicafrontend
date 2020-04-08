@@ -7,6 +7,7 @@ import { PrincipalComponente } from "src/app/componentes/principal.componente";
 import { SnackBarComponent } from 'src/app/core/snack-bar/snack-bar.component';
 import { EspecialidadeModel } from '../../model/especialidade.model';
 import { EpecialidadeService } from '../../service/epecialidade.service';
+import { PaginacaoEnvioModel } from 'src/app/core/model/paginacao-envio.model';
 
 @Component({
   selector: "app-especialidade-pesquisa",
@@ -30,7 +31,7 @@ export class EspecialidadePesquisaComponent extends PrincipalComponente {
     public snackBar: SnackBarComponent
   ) {
     super(
-      new EspecialidadeModel(),
+      new PaginacaoEnvioModel(),
       "especialidades",
       service,
       router,
@@ -43,9 +44,11 @@ export class EspecialidadePesquisaComponent extends PrincipalComponente {
 
   ngOnInit() {
     super.ngOnInit();
+    this.modelo.paginaAtual = 0;
+    this.modelo.quantidadeRegistros = 10;
+    //this.modelo.direcao = 'ASC';
+    //this.modelo.campo = 'nome';
     this.criarFormGroup();
-    //this.entidadePesquisa.paginator = this.paginator;
-    //this.entidadePesquisa.sort = this.sort;
   }
 
   criarFormGroup() {
@@ -55,7 +58,8 @@ export class EspecialidadePesquisaComponent extends PrincipalComponente {
   }
 
   public pesquisarBaseDados() {
-    super.pesquisar(true, this.especialidadePesquisarFormGroup);
+    this.modelo.nome = this.especialidadePesquisarFormGroup.value.nome;
+    super.pesquisar(true);
   }
 
   public limpar() {

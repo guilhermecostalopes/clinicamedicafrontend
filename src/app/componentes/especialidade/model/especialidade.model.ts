@@ -1,4 +1,4 @@
 export class EspecialidadeModel {
-  public id: number;
-  public nome: string;
+  id: number;
+  nome: string;
 }

@@ -1,15 +1,21 @@
 import { ViewChild } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
-import { MatPaginator } from "@angular/material/paginator";
+import { MatPaginator, PageEvent } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 import { ActivatedRoute, Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
+import {
+  merge,
+  of as observableOf
+} from 'rxjs';
+import { catchError, map, startWith, switchMap } from 'rxjs/operators';
 import { ComumComponente } from "../core/comum.component";
 import { DialogComponent } from "../core/dialog/dialog.component";
 import { SnackBarComponent } from '../core/snack-bar/snack-bar.component';
 import { MensagemModel } from '../security/model/error.model';
+
 
 export abstract class PrincipalComponente extends ComumComponente {
   protected alteracao: boolean;
@@ -24,8 +30,11 @@ export abstract class PrincipalComponente extends ComumComponente {
   public entidadePesquisa: any[];
   protected dataSource: MatTableDataSource<any> = new MatTableDataSource();
 
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  //@ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  //@ViewChild(MatSort, { static: true }) sort: MatSort;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   /**
    * Variáveis da paginação
@@ -54,8 +63,8 @@ export abstract class PrincipalComponente extends ComumComponente {
   }
 
   ngOnInit(): void {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    //this.dataSource.paginator = this.paginator;
+    //this.dataSource.sort = this.sort;
     this.alteracao = false;
     this.breadcrumb();
   }
@@ -90,20 +99,45 @@ export abstract class PrincipalComponente extends ComumComponente {
     this.router.navigate(["/" + this.pagina + "/" + id + "/alterar"]);
   }
 
-  public pesquisar(mostrarMensagem: boolean, modelo: any) {
-    this.modelo = modelo;
-    this.mostrarPesquisa = false;
-    this.servico.pesquisar(modelo.value).subscribe(
-      (data: any) => {
-        this.entidadePesquisa = data.lista;
-        if (mostrarMensagem) {
-          this.mensagemTela(data.mensagem.type, [data.mensagem.texto]);
-        }
-        if (this.entidadePesquisa.length > 0) {
+  getServerData(event?: PageEvent) {
+    this.modelo.paginaAtual = event.pageIndex;
+    this.modelo.quantidadeRegistros = event.pageSize;
+    this.pesquisar(false);
+  }
+
+  public pesquisar(mostrarMensagem: boolean) {
+    this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
+    merge(this.sort.sortChange, this.paginator.page)
+      .pipe(
+        startWith({}),
+        switchMap(() => {
+          this.isLoadingResults = true;
+
+          this.modelo.direcao = this.sort.direction;
+
+          this.modelo.campo = this.sort.active;
+
+          return this.servico.pesquisar(this.modelo);
+        }),
+        map((data: any) => {
+          this.isLoadingResults = false;
+          this.isRateLimitReached = false;
+          this.resultsLength = data.totalRegistros;
+
           this.mostrarPesquisa = true;
-        }
-      }
-    );
+          if (mostrarMensagem) {
+            //this.mensagemTela(data.mensagem.type,
+            //data.mensagem.texto);
+          }
+          return data.lista;
+        }),
+        catchError(() => {
+          this.isLoadingResults = false;
+          this.isRateLimitReached = true;
+          return observableOf([]);
+        })
+      ).subscribe((data: any) => this.entidadePesquisa = data);
+
   }
 
   protected salvar(formBuilder: any) {
@@ -234,9 +268,10 @@ export abstract class PrincipalComponente extends ComumComponente {
   protected redirecionamentoAposMensagem(type: string, mesmaPagina: boolean) {
     if (type !== "ERROR") {
       setTimeout(() => {
-        mesmaPagina
+        /*mesmaPagina
           ? this.pesquisar(false, this.modelo)
-          : this.router.navigate([this.pagina + "/pesquisar"]);
+          : this.router.navigate([this.pagina + "/pesquisar"]);*/
+        null
       }, 3600);
     }
   }
@@ -248,7 +283,7 @@ export abstract class PrincipalComponente extends ComumComponente {
   }
 
   private escolhendoNao() {
-    this.pesquisar(false, this.modelo);
+    //this.pesquisar(false, this.modelo);
     this.selecaoBusca = null;
   }
 }
