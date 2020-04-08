@@ -1,4 +1,4 @@
-import { OnInit, ViewChild } from "@angular/core";
+import { ViewChild } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { MatPaginator } from "@angular/material/paginator";
@@ -9,9 +9,9 @@ import { TranslateService } from "@ngx-translate/core";
 import { ComumComponente } from "../core/comum.component";
 import { DialogComponent } from "../core/dialog/dialog.component";
 import { SnackBarComponent } from '../core/snack-bar/snack-bar.component';
+import { MensagemModel } from '../security/model/error.model';
 
-export abstract class PrincipalComponente extends ComumComponente
-  implements OnInit {
+export abstract class PrincipalComponente extends ComumComponente {
   protected alteracao: boolean;
   protected tituloMenu: string;
   protected bread: string;
@@ -97,7 +97,7 @@ export abstract class PrincipalComponente extends ComumComponente
       (data: any) => {
         this.entidadePesquisa = data.lista;
         if (mostrarMensagem) {
-          this.mensagemTela(data.mensagem.type, data.mensagem.texto);
+          this.mensagemTela(data.mensagem.type, [data.mensagem.texto]);
         }
         if (this.entidadePesquisa.length > 0) {
           this.mostrarPesquisa = true;
@@ -121,6 +121,7 @@ export abstract class PrincipalComponente extends ComumComponente
         this.redirecionamentoAposMensagem(data, false);
       },
       (error: any) => {
+        console.log(error);
         super.mensagemTela('ERROR', error);
       }
     );
@@ -219,7 +220,11 @@ export abstract class PrincipalComponente extends ComumComponente
   protected antesAlterarDeletar(selecao: any, mensagem: string) {
     this.antesDeletarAlterar = false;
     if (selecao === undefined || selecao == null) {
-      super.mensagemTela('ERROR', [mensagem]);
+      let errorMessage = new MensagemModel();
+      let errorMessages: Array<MensagemModel> = [];
+      errorMessage.texto = mensagem;
+      errorMessages.push(errorMessage);
+      super.mensagemTela("ERROR", errorMessages);
       this.antesDeletarAlterar = true;
       return true;
     }

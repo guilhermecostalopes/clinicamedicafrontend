@@ -1,13 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 import { ComumComponente } from "src/app/core/comum.component";
 import { SharedService } from "src/app/core/services/shared/shared.service";
-import { CurrrentUserModel } from "../../model/currrent-user.model";
-import { LoginService } from "../../service/login.service";
 import { SnackBarComponent } from 'src/app/core/snack-bar/snack-bar.component';
+import { CurrrentUserModel } from "../../model/currrent-user.model";
+import { MensagemModel } from '../../model/error.model';
+import { LoginService } from "../../service/login.service";
 
 @Component({
   selector: "app-login",
@@ -67,8 +67,12 @@ export class LoginComponent extends ComumComponente implements OnInit {
         this.router.navigate(["/"]);
       },
       (err: any) => {
-        console.log(err);
-        this.mensagemTela("ERROR", ["Erro ao tentar logar !"]);
+        let errorMessage = new MensagemModel();
+        let errorMessages: Array<MensagemModel> = [];
+        errorMessage.texto = "Sem permissão para acessa a página !";
+        errorMessages.push(errorMessage);
+        console.log(errorMessages);
+        this.mensagemTela("ERROR", errorMessages);
       }
     );
   }

@@ -8,11 +8,12 @@ import {
 import { MatDialog } from "@angular/material/dialog";
 import { ActivatedRoute, Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
-import { EnumModel } from "src/app/core/model/enum.model";
 import { PrincipalComponente } from 'src/app/componentes/principal.componente';
-import { UsuarioService } from '../../service/usuario.service';
-import { UsuarioModel } from '../../model/usuario.model';
+import { EnumModel } from "src/app/core/model/enum.model";
 import { SnackBarComponent } from 'src/app/core/snack-bar/snack-bar.component';
+import { MensagemModel } from 'src/app/security/model/error.model';
+import { UsuarioModel } from '../../model/usuario.model';
+import { UsuarioService } from '../../service/usuario.service';
 
 @Component({
   selector: "app-usuario-incluir",
@@ -92,53 +93,54 @@ export class UsuarioIncluirComponent extends PrincipalComponente {
 
   public salvarForm() {
     if (this.usuarioIncluirFormGroup.invalid) {
+      let errorMessage = new MensagemModel();
+      let errorMessages: Array<MensagemModel> = [];
       if (this.usuarioIncluirFormGroup.get("nome").errors != null) {
-        if (this.usuarioIncluirFormGroup.get("nome").errors.required) {
-          super.mensagemTela("ERROR", ["Nome é obrigatório !"]);
-        } else if (this.usuarioIncluirFormGroup.get("nome").errors.minlength) {
-          super.mensagemTela(
-            "ERROR",
-            ["Nome deve ter no mínimo de 5 caracteres !"]
-          );
-        } else if (this.usuarioIncluirFormGroup.get("nome").errors.maxlength) {
-          super.mensagemTela(
-            "ERROR",
-            ["Nome deve ter no máximo de 255 caracteres !"]
-          );
+        const nome = this.usuarioIncluirFormGroup.get("nome").errors;
+        if (nome.required) {
+          errorMessage.texto = "Nome é obrigatório !";
+        } else if (nome.minlength) {
+          errorMessage.texto = "Nome deve ter no mínimo de " +
+            nome.minlength.requiredLength
+            + " caracteres !";
+        } else if (nome.maxlength) {
+          errorMessage.texto = "Nome deve ter no máximo de " +
+            nome.maxlength.requiredLength
+            + " caracteres !";
         }
       } else if (this.usuarioIncluirFormGroup.get("login").errors != null) {
-        if (this.usuarioIncluirFormGroup.get("login").errors.required) {
-          super.mensagemTela("ERROR", ["Login é obrigatório !"]);
-        } else if (this.usuarioIncluirFormGroup.get("login").errors.minlength) {
-          super.mensagemTela(
-            "ERROR",
-            ["Login deve ter no mínimo de 5 caracteres !"]
-          );
-        } else if (this.usuarioIncluirFormGroup.get("login").errors.maxlength) {
-          super.mensagemTela(
-            "ERROR",
-            ["Login deve ter no máximo de 255 caracteres !"]
-          );
+        const login = this.usuarioIncluirFormGroup.get("login").errors;
+        if (login.errors.required) {
+          errorMessage.texto = "Login é obrigatório !";
+        } else if (login.errors.minlength) {
+          errorMessage.texto = "Login deve ter no mínimo de " +
+            login.minlength.requiredLength
+            + " caracteres !";
+        } else if (login.errors.maxlength) {
+          errorMessage.texto = "Login deve ter no máximo de " +
+            login.maxlength.requiredLength
+            + " caracteres !";
         }
       } else if (this.usuarioIncluirFormGroup.get("senha").errors != null) {
-        if (this.usuarioIncluirFormGroup.get("senha").errors.required) {
-          super.mensagemTela("ERROR", ["Senha é obrigatório !"]);
-        } else if (this.usuarioIncluirFormGroup.get("login").errors.minlength) {
-          super.mensagemTela(
-            "ERROR",
-            ["Senha deve ter no mínimo de 8 caracteres !"]
-          );
-        } else if (this.usuarioIncluirFormGroup.get("senha").errors.maxlength) {
-          super.mensagemTela(
-            "ERROR",
-          ["Senha deve ter no máximo de 14 caracteres !"]
-          );
+        const senha = this.usuarioIncluirFormGroup.get("senha").errors;
+        if (senha.errors.required) {
+          errorMessage.texto = "Senha é obrigatório !";
+        } else if (senha.errors.minlength) {
+          errorMessage.texto = "Senha deve ter no mínimo de " +
+            senha.minlength.requiredLength
+            + " caracteres !";
+        } else if (senha.errors.maxlength) {
+          errorMessage.texto = "Senha deve ter no máximo de " +
+            senha.maxlength.requiredLength
+            + " caracteres !";
         }
       } else if (this.usuarioIncluirFormGroup.get("role").errors != null) {
         if (this.usuarioIncluirFormGroup.get("role").errors.required) {
-          super.mensagemTela("ERROR", ["Role da consulta é obarigatório !"]);
+          errorMessage.texto = "Role da consulta é obrigatório !";
         }
       }
+      errorMessages.push(errorMessage);
+      super.mensagemTela("ERROR", errorMessages);
       return;
     }
     super.salvar(this.usuarioIncluirFormGroup.value);
@@ -151,10 +153,10 @@ export class UsuarioIncluirComponent extends PrincipalComponente {
 
   private buscarRoles() {
     this.service.buscarRoles().subscribe((data: any) => {
-      data.forEach((e: any) => {
+      data.forEach((dado: any) => {
         let enun = new EnumModel();
-        enun.key = e.key;
-        enun.texto = e.texto;
+        enun.key = dado.key;
+        enun.texto = dado.texto;
         this.roles.push(enun);
       });
     });

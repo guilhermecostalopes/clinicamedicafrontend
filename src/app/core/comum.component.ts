@@ -1,12 +1,13 @@
 import { OnInit } from "@angular/core";
 import { SnackBarComponent } from "./snack-bar/snack-bar.component";
+import { MensagemModel } from '../security/model/error.model';
 
 export abstract class ComumComponente implements OnInit {
   constructor(public snackBar: SnackBarComponent) { }
 
   ngOnInit(): void { }
 
-  protected mensagemTela(tipoMensagem: string, mensagens: any[]) {
+  protected mensagemTela(tipoMensagem: string, mensagens: MensagemModel[]) {
     const mensagem: string = this.ajustarMensagens(mensagens);
     if (tipoMensagem === "ERROR") {
       this.snackBar.openSnackBar(mensagem, 'error')
@@ -19,10 +20,10 @@ export abstract class ComumComponente implements OnInit {
     }
   }
 
-  private ajustarMensagens(mensagens: any[]) {
+  private ajustarMensagens(mensagens: MensagemModel[]) {
     let mensagemRetorno: string = '';
     mensagens.forEach(m => {
-      mensagemRetorno = mensagemRetorno + (m.texto == undefined || m.texto == null) ? m : m.texto;
+      mensagemRetorno = mensagemRetorno + m.texto;
     });
     return mensagemRetorno;
   }
