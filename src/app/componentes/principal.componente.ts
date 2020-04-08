@@ -61,18 +61,16 @@ export abstract class PrincipalComponente extends ComumComponente
   }
 
   private breadcrumb() {
-    const rotaAtalMomento = this.routaAtual.snapshot.url[0].path;
+    const rotaAtalMomento = this.routaAtual.snapshot.url[1].path;
     if (String(rotaAtalMomento) === "incluir") {
       this.bread = "Pesquisar >> ";
       this.tituloMenu = " Incluir ";
     } else if (String(rotaAtalMomento) === "pesquisar") {
       this.tituloMenu = " Pesquisar ";
     } else {
-      const rota = this.routaAtual.snapshot.url[1].path;
+      const rota = this.routaAtual.snapshot.url[0].path;
       if (String(rota) === "visualizar") {
         this.tituloMenu = " Visualizar ";
-      } else {
-        this.tituloMenu = " Alterar ";
       }
       this.bread = "Pesquisar >> ";
       this.alteracao = true;
@@ -126,7 +124,7 @@ export abstract class PrincipalComponente extends ComumComponente
         this.redirecionamentoAposMensagem(data, false);
       },
       (error: any) => {
-        this.mensagemErro(error);
+        super.mensagemTela('ERROR', error);
       }
     );
   }
@@ -138,7 +136,7 @@ export abstract class PrincipalComponente extends ComumComponente
         this.redirecionamentoAposMensagem(data, false);
       },
       (error: any) => {
-        this.mensagemErro(error);
+        super.mensagemTela('ERROR', error);
       }
     );
   }
@@ -150,13 +148,13 @@ export abstract class PrincipalComponente extends ComumComponente
         this.redirecionamentoAposMensagem(data, false);
       },
       (error: any) => {
-        this.mensagemErro(error);
+        super.mensagemTela('ERROR', error);
       }
     );
   }
 
   public limparAlterar() {
-    this.id = Number(this.routaAtual.snapshot.url[0].path);
+    this.id = Number(this.routaAtual.snapshot.url[1].path);
     this.preenchendoCampoAlteracao();
   }
 
@@ -207,7 +205,7 @@ export abstract class PrincipalComponente extends ComumComponente
                 this.aposBloquearDesbloquearInativarDeletar(data);
               },
               (error: any) => {
-                this.mensagemErro(error);
+                super.mensagemTela('ERROR', error);
               }
             );
           } else {
@@ -215,7 +213,7 @@ export abstract class PrincipalComponente extends ComumComponente
           }
         },
         (error: any) => {
-          this.mensagemErro(error);
+          super.mensagemTela('ERROR', error);
         }
       );
     }
@@ -224,7 +222,7 @@ export abstract class PrincipalComponente extends ComumComponente
   protected antesAlterarDeletar(selecao: any, mensagem: string) {
     this.antesDeletarAlterar = false;
     if (selecao === undefined || selecao == null) {
-      this.mensagemTela("ERROR", mensagem);
+      super.mensagemTela('ERROR', mensagem);
       this.antesDeletarAlterar = true;
       return true;
     }
@@ -245,10 +243,6 @@ export abstract class PrincipalComponente extends ComumComponente
     this.mensagemTela(data.mensagem.type, data.mensagem.texto);
     this.redirecionamentoAposMensagem(data, true);
     this.selecaoBusca = null;
-  }
-
-  private mensagemErro(erroServidor: any) {
-    this.mensagemTela(erroServidor.error.type, erroServidor.error.texto);
   }
 
   private escolhendoNao() {

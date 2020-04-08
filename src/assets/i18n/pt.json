@@ -12,7 +12,7 @@
     "DOCUMENTO": "CPF ou CNPJ do usuário",
     "SISTEMA": "Login no sistema de clinica médica",
     "SENHA": "Senha do usuário",
-    "RECUPERAR_SENHA": "Recover password",
+    "RECUPERAR_SENHA": "Recuperar a senha",
     "LOGOUT": "Sair"
   },
   "ESPECIALIDADES": {

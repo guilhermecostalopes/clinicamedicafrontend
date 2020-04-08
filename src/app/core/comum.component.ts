@@ -6,7 +6,8 @@ export abstract class ComumComponente implements OnInit {
 
   ngOnInit(): void { }
 
-  protected mensagemTela(tipoMensagem: string, mensagem: string) {
+  protected mensagemTela(tipoMensagem: string, mensagens: any[]) {
+    const mensagem: string = this.ajustarMensagens(mensagens);
     if (tipoMensagem === "ERROR") {
       this.snackBar.openSnackBar(mensagem, 'error')
     } else if (tipoMensagem === "SUCCESS") {
@@ -16,6 +17,14 @@ export abstract class ComumComponente implements OnInit {
     } else {
       this.snackBar.openSnackBar(mensagem)
     }
+  }
+
+  private ajustarMensagens(mensagens: any[]) {
+    let mensagemRetorno: string = '';
+    mensagens.forEach(m => {
+      mensagemRetorno = mensagemRetorno + m.texto;
+    });
+    return mensagemRetorno;
   }
 
   public cpfMask() {

@@ -10,7 +10,6 @@ import { LoginService } from 'src/app/security/service/login.service';
 })
 export class MenuComponent {
   options: FormGroup;
-  logado: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -29,6 +28,6 @@ export class MenuComponent {
   );
 
   usuarioLogado() {
-    this.logado = this.loginService.isAuthenticated;
+    return this.loginService.isAuthenticated;
   }
 }

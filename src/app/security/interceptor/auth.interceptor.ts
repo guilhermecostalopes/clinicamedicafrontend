@@ -7,9 +7,9 @@ import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
 import { catchError, finalize, retry } from "rxjs/operators";
 import { ComumComponente } from "src/app/core/comum.component";
+import { SnackBarComponent } from 'src/app/core/snack-bar/snack-bar.component';
 import { LoaderService } from "../../core/services/loader/loader.service";
 import { SharedService } from "../../core/services/shared/shared.service";
-import { SnackBarComponent } from 'src/app/core/snack-bar/snack-bar.component';
 
 @Injectable()
 export class AuthInterceptor extends ComumComponente
@@ -41,25 +41,24 @@ export class AuthInterceptor extends ComumComponente
         finalize(() => this.loaderService.hide()),
         retry(1),
         catchError((error: HttpErrorResponse) => {
-          let errorMessage = "";
+          let errorMessage = [];
           if (error.status === 401) {
             if (error.error instanceof ErrorEvent) {
-              errorMessage = `Error: ${error.error.message}`;
+              errorMessage[0] = `Error: ${error.error.message}`;
             } else {
-              errorMessage = "Sem autorização para esta ação !";
+              errorMessage[0] = "Sem autorização para esta ação !";
             }
             this.mensagemTela("ERROR", errorMessage);
             return throwError(errorMessage);
           } else if (error.status === 403) {
-            errorMessage = "Sem permissão para acessa a página !";
+            errorMessage[0] = "Sem permissão para acessa a página !";
             this.mensagemTela("WARNING", errorMessage);
             return throwError(errorMessage);
           } else if (error.status === 409) {
-            errorMessage = error.error[0].texto;
-            this.mensagemTela("ERROR", errorMessage);
-            return throwError(errorMessage);
+            this.mensagemTela("ERROR", error.error);
+            return throwError(error.error);
           } else if (error.status === 0 || error.status === 400) {
-            errorMessage = "Favor contactar o administrador do sistema !";
+            errorMessage[0] = "Favor contactar o administrador do sistema !";
             this.mensagemTela("ERROR", errorMessage);
             return throwError(errorMessage);
           }
