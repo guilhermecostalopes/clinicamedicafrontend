@@ -82,35 +82,35 @@ export class UsuarioAlterarComponent extends PrincipalComponente {
     if (this.usuarioAlterarFormGroup.invalid) {
       if (this.usuarioAlterarFormGroup.get("nome").errors != null) {
         if (this.usuarioAlterarFormGroup.get("nome").errors.required) {
-          super.mensagemTela("ERROR", "Nome é obrigatório !");
+          super.mensagemTela("ERROR", ["Nome é obrigatório !"]);
         } else if (this.usuarioAlterarFormGroup.get("nome").errors.minlength) {
           super.mensagemTela(
             "ERROR",
-            "Nome deve ter no mínimo de 5 caracteres !"
+            ["Nome deve ter no mínimo de 5 caracteres !"]
           );
         } else if (this.usuarioAlterarFormGroup.get("nome").errors.maxlength) {
           super.mensagemTela(
             "ERROR",
-            "Nome deve ter no máximo de 255 caracteres !"
+            ["Nome deve ter no máximo de 255 caracteres !"]
           );
         }
       } else if (this.usuarioAlterarFormGroup.get("login").errors != null) {
         if (this.usuarioAlterarFormGroup.get("login").errors.required) {
-          super.mensagemTela("ERROR", "Login é obrigatório !");
+          super.mensagemTela("ERROR", ["Login é obrigatório !"]);
         } else if (this.usuarioAlterarFormGroup.get("login").errors.minlength) {
           super.mensagemTela(
             "ERROR",
-            "Login deve ter no mínimo de 5 caracteres !"
+            ["Login deve ter no mínimo de 5 caracteres !"]
           );
         } else if (this.usuarioAlterarFormGroup.get("login").errors.maxlength) {
           super.mensagemTela(
             "ERROR",
-            "Login deve ter no máximo de 255 caracteres !"
+            ["Login deve ter no máximo de 255 caracteres !"]
           );
         }
       } else if (this.usuarioAlterarFormGroup.get("role").errors != null) {
         if (this.usuarioAlterarFormGroup.get("role").errors.required) {
-          super.mensagemTela("ERROR", "Role da consulta é obarigatório !");
+          super.mensagemTela("ERROR", ["Role da consulta é obrigatório !"]);
         }
       }
       return;

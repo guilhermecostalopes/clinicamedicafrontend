@@ -100,7 +100,7 @@ export class FichaPacienteIncluirComponent extends PrincipalComponente {
         if (
           this.fichaPacienteIncluirFormGroup.get("pacientes").errors.required
         ) {
-          super.mensagemTela("ERROR", "Paciente é obrigatório !");
+          super.mensagemTela("ERROR", ["Paciente é obrigatório !"]);
         }
       } else if (
         this.fichaPacienteIncluirFormGroup.get("numeroCarteiraPlano").errors !=
@@ -112,7 +112,7 @@ export class FichaPacienteIncluirComponent extends PrincipalComponente {
         ) {
           super.mensagemTela(
             "ERROR",
-            "Número da carteira do paciente é obrigatório !"
+            ["Número da carteira do paciente é obrigatório !"]
           );
         } else if (
           this.fichaPacienteIncluirFormGroup.get("numeroCarteiraPlano").errors
@@ -120,7 +120,7 @@ export class FichaPacienteIncluirComponent extends PrincipalComponente {
         ) {
           super.mensagemTela(
             "ERROR",
-            "Número da carteira do paciente deve ter no mínimo de 5 caracteres !"
+            ["Número da carteira do paciente deve ter no mínimo de 5 caracteres !"]
           );
         } else if (
           this.fichaPacienteIncluirFormGroup.get("numeroCarteiraPlano").errors
@@ -128,7 +128,7 @@ export class FichaPacienteIncluirComponent extends PrincipalComponente {
         ) {
           super.mensagemTela(
             "ERROR",
-            "Número da carteira do paciente deve ter no máximo de 255 caracteres !"
+            ["Número da carteira do paciente deve ter no máximo de 255 caracteres !"]
           );
         }
       } else if (
@@ -140,7 +140,7 @@ export class FichaPacienteIncluirComponent extends PrincipalComponente {
         ) {
           super.mensagemTela(
             "ERROR",
-            "Plano de saúde do paciente é obrigatório !"
+            ["Plano de saúde do paciente é obrigatório !"]
           );
         }
       } else if (
@@ -152,20 +152,20 @@ export class FichaPacienteIncluirComponent extends PrincipalComponente {
         ) {
           super.mensagemTela(
             "ERROR",
-            "Especialidade do médico do paciente é obrigatório !"
+            ["Especialidade do médico do paciente é obrigatório !"]
           );
         }
       } else if (
         this.fichaPacienteIncluirFormGroup.get("valor").errors != null
       ) {
         if (this.fichaPacienteIncluirFormGroup.get("valor").errors.required) {
-          super.mensagemTela("ERROR", "Valor da consulta é obarigatório !");
+          super.mensagemTela("ERROR", ["Valor da consulta é obarigatório !"]);
         }
       } else if (
         this.fichaPacienteIncluirFormGroup.get("data").errors != null
       ) {
         if (this.fichaPacienteIncluirFormGroup.get("data").errors.required) {
-          super.mensagemTela("ERROR", "Data da consulta é obrigatório !");
+          super.mensagemTela("ERROR", ["Data da consulta é obrigatório !"]);
         }
       }
       return;

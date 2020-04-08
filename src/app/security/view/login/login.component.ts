@@ -68,7 +68,7 @@ export class LoginComponent extends ComumComponente implements OnInit {
       },
       (err: any) => {
         console.log(err);
-        this.mensagemTela("ERROR", "Erro ao tentar logar !");
+        this.mensagemTela("ERROR", ["Erro ao tentar logar !"]);
       }
     );
   }

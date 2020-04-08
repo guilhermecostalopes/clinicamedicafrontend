@@ -104,7 +104,7 @@ export abstract class PrincipalComponente extends ComumComponente
         }
       },
       (err: any) => {
-        this.mensagemTela("ERROR", "");
+        this.mensagemTela("ERROR", []);
       }
     );
   }
@@ -222,7 +222,7 @@ export abstract class PrincipalComponente extends ComumComponente
   protected antesAlterarDeletar(selecao: any, mensagem: string) {
     this.antesDeletarAlterar = false;
     if (selecao === undefined || selecao == null) {
-      super.mensagemTela('ERROR', mensagem);
+      super.mensagemTela('ERROR', [mensagem]);
       this.antesDeletarAlterar = true;
       return true;
     }

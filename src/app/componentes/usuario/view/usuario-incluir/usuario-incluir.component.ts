@@ -94,49 +94,49 @@ export class UsuarioIncluirComponent extends PrincipalComponente {
     if (this.usuarioIncluirFormGroup.invalid) {
       if (this.usuarioIncluirFormGroup.get("nome").errors != null) {
         if (this.usuarioIncluirFormGroup.get("nome").errors.required) {
-          super.mensagemTela("ERROR", "Nome é obrigatório !");
+          super.mensagemTela("ERROR", ["Nome é obrigatório !"]);
         } else if (this.usuarioIncluirFormGroup.get("nome").errors.minlength) {
           super.mensagemTela(
             "ERROR",
-            "Nome deve ter no mínimo de 5 caracteres !"
+            ["Nome deve ter no mínimo de 5 caracteres !"]
           );
         } else if (this.usuarioIncluirFormGroup.get("nome").errors.maxlength) {
           super.mensagemTela(
             "ERROR",
-            "Nome deve ter no máximo de 255 caracteres !"
+            ["Nome deve ter no máximo de 255 caracteres !"]
           );
         }
       } else if (this.usuarioIncluirFormGroup.get("login").errors != null) {
         if (this.usuarioIncluirFormGroup.get("login").errors.required) {
-          super.mensagemTela("ERROR", "Login é obrigatório !");
+          super.mensagemTela("ERROR", ["Login é obrigatório !"]);
         } else if (this.usuarioIncluirFormGroup.get("login").errors.minlength) {
           super.mensagemTela(
             "ERROR",
-            "Login deve ter no mínimo de 5 caracteres !"
+            ["Login deve ter no mínimo de 5 caracteres !"]
           );
         } else if (this.usuarioIncluirFormGroup.get("login").errors.maxlength) {
           super.mensagemTela(
             "ERROR",
-            "Login deve ter no máximo de 255 caracteres !"
+            ["Login deve ter no máximo de 255 caracteres !"]
           );
         }
       } else if (this.usuarioIncluirFormGroup.get("senha").errors != null) {
         if (this.usuarioIncluirFormGroup.get("senha").errors.required) {
-          super.mensagemTela("ERROR", "Senha é obrigatório !");
+          super.mensagemTela("ERROR", ["Senha é obrigatório !"]);
         } else if (this.usuarioIncluirFormGroup.get("login").errors.minlength) {
           super.mensagemTela(
             "ERROR",
-            "Senha deve ter no mínimo de 8 caracteres !"
+            ["Senha deve ter no mínimo de 8 caracteres !"]
           );
         } else if (this.usuarioIncluirFormGroup.get("senha").errors.maxlength) {
           super.mensagemTela(
             "ERROR",
-            "Senha deve ter no máximo de 14 caracteres !"
+          ["Senha deve ter no máximo de 14 caracteres !"]
           );
         }
       } else if (this.usuarioIncluirFormGroup.get("role").errors != null) {
         if (this.usuarioIncluirFormGroup.get("role").errors.required) {
-          super.mensagemTela("ERROR", "Role da consulta é obarigatório !");
+          super.mensagemTela("ERROR", ["Role da consulta é obarigatório !"]);
         }
       }
       return;

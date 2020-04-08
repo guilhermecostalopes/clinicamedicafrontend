@@ -84,7 +84,7 @@ export class FichaPacienteAlterarComponent extends PrincipalComponente {
     if (this.fichaPacienteAlterarFormGroup.invalid) {
       if (this.fichaPacienteAlterarFormGroup.get("id").errors != null) {
         if (this.fichaPacienteAlterarFormGroup.get("id").errors.required) {
-          super.mensagemTela("ERROR", "Para alterar o ID é obrigatório !");
+          super.mensagemTela("ERROR", ["Para alterar o ID é obrigatório !"]);
         }
       } else if (
         this.fichaPacienteAlterarFormGroup.get("nomePaciente").errors != null
@@ -92,14 +92,14 @@ export class FichaPacienteAlterarComponent extends PrincipalComponente {
         if (
           this.fichaPacienteAlterarFormGroup.get("nomePaciente").errors.required
         ) {
-          super.mensagemTela("ERROR", "Nome do paciente é obrigatório !");
+          super.mensagemTela("ERROR", ["Nome do paciente é obrigatório !"]);
         } else if (
           this.fichaPacienteAlterarFormGroup.get("nomePaciente").errors
             .minlength
         ) {
           super.mensagemTela(
             "ERROR",
-            "Nome do paciente deve ter no mínimo de 5 caracteres !"
+            ["Nome do paciente deve ter no mínimo de 5 caracteres !"]
           );
         } else if (
           this.fichaPacienteAlterarFormGroup.get("nomePaciente").errors
@@ -107,7 +107,7 @@ export class FichaPacienteAlterarComponent extends PrincipalComponente {
         ) {
           super.mensagemTela(
             "ERROR",
-            "Nome do paciente deve ter no máximo de 255 caracteres !"
+            ["Nome do paciente deve ter no máximo de 255 caracteres !"]
           );
         }
       } else if (
@@ -120,7 +120,7 @@ export class FichaPacienteAlterarComponent extends PrincipalComponente {
         ) {
           super.mensagemTela(
             "ERROR",
-            "Número da carteira do paciente é obrigatório !"
+            ["Número da carteira do paciente é obrigatório !"]
           );
         } else if (
           this.fichaPacienteAlterarFormGroup.get("numeroCarteiraPlano").errors
@@ -128,7 +128,7 @@ export class FichaPacienteAlterarComponent extends PrincipalComponente {
         ) {
           super.mensagemTela(
             "ERROR",
-            "Número da carteira do paciente deve ter no mínimo de 5 caracteres !"
+            ["Número da carteira do paciente deve ter no mínimo de 5 caracteres !"]
           );
         } else if (
           this.fichaPacienteAlterarFormGroup.get("numeroCarteiraPlano").errors
@@ -136,7 +136,7 @@ export class FichaPacienteAlterarComponent extends PrincipalComponente {
         ) {
           super.mensagemTela(
             "ERROR",
-            "Número da carteira do paciente deve ter no máximo de 255 caracteres !"
+            ["Número da carteira do paciente deve ter no máximo de 255 caracteres !"]
           );
         }
       } else if (
@@ -148,7 +148,7 @@ export class FichaPacienteAlterarComponent extends PrincipalComponente {
         ) {
           super.mensagemTela(
             "ERROR",
-            "Plano de saúde do paciente é obrigatório !"
+            ["Plano de saúde do paciente é obrigatório !"]
           );
         }
       } else if (
@@ -160,7 +160,7 @@ export class FichaPacienteAlterarComponent extends PrincipalComponente {
         ) {
           super.mensagemTela(
             "ERROR",
-            "Especialidade do médico do paciente é obrigatório !"
+            ["Especialidade do médico do paciente é obrigatório !"]
           );
         }
       }

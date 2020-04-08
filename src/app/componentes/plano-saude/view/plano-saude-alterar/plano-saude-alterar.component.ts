@@ -68,20 +68,20 @@ export class PlanoSaudeAlterarComponent extends PrincipalComponente {
     if (this.planoSaudeAlterarFormGroup.invalid) {
       if (this.planoSaudeAlterarFormGroup.get("nome").errors != null) {
         if (this.planoSaudeAlterarFormGroup.get("nome").errors.required) {
-          super.mensagemTela("ERROR", "Nome do plano de saúde é obrigatório !");
+          super.mensagemTela("ERROR", ["Nome do plano de saúde é obrigatório !"]);
         } else if (
           this.planoSaudeAlterarFormGroup.get("nome").errors.minlength
         ) {
           super.mensagemTela(
             "ERROR",
-            "Nome do plano de saúde deve ter no mínimo de 5 caracteres !"
+            ["Nome do plano de saúde deve ter no mínimo de 5 caracteres !"]
           );
         } else if (
           this.planoSaudeAlterarFormGroup.get("nome").errors.maxlength
         ) {
           super.mensagemTela(
             "ERROR",
-            "Nome do plano de saúde deve ter no máximo de 255 caracteres !"
+            ["Nome do plano de saúde deve ter no máximo de 255 caracteres !"]
           );
         }
       }
