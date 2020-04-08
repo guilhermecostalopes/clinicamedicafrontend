@@ -61,7 +61,7 @@ export class FichaPacientePesquisaComponent extends PrincipalComponente {
   }
 
   public pesquisarBaseDados() {
-    super.pesquisar(true, this.fichaSaudePesquisarFormGroup);
+    //super.pesquisar(true, this.fichaSaudePesquisarFormGroup);
   }
 
   public limpar() {

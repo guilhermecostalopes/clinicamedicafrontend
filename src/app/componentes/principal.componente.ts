@@ -26,27 +26,20 @@ export abstract class PrincipalComponente extends ComumComponente {
   protected selecaoBusca: any;
   protected id: number;
 
-  protected displayedColumns: string[];
+  /**
+   * Páginas d pesquisas
+   */
   public entidadePesquisa: any[];
   protected dataSource: MatTableDataSource<any> = new MatTableDataSource();
 
-  //@ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  //@ViewChild(MatSort, { static: true }) sort: MatSort;
-
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-
   /**
    * Variáveis da paginação
    */
-  public pageIndex = 0;
   public resultsLength = 0;
   public isLoadingResults = false;
   public isRateLimitReached = false;
-  public paginaAtual: number;
-  public quantidadeRegistros: number;
-  public campo: string;
-  public direcao: string;
   public mostrarPesquisa: boolean;
 
   constructor(
@@ -63,8 +56,6 @@ export abstract class PrincipalComponente extends ComumComponente {
   }
 
   ngOnInit(): void {
-    //this.dataSource.paginator = this.paginator;
-    //this.dataSource.sort = this.sort;
     this.alteracao = false;
     this.breadcrumb();
   }
@@ -105,25 +96,21 @@ export abstract class PrincipalComponente extends ComumComponente {
     this.pesquisar(false);
   }
 
-  public pesquisar(mostrarMensagem: boolean) {
+  pesquisar(mostrarMensagem: boolean) {
     this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
     merge(this.sort.sortChange, this.paginator.page)
       .pipe(
         startWith({}),
         switchMap(() => {
           this.isLoadingResults = true;
-
           this.modelo.direcao = this.sort.direction;
-
           this.modelo.campo = this.sort.active;
-
           return this.servico.pesquisar(this.modelo);
         }),
         map((data: any) => {
           this.isLoadingResults = false;
           this.isRateLimitReached = false;
           this.resultsLength = data.totalRegistros;
-
           this.mostrarPesquisa = true;
           if (mostrarMensagem) {
             //this.mensagemTela(data.mensagem.type,
@@ -198,8 +185,7 @@ export abstract class PrincipalComponente extends ComumComponente {
     this.servico.buscarPeloId(this.id).subscribe(
       (data: any) => {
         this.modelo = data;
-      },
-      (error: any) => { }
+      }
     );
   }
 

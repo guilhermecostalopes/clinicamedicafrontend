@@ -44,7 +44,8 @@
       <mat-card-title>{{ 'ESPECIALIDADES.RESULTADO_POR' | translate }}</mat-card-title>
     </mat-card-content>
     <div class="example-table-container">
-      <table mat-table [dataSource]="entidadePesquisa" class="example-table" matSort>
+      <table mat-table [dataSource]="entidadePesquisa" class="example-table"
+        matSort matSortActive="nome" matSortDisableClear matSortDirection="asc">
         <ng-container matColumnDef="select">
           <th mat-header-cell *matHeaderCellDef></th>
           <td mat-cell *matCellDef="let element">
@@ -52,7 +53,7 @@
           </td>
         </ng-container>
         <ng-container matColumnDef="nome">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ 'ESPECIALIDADES.NOME' | translate }}
+          <th  mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ 'ESPECIALIDADES.NOME' | translate }}
           </th>
           <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
         </ng-container>
@@ -62,5 +63,6 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
     </div>
+    <mat-paginator [length]="resultsLength" [pageSize]="10" (page)="getServerData($event)"></mat-paginator>
   </mat-card>
 </div>

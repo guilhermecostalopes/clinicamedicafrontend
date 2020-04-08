@@ -64,21 +64,21 @@ export class EspecialidadeIncluirComponent extends PrincipalComponente {
     if (this.especialidadeIncluirFormGroup.invalid) {
       if (this.especialidadeIncluirFormGroup.get("nome").errors != null) {
         if (this.especialidadeIncluirFormGroup.get("nome").errors.required) {
-          super.mensagemTela("ERROR", ["Nome é obrigatório !"]);
+          //super.mensagemTela("ERROR", ["Nome é obrigatório !"]);
         } else if (
           this.especialidadeIncluirFormGroup.get("nome").errors.minlength
         ) {
-          super.mensagemTela(
+          /*super.mensagemTela(
             "ERROR",
             ["Nome deve ter no mínimo de 5 caracteres !"]
-          );
+          );*/
         } else if (
           this.especialidadeIncluirFormGroup.get("nome").errors.maxlength
         ) {
-          super.mensagemTela(
+          /*super.mensagemTela(
             "ERROR",
             ["Nome deve ter no máximo de 255 caracteres !"]
-          );
+          );*/
         }
       }
       return;

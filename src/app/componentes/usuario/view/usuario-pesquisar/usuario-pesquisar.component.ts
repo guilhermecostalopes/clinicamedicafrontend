@@ -52,7 +52,7 @@ export class UsuarioPesquisarComponent extends PrincipalComponente {
   }
 
   public pesquisarBaseDados() {
-    super.pesquisar(true, this.usuarioPesquisarFormGroup);
+    //super.pesquisar(true, this.usuarioPesquisarFormGroup);
   }
 
   public limpar() {

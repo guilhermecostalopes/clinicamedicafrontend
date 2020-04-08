@@ -14,14 +14,13 @@ import {
   PerfectScrollbarModule,
   PERFECT_SCROLLBAR_CONFIG
 } from "ngx-perfect-scrollbar";
-//import { AppRoutingModule } from "../app-routing.module";
 import { MenuItems } from "../componentes/shared/menu/menu-items";
 import { AuthInterceptor } from "../security/interceptor/auth.interceptor";
 import { DialogComponent } from "./dialog/dialog.component";
+import { LoaderComponent } from './loader/loader.component';
 import { MaterialModule } from "./material-module/material.module";
 import { LoaderService } from "./services/loader/loader.service";
 import { SnackBarComponent } from './snack-bar/snack-bar.component';
-//import { AppRoutingModule } from "../app-routing.module";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -49,7 +48,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       }
     })
   ],
-  declarations: [DialogComponent, SnackBarComponent],
+  declarations: [DialogComponent, SnackBarComponent, LoaderComponent],
   providers: [
     MenuItems,
     {
@@ -75,7 +74,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ReactiveFormsModule,
     HttpClientModule,
     TextMaskModule,
-    TranslateModule
+    TranslateModule,
+    LoaderComponent
   ]
 })
 export class ComumModule { }
