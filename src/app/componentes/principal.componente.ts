@@ -102,9 +102,6 @@ export abstract class PrincipalComponente extends ComumComponente
         if (this.entidadePesquisa.length > 0) {
           this.mostrarPesquisa = true;
         }
-      },
-      (err: any) => {
-        this.mensagemTela("ERROR", []);
       }
     );
   }

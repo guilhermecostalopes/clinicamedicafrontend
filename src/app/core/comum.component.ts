@@ -22,7 +22,7 @@ export abstract class ComumComponente implements OnInit {
   private ajustarMensagens(mensagens: any[]) {
     let mensagemRetorno: string = '';
     mensagens.forEach(m => {
-      mensagemRetorno = mensagemRetorno + m.texto;
+      mensagemRetorno = mensagemRetorno + (m.texto == undefined || m.texto == null) ? m : m.texto;
     });
     return mensagemRetorno;
   }

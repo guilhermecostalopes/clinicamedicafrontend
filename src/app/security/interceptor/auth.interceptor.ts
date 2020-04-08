@@ -44,21 +44,22 @@ export class AuthInterceptor extends ComumComponente
           let errorMessage = [];
           if (error.status === 401) {
             if (error.error instanceof ErrorEvent) {
-              errorMessage[0] = `Error: ${error.error.message}`;
+              errorMessage = [`Error: ${error.error.message}`];
             } else {
-              errorMessage[0] = "Sem autorização para esta ação !";
+              errorMessage = ["Sem autorização para esta ação !"];
             }
             this.mensagemTela("ERROR", errorMessage);
             return throwError(errorMessage);
           } else if (error.status === 403) {
-            errorMessage[0] = "Sem permissão para acessa a página !";
+            errorMessage = ["Sem permissão para acessa a página !"];
             this.mensagemTela("WARNING", errorMessage);
             return throwError(errorMessage);
           } else if (error.status === 409) {
-            this.mensagemTela("ERROR", error.error);
+            errorMessage = error.error;
+            this.mensagemTela("ERROR", errorMessage);
             return throwError(error.error);
           } else if (error.status === 0 || error.status === 400) {
-            errorMessage[0] = "Favor contactar o administrador do sistema !";
+            errorMessage = ["Favor contactar o administrador do sistema !"];
             this.mensagemTela("ERROR", errorMessage);
             return throwError(errorMessage);
           }
