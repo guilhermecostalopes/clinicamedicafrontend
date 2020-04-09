@@ -26,7 +26,7 @@ export class EspecialidadePesquisaComponent extends PrincipalComponente {
     public dialog: MatDialog,
     public routaAtual: ActivatedRoute,
     public translate: TranslateService,
-    public snackBar: SnackBarComponent
+    public snackBar: SnackBarComponent,
   ) {
     super(
       new PaginacaoEnvioModel(),
@@ -57,7 +57,7 @@ export class EspecialidadePesquisaComponent extends PrincipalComponente {
 
   public pesquisarBaseDados() {
     this.modelo.nome = this.especialidadePesquisarFormGroup.value.nome;
-    super.pesquisar(true);
+    super.pesquisarBanco(true);
   }
 
   public limpar() {
