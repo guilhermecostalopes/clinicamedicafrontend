@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 import { PrincipalComponente } from "src/app/componentes/principal.componente";
 import { SnackBarComponent } from 'src/app/core/snack-bar/snack-bar.component';
+import { MensagemModel } from 'src/app/security/model/error.model';
 import { EspecialidadeModel } from '../../model/especialidade.model';
 import { EpecialidadeService } from '../../service/epecialidade.service';
 
@@ -66,25 +67,25 @@ export class EspecialidadeAlterarComponent extends PrincipalComponente {
 
   public salvarForm() {
     if (this.especialidadeAlterarFormGroup.invalid) {
-      if (this.especialidadeAlterarFormGroup.get("nome").errors != null) {
-        if (this.especialidadeAlterarFormGroup.get("nome").errors.required) {
-          //super.mensagemTela("ERROR", ["Nome é obrigatório !"]);
-        } else if (
-          this.especialidadeAlterarFormGroup.get("nome").errors.minlength
-        ) {
-          /*super.mensagemTela(
-            "ERROR",
-            ["Nome deve ter no mínimo de 5 caracteres !"]
-          );*/
-        } else if (
-          this.especialidadeAlterarFormGroup.get("nome").errors.maxlength
-        ) {
-          /*super.mensagemTela(
-            "ERROR",
-            ["Nome deve ter no máximo de 255 caracteres !"]
-          );*/
+      let errorMessage = new MensagemModel();
+      let errorMessages: Array<MensagemModel> = [];
+      const nome = this.especialidadeAlterarFormGroup.get("nome");
+      if (nome.errors != null) {
+        const nomeError = nome.errors;
+        if (nomeError.required) {
+          errorMessage.texto = "Nome é obrigatório !";
+        } else if (nomeError.minlength) {
+          errorMessage.texto = "Nome deve ter no mínimo de " +
+            nomeError.minlength.requiredLength
+            + " caracteres !";
+        } else if (nomeError.maxlength) {
+          errorMessage.texto = "Nome deve ter no máximo de " +
+            nomeError.maxlength.requiredLength
+            + " caracteres !";
         }
       }
+      errorMessages.push(errorMessage);
+      super.mensagemTela("ERROR", errorMessages);
       return;
     }
     super.salvar(this.especialidadeAlterarFormGroup.value);

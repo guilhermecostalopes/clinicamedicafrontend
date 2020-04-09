@@ -1,8 +1,8 @@
 <mat-card>
   <form [formGroup]="especialidadePesquisarFormGroup">
-    <mat-card-content>
+    <mat-card-header>
       <mat-card-title>{{ 'CRUD.PESQUISAR' | translate }} {{ 'ESPECIALIDADES.PLURAL' | translate }}</mat-card-title>
-    </mat-card-content>
+    </mat-card-header>
     <mat-card-content>
       <button mat-mini-fab type="button"
         matTooltip="{{ 'CRUD.PESQUISAR' | translate }} {{ 'ESPECIALIDADES.SINGULAR' | translate }}" mat-fab
@@ -29,9 +29,7 @@
         mat-card-icon class="shadow-none" (click)="excluir()">
         <mat-icon>delete</mat-icon>
       </button>
-    </mat-card-content>
-    <mat-card-content>
-      <mat-form-field class="formulario-campo-width">
+      <mat-form-field>
         <input matInput placeholder="{{ 'ESPECIALIDADES.NOME' | translate }}" id="nome" formControlName="nome"
           name="nome" maxlength="255" />
       </mat-form-field>
@@ -40,29 +38,31 @@
 </mat-card>
 <div [hidden]="!mostrarPesquisa">
   <mat-card>
-    <mat-card-content>
+    <mat-card-header>
       <mat-card-title>{{ 'ESPECIALIDADES.RESULTADO_POR' | translate }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="example-table-container">
+        <table mat-table [dataSource]="entidadePesquisa" class="example-table" matSort matSortActive="nome"
+          matSortDisableClear matSortDirection="asc">
+          <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+              <mat-radio-button value="element" (click)="preencherId(element.id)"></mat-radio-button>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ 'ESPECIALIDADES.NOME' | translate }}
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns" class="example-first-header-row">
+          </tr>
+          <tr mat-header-row class="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+      <mat-paginator [length]="resultsLength" [pageSize]="10" (page)="getServerData($event)"></mat-paginator>
     </mat-card-content>
-    <div class="example-table-container">
-      <table mat-table [dataSource]="entidadePesquisa" class="example-table"
-        matSort matSortActive="nome" matSortDisableClear matSortDirection="asc">
-        <ng-container matColumnDef="select">
-          <th mat-header-cell *matHeaderCellDef></th>
-          <td mat-cell *matCellDef="let element">
-            <mat-radio-button value="element" (click)="preencherId(element.id)"></mat-radio-button>
-          </td>
-        </ng-container>
-        <ng-container matColumnDef="nome">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ 'ESPECIALIDADES.NOME' | translate }}
-          </th>
-          <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
-        </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumns" class="example-first-header-row">
-        </tr>
-        <tr mat-header-row class="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-    </div>
-    <mat-paginator [length]="resultsLength" [pageSize]="10" (page)="getServerData($event)"></mat-paginator>
   </mat-card>
 </div>

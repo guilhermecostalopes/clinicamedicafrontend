@@ -17,8 +17,7 @@ import { MensagemModel } from '../security/model/error.model';
 
 export abstract class PrincipalComponente extends ComumComponente {
   protected alteracao: boolean;
-  protected tituloMenu: string;
-  protected bread: string;
+  public bread: string;
 
   protected antesDeletarAlterar: boolean;
   protected selecaoBusca: any;
@@ -62,14 +61,8 @@ export abstract class PrincipalComponente extends ComumComponente {
     const rotaAtalMomento = this.routaAtual.snapshot.url[1].path;
     if (String(rotaAtalMomento) === "incluir") {
       this.bread = "Pesquisar >> ";
-      this.tituloMenu = " Incluir ";
     } else if (String(rotaAtalMomento) === "pesquisar") {
-      this.tituloMenu = " Pesquisar ";
     } else {
-      const rota = this.routaAtual.snapshot.url[0].path;
-      if (String(rota) === "visualizar") {
-        this.tituloMenu = " Visualizar ";
-      }
       this.bread = "Pesquisar >> ";
       this.alteracao = true;
       this.limparAlterar();

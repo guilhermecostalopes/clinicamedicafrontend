@@ -1,17 +1,17 @@
 import { Component } from "@angular/core";
 import {
-  FormGroup,
-  FormControl,
-  Validators,
-  FormBuilder
+  FormBuilder, FormControl, FormGroup,
+
+  Validators
 } from "@angular/forms";
-import { Router, ActivatedRoute } from "@angular/router";
 import { MatDialog } from "@angular/material/dialog";
-import { PrincipalComponente } from "src/app/componentes/principal.componente";
+import { ActivatedRoute, Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
-import { EpecialidadeService } from '../../service/epecialidade.service';
-import { EspecialidadeModel } from '../../model/especialidade.model';
+import { PrincipalComponente } from "src/app/componentes/principal.componente";
 import { SnackBarComponent } from 'src/app/core/snack-bar/snack-bar.component';
+import { MensagemModel } from 'src/app/security/model/error.model';
+import { EspecialidadeModel } from '../../model/especialidade.model';
+import { EpecialidadeService } from '../../service/epecialidade.service';
 
 @Component({
   selector: "app-especialidade-incluir",
@@ -62,25 +62,25 @@ export class EspecialidadeIncluirComponent extends PrincipalComponente {
 
   public salvarForm() {
     if (this.especialidadeIncluirFormGroup.invalid) {
-      if (this.especialidadeIncluirFormGroup.get("nome").errors != null) {
-        if (this.especialidadeIncluirFormGroup.get("nome").errors.required) {
-          //super.mensagemTela("ERROR", ["Nome é obrigatório !"]);
-        } else if (
-          this.especialidadeIncluirFormGroup.get("nome").errors.minlength
-        ) {
-          /*super.mensagemTela(
-            "ERROR",
-            ["Nome deve ter no mínimo de 5 caracteres !"]
-          );*/
-        } else if (
-          this.especialidadeIncluirFormGroup.get("nome").errors.maxlength
-        ) {
-          /*super.mensagemTela(
-            "ERROR",
-            ["Nome deve ter no máximo de 255 caracteres !"]
-          );*/
+      let errorMessage = new MensagemModel();
+      let errorMessages: Array<MensagemModel> = [];
+      const nome = this.especialidadeIncluirFormGroup.get("nome");
+      if (nome.errors != null) {
+        const nomeError = nome.errors;
+        if (nomeError.required) {
+          errorMessage.texto = "Nome é obrigatório !";
+        } else if (nomeError.minlength) {
+          errorMessage.texto = "Nome deve ter no mínimo de " +
+            nomeError.minlength.requiredLength
+            + " caracteres !";
+        } else if (nomeError.maxlength) {
+          errorMessage.texto = "Nome deve ter no máximo de " +
+            nomeError.maxlength.requiredLength
+            + " caracteres !";
         }
       }
+      errorMessages.push(errorMessage);
+      super.mensagemTela("ERROR", errorMessages);
       return;
     }
     super.salvar(this.especialidadeIncluirFormGroup.value);
