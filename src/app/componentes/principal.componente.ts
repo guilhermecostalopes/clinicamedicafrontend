@@ -1,5 +1,4 @@
 import { ViewChild } from "@angular/core";
-import { FormBuilder } from "@angular/forms";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { MatPaginator, PageEvent } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
@@ -15,7 +14,6 @@ import { ComumComponente } from "../core/comum.component";
 import { DialogComponent } from "../core/dialog/dialog.component";
 import { SnackBarComponent } from '../core/snack-bar/snack-bar.component';
 import { MensagemModel } from '../security/model/error.model';
-
 
 export abstract class PrincipalComponente extends ComumComponente {
   protected alteracao: boolean;
@@ -82,7 +80,7 @@ export abstract class PrincipalComponente extends ComumComponente {
     this.router.navigate(["/" + this.pagina + "/incluir"]);
   }
 
-  public voltar() {
+  public pesquisar() {
     this.router.navigate(["/" + this.pagina + "/pesquisar"]);
   }
 
@@ -93,10 +91,10 @@ export abstract class PrincipalComponente extends ComumComponente {
   getServerData(event?: PageEvent) {
     this.modelo.paginaAtual = event.pageIndex;
     this.modelo.quantidadeRegistros = event.pageSize;
-    this.pesquisar(false);
+    this.pesquisarBanco(false);
   }
 
-  pesquisar(mostrarMensagem: boolean) {
+  pesquisarBanco(mostrarMensagem: boolean) {
     this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
     merge(this.sort.sortChange, this.paginator.page)
       .pipe(
@@ -113,8 +111,12 @@ export abstract class PrincipalComponente extends ComumComponente {
           this.resultsLength = data.totalRegistros;
           this.mostrarPesquisa = true;
           if (mostrarMensagem) {
-            //this.mensagemTela(data.mensagem.type,
-            //data.mensagem.texto);
+            let errorMessage = new MensagemModel();
+            let errorMessages: Array<MensagemModel> = [];
+            errorMessage.texto = data.mensagem.texto;
+            errorMessages.push(errorMessage);
+            this.mensagemTela(data.mensagem.type,
+              errorMessages);
           }
           return data.lista;
         }),
@@ -138,7 +140,11 @@ export abstract class PrincipalComponente extends ComumComponente {
   private incluirBanco(formBuilder: any) {
     this.servico.incluir(formBuilder).subscribe(
       (data: any) => {
-        this.mensagemTela(data.mensagem.type, data.mensagem.texto);
+        let errorMessage = new MensagemModel();
+        let errorMessages: Array<MensagemModel> = [];
+        errorMessage.texto = data.mensagem.texto;
+        errorMessages.push(errorMessage);
+        this.mensagemTela(data.mensagem.type, errorMessages);
         this.redirecionamentoAposMensagem(data, false);
       },
       (error: any) => {
@@ -151,22 +157,15 @@ export abstract class PrincipalComponente extends ComumComponente {
   private alterarBanco(formBuilder: any) {
     this.servico.alterar(formBuilder).subscribe(
       (data: any) => {
-        this.mensagemTela(data.mensagem.type, data.mensagem.texto);
+        let errorMessage = new MensagemModel();
+        let errorMessages: Array<MensagemModel> = [];
+        errorMessage.texto = data.mensagem.texto;
+        errorMessages.push(errorMessage);
+        this.mensagemTela(data.mensagem.type, errorMessages);
         this.redirecionamentoAposMensagem(data, false);
       },
       (error: any) => {
-        super.mensagemTela('ERROR', error);
-      }
-    );
-  }
-
-  protected alterarRegistro(formBuilder: FormBuilder) {
-    this.servico.alterar(formBuilder).subscribe(
-      (data: any) => {
-        this.mensagemTela(data.mensagem.type, data.mensagem.texto);
-        this.redirecionamentoAposMensagem(data, false);
-      },
-      (error: any) => {
+        console.log(error);
         super.mensagemTela('ERROR', error);
       }
     );
@@ -254,22 +253,26 @@ export abstract class PrincipalComponente extends ComumComponente {
   protected redirecionamentoAposMensagem(type: string, mesmaPagina: boolean) {
     if (type !== "ERROR") {
       setTimeout(() => {
-        /*mesmaPagina
-          ? this.pesquisar(false, this.modelo)
-          : this.router.navigate([this.pagina + "/pesquisar"]);*/
+        mesmaPagina
+          ? this.pesquisarBanco(false)
+          : this.router.navigate([this.pagina + "/pesquisar"]);
         null
       }, 3600);
     }
   }
 
   private aposBloquearDesbloquearInativarDeletar(data: any) {
-    this.mensagemTela(data.mensagem.type, data.mensagem.texto);
+    let errorMessage = new MensagemModel();
+    let errorMessages: Array<MensagemModel> = [];
+    errorMessage.texto = data.mensagem.texto;
+    errorMessages.push(errorMessage);
+    super.mensagemTela(data.mensagem.type, errorMessages);
     this.redirecionamentoAposMensagem(data, true);
     this.selecaoBusca = null;
   }
 
   private escolhendoNao() {
-    //this.pesquisar(false, this.modelo);
+    this.pesquisarBanco(false);
     this.selecaoBusca = null;
   }
 }
