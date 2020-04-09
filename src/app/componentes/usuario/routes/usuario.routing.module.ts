@@ -1,9 +1,8 @@
 import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
-import { UsuarioPesquisarComponent } from '../view/usuario-pesquisar/usuario-pesquisar.component';
-import { UsuarioIncluirComponent } from '../view/usuario-incluir/usuario-incluir.component';
+import { RouterModule, Routes } from "@angular/router";
 import { UsuarioAlterarComponent } from '../view/usuario-alterar/usuario-alterar.component';
-import { AuthGuardService } from 'src/app/security/authguard/auth-guard.service';
+import { UsuarioIncluirComponent } from '../view/usuario-incluir/usuario-incluir.component';
+import { UsuarioPesquisarComponent } from '../view/usuario-pesquisar/usuario-pesquisar.component';
 
 const moduleRoutes: Routes = [
   {
@@ -26,12 +25,9 @@ const moduleRoutes: Routes = [
 @NgModule({
   exports: [RouterModule],
   imports: [
-    RouterModule.forRoot(moduleRoutes, {
-      useHash: true,
-      enableTracing: false
-    })
+    RouterModule.forRoot(moduleRoutes)
   ],
   providers: [],
   declarations: []
 })
-export class UsuarioRoutingModule {}
+export class UsuarioRoutingModule { }

@@ -1,9 +1,8 @@
 import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
-import { EspecialidadePesquisaComponent } from "../view/especialidade-pesquisa/especialidade-pesquisa.component";
-import { EspecialidadeIncluirComponent } from "../view/especialidade-incluir/especialidade-incluir.component";
+import { RouterModule, Routes } from "@angular/router";
 import { EspecialidadeAlterarComponent } from "../view/especialidade-alterar/especialidade-alterar.component";
-import { AuthGuardService } from 'src/app/security/authguard/auth-guard.service';
+import { EspecialidadeIncluirComponent } from "../view/especialidade-incluir/especialidade-incluir.component";
+import { EspecialidadePesquisaComponent } from "../view/especialidade-pesquisa/especialidade-pesquisa.component";
 
 const moduleRoutes: Routes = [
   {
@@ -31,4 +30,4 @@ const moduleRoutes: Routes = [
   providers: [],
   declarations: []
 })
-export class EspecialidadeRoutingModule {}
+export class EspecialidadeRoutingModule { }
