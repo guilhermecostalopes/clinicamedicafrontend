@@ -42,17 +42,8 @@ export class EspecialidadePesquisaComponent extends PrincipalComponente {
 
   ngOnInit() {
     super.ngOnInit();
-    this.modelo.paginaAtual = 0;
-    this.modelo.quantidadeRegistros = 10;
-    this.modelo.direcao = 'asc';
-    this.modelo.campo = 'nome';
     this.criarFormGroup();
-  }
-
-  criarFormGroup() {
-    this.especialidadePesquisarFormGroup = this.formBuilder.group({
-      nome: []
-    });
+    this.iniciando();
   }
 
   public pesquisarBaseDados() {
@@ -63,5 +54,18 @@ export class EspecialidadePesquisaComponent extends PrincipalComponente {
   public limpar() {
     this.mostrarPesquisa = false;
     this.especialidadePesquisarFormGroup.reset();
+  }
+
+  private criarFormGroup() {
+    this.especialidadePesquisarFormGroup = this.formBuilder.group({
+      nome: []
+    });
+  }
+
+  private iniciando() {
+    this.modelo.paginaAtual = 0;
+    this.modelo.quantidadeRegistros = 10;
+    this.modelo.direcao = 'asc';
+    this.modelo.campo = 'nome';
   }
 }

@@ -7,6 +7,10 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+table {
+  width: 100%;
+}
+
 // CSS of the mat-snack-bar component. Cannot be removed
 .mat-snack-bar-container-success {
   text-align: center !important;
@@ -35,4 +39,8 @@ body {
   .mat-simple-snackbar-action {
     color: white !important;
   }
+}
+
+.formulario-campo-40-width {
+  width: 40%;
 }
