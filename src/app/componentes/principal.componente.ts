@@ -92,7 +92,7 @@ export abstract class PrincipalComponente extends ComumComponente {
     merge(this.sort.sortChange, this.paginator.page)
       .pipe(
         startWith({}),
-        switchMap(() => {
+        switchMap((mostrarMensagem = false) => {
           this.isLoadingResults = true;
           this.modelo.direcao = this.sort.direction;
           this.modelo.campo = this.sort.active;
@@ -102,7 +102,11 @@ export abstract class PrincipalComponente extends ComumComponente {
           this.isLoadingResults = false;
           this.isRateLimitReached = false;
           this.resultsLength = data.totalRegistros;
-          this.mostrarPesquisa = true;
+          if(this.resultsLength == 0){
+            this.mostrarPesquisa = false;
+          } else {
+            this.mostrarPesquisa = true;
+          }
           if (mostrarMensagem) {
             let errorMessage = new MensagemModel();
             let errorMessages: Array<MensagemModel> = [];

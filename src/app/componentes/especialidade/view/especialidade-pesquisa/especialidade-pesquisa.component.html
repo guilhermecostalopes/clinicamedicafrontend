@@ -29,7 +29,9 @@
         mat-card-icon class="shadow-none" (click)="excluir()">
         <mat-icon>delete</mat-icon>
       </button>
-      <mat-form-field>
+    </mat-card-content>
+    <mat-card-content>
+      <mat-form-field class="formulario-campo-50-width">
         <input matInput placeholder="{{ 'ESPECIALIDADES.NOME' | translate }}" id="nome" formControlName="nome"
           name="nome" maxlength="255" />
       </mat-form-field>
